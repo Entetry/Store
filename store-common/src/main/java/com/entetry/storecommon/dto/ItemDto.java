@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ItemDto implements Serializable {
     @JsonProperty
@@ -23,6 +25,25 @@ public class ItemDto implements Serializable {
     private SubcategoryDto subcategory;
     @JsonProperty
     private String sex;
+    @JsonProperty
+    private List<ImageDto> images = new ArrayList<>();
+    private List<ItemSizeDto> itemSizes = new ArrayList<>();
+
+    public List<ItemSizeDto> getItemSizes() {
+        return itemSizes;
+    }
+
+    public void setItemSizes(List<ItemSizeDto> itemSizes) {
+        this.itemSizes = itemSizes;
+    }
+
+    public List<ImageDto> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImageDto> images) {
+        this.images = images;
+    }
 
     public Long getId() {
         return id;

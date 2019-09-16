@@ -22,7 +22,7 @@ public class OrderDto implements Serializable {
     @JsonProperty
     private CustomerDto customer;
     @JsonProperty
-    private List<ItemDto> items = new ArrayList<>();
+    private List<OrderItemDto> items = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -72,11 +72,11 @@ public class OrderDto implements Serializable {
         this.customer = customer;
     }
 
-    public List<ItemDto> getItems() {
+    public List<OrderItemDto> getItems() {
         return items;
     }
 
-    public void setItems(List<ItemDto> items) {
+    public void setItems(List<OrderItemDto> items) {
         this.items = items;
     }
 }

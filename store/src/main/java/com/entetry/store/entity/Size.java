@@ -13,15 +13,17 @@ public class Size {
     private Long id;
     @Column(name = "size")
     private String size;
-    @Column(name = "quantity")
-    private int quantity;
-    @ManyToMany(mappedBy = "sizes")
-    private List<Item> items = new ArrayList<>();
-
+    @OneToMany(mappedBy = "size")
+    private List<ItemSize> itemSizes = new ArrayList<>();
+    public List<ItemSize> getItemSizes() {
+        return itemSizes;
+    }
+    public void setItemSizes(List<ItemSize> itemSizes) {
+        this.itemSizes = itemSizes;
+    }
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -34,19 +36,4 @@ public class Size {
         this.size = size;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
 }

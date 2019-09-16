@@ -2,23 +2,29 @@ package com.entetry.store.mapper;
 
 import com.entetry.store.entity.Role;
 import com.entetry.storecommon.dto.RoleDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
-
+@Component
 public class RoleMapper {
-    public static RoleDto toRoleDto(Role role) {
+    private final AuthorityMapper authorityMapper;
+    public RoleMapper(AuthorityMapper authorityMapper){
+        this.authorityMapper=authorityMapper;
+    }
+    public  RoleDto toRoleDto(Role role) {
         RoleDto roleDto = new RoleDto();
         roleDto.setId(role.getId());
         roleDto.setRolename(role.getRolename());
-        roleDto.setAuthorities(role.getAuthorities().stream().map(AuthorityMapper::toAuthorityDto).collect(Collectors.toList()));
+        roleDto.setAuthorities(role.getAuthorities().stream().map(authorityMapper::toAuthorityDto).collect(Collectors.toList()));
         return roleDto;
     }
 
-    public static Role toRole(RoleDto roleDto) {
+    public  Role toRole(RoleDto roleDto) {
         Role role = new Role();
         role.setId(roleDto.getId());
         role.setRolename(roleDto.getRolename());
-        role.setAuthorities(roleDto.getAuthorities().stream().map(AuthorityMapper::toAuthority).collect(Collectors.toList()));
+        role.setAuthorities(roleDto.getAuthorities().stream().map(authorityMapper::toAuthority).collect(Collectors.toList()));
         return role;
     }
 }

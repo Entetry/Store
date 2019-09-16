@@ -10,13 +10,9 @@ public class SizeDto implements Serializable{
     @JsonProperty
     private Long id;
     @JsonProperty
-    private ItemDto item;
-    @JsonProperty
     private String size;
     @JsonProperty
-    private int quantity;
-    @JsonProperty
-    private List<ItemDto> items= new ArrayList<>();
+    private List<ItemSizeDto> itemSizes = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -26,13 +22,6 @@ public class SizeDto implements Serializable{
         this.id = id;
     }
 
-    public ItemDto getItem() {
-        return item;
-    }
-
-    public void setItem(ItemDto item) {
-        this.item = item;
-    }
 
     public String getSize() {
         return size;
@@ -42,19 +31,11 @@ public class SizeDto implements Serializable{
         this.size = size;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public List<ItemSizeDto> getItemSizes() {
+        return itemSizes;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public List<ItemDto> getItems() {
-        return items;
-    }
-
-    public void setItems(List<ItemDto> items) {
-        this.items = items;
+    public void setItemSizes(List<ItemSizeDto> itemSizes) {
+        this.itemSizes = itemSizes;
     }
 }

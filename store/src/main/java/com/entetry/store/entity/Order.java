@@ -25,9 +25,8 @@ public class Order extends AbstractEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    @ManyToMany
-    @JoinTable(name = "orders_item", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
-    private List<Item> items = new ArrayList<>();
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> items = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
@@ -94,11 +93,11 @@ public class Order extends AbstractEntity {
         this.customer = customer;
     }
 
-    public List<Item> getItems() {
+    public List<OrderItem> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(List<OrderItem> items) {
         this.items = items;
     }
 }

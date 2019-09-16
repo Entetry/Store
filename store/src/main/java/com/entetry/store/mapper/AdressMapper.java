@@ -4,9 +4,19 @@ import com.entetry.store.entity.Adress;
 import com.entetry.store.entity.Customer;
 import com.entetry.storecommon.dto.AdressDto;
 import com.entetry.storecommon.dto.CustomerDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AdressMapper {
-    public static AdressDto toAdressDto(Adress adress) {
+    private final UserMapper userMapper;
+    private final CustomerMapper customerMapper;
+    @Autowired
+    public AdressMapper(UserMapper userMapper,CustomerMapper customerMapper){
+        this.userMapper=userMapper;
+        this.customerMapper=customerMapper;
+    }
+    public  AdressDto toAdressDto(Adress adress) {
         AdressDto adressDto = new AdressDto();
         adressDto.setAdress(adress.getAdress());
         adressDto.setCity(adress.getCity());
@@ -19,7 +29,7 @@ public class AdressMapper {
         customerDto.setPhone(adress.getCustomer().getPhone());
         customerDto.setSex(adress.getCustomer().getSex());
         customerDto.setStatus(adress.getCustomer().getStatus());
-        customerDto.setUser(UserMapper.toUserDto(adress.getCustomer().getUser()));
+        customerDto.setUser(userMapper.toUserDto(adress.getCustomer().getUser()));
         adressDto.setCustomer(customerDto);
         adressDto.setEmail(adress.getEmail());
         adressDto.setFirstname(adress.getFirstname());
@@ -30,9 +40,9 @@ public class AdressMapper {
         return adressDto;
     }
 
-    public static Adress toAdress(AdressDto adressDto) {
+    public  Adress toAdress(AdressDto adressDto) {
         Adress adress = new Adress();
-        adress.setCustomer(CustomerMapper.toCustomer(adressDto.getCustomer()));
+        adress.setCustomer(customerMapper.toCustomer(adressDto.getCustomer()));
         adress.setAdress(adressDto.getAdress());
         adress.setCity(adressDto.getCity());
         adress.setEmail(adressDto.getEmail());
@@ -42,6 +52,15 @@ public class AdressMapper {
         adress.setPhone(adressDto.getPhone());
         adress.setPostIndex(adressDto.getPostIndex());
         adress.setId(adressDto.getId());
+        Customer customer=new Customer();
+        customer.setId(adressDto.getCustomer().getId());
+        customer.setDateOfBirth(adressDto.getCustomer().getDateOfBirth());
+        customer.setFirstname(adressDto.getCustomer().getFirstname());
+        customer.setLastname(adressDto.getCustomer().getLastname());
+        customer.setPhone(adressDto.getCustomer().getPhone());
+        customer.setSex(adressDto.getCustomer().getSex());
+        customer.setStatus(adressDto.getCustomer().getStatus());
+        adress.setCustomer(customer);
         return adress;
     }
 }

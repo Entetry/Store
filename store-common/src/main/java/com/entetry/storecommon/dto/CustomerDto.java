@@ -3,9 +3,7 @@ package com.entetry.storecommon.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class CustomerDto implements Serializable {
     @JsonProperty
@@ -26,6 +24,16 @@ public class CustomerDto implements Serializable {
     private String sex;
     @JsonProperty
     private List<AdressDto> adresses = new ArrayList<>();
+    @JsonProperty
+    private Set<CreditCardDto> creditCards = new HashSet<>();
+
+    public Set<CreditCardDto> getCreditCards() {
+        return creditCards;
+    }
+
+    public void setCreditCards(Set<CreditCardDto> creditCards) {
+        this.creditCards = creditCards;
+    }
 
     public Long getId() {
         return id;

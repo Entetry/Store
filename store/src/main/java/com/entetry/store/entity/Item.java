@@ -31,13 +31,25 @@ public class Item extends AbstractEntity {
     private Subcategory subcategory;
     @Column(name = "sex")
     private String sex;
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    @JoinTable(name = "item_size", joinColumns = @JoinColumn(name = "item_id"), inverseJoinColumns = @JoinColumn(name = "size_id"))
-    private List<Size> sizes = new ArrayList<>();
+    private List<Image> images = new ArrayList<>();
+    @ElementCollection(targetClass=Image.class)
+    @OneToMany(mappedBy = "item")
+    private List<ItemSize> itemSizes = new ArrayList<>();
 
+    public List<ItemSize> getItemSizes() {
+        return itemSizes;
+    }
+
+    public void setItemSizes(List<ItemSize> itemSizes) {
+        this.itemSizes = itemSizes;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,15 +67,6 @@ public class Item extends AbstractEntity {
         return Objects.hash(getId(), getName(), getDesigner(), getSubcategory(), getSex());
     }
 
-    public void addSize(Size size) {
-        sizes.add(size);
-        size.getItems().add(this);
-    }
-
-    public void removeSize(Size size) {
-        sizes.add(size);
-        size.getItems().remove(this);
-    }
 
     public Long getId() {
         return id;

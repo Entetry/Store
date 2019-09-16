@@ -2,6 +2,8 @@ package com.entetry.store.entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "Designer")
@@ -18,6 +20,15 @@ public class Designer extends AbstractEntity {
     private User user;
     @Column(name = "designer_adress")
     private String designerAdress;
+    private List<BankAccount> bankAccounts= new ArrayList<>();
+
+    public List<BankAccount> getBankAccounts() {
+        return bankAccounts;
+    }
+
+    public void setBankAccounts(List<BankAccount> bankAccounts) {
+        this.bankAccounts = bankAccounts;
+    }
 
     @Override
     public boolean equals(Object o) {

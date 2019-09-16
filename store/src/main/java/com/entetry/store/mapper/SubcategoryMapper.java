@@ -4,9 +4,11 @@ import com.entetry.store.entity.Category;
 import com.entetry.store.entity.Subcategory;
 import com.entetry.storecommon.dto.CategoryDto;
 import com.entetry.storecommon.dto.SubcategoryDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SubcategoryMapper {
-    public static SubcategoryDto toSubcategoryDto(Subcategory subcategory) {
+    public  SubcategoryDto toSubcategoryDto(Subcategory subcategory) {
         SubcategoryDto subcategoryDto = new SubcategoryDto();
         subcategoryDto.setId(subcategory.getId());
         subcategoryDto.setName(subcategory.getName());
@@ -17,7 +19,7 @@ public class SubcategoryMapper {
         return subcategoryDto;
     }
 
-    public static Subcategory toSubcategory(SubcategoryDto subcategoryDto) {
+    public  Subcategory toSubcategory(SubcategoryDto subcategoryDto) {
         Subcategory subcategory = new Subcategory();
         subcategory.setId(subcategoryDto.getId());
         Category category = new Category();

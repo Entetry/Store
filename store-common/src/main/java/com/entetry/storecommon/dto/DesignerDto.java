@@ -3,6 +3,8 @@ package com.entetry.storecommon.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DesignerDto implements Serializable {
     @JsonProperty
@@ -13,6 +15,16 @@ public class DesignerDto implements Serializable {
     private UserDto user;
     @JsonProperty
     private String designerAdress;
+    @JsonProperty
+    private List<BankAccountDto> bankAccounts =new ArrayList<>();
+
+    public List<BankAccountDto> getBankAccounts() {
+        return bankAccounts;
+    }
+
+    public void setBankAccounts(List<BankAccountDto> bankAccounts) {
+        this.bankAccounts = bankAccounts;
+    }
 
     public Long getId() {
         return id;

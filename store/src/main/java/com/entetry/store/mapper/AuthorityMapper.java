@@ -4,9 +4,11 @@ import com.entetry.store.entity.Authority;
 import com.entetry.store.entity.Role;
 import com.entetry.storecommon.dto.AuthorityDto;
 import com.entetry.storecommon.dto.RoleDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AuthorityMapper {
-    public static AuthorityDto toAuthorityDto(Authority authority) {
+    public  AuthorityDto toAuthorityDto(Authority authority) {
         AuthorityDto authorityDto = new AuthorityDto();
         authorityDto.setId(authority.getId());
         authorityDto.setName(authority.getName());
@@ -17,7 +19,7 @@ public class AuthorityMapper {
         return authorityDto;
     }
 
-    public static Authority toAuthority(AuthorityDto authorityDto) {
+    public  Authority toAuthority(AuthorityDto authorityDto) {
         Authority authority = new Authority();
         authority.setId(authorityDto.getId());
         authority.setName(authorityDto.getName());
