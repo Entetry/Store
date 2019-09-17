@@ -1,40 +1,63 @@
 package com.entetry.store.service;
 
+import com.entetry.store.entity.User;
+import com.entetry.store.exception.UserNotFoundException;
 import com.entetry.store.mapper.UserMapper;
 import com.entetry.store.persistense.UserRepository;
 import com.entetry.storecommon.dto.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Service
 public class UserServiceImpl {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserRepository userRepository;
-    private final LocalContainerEntityManagerFactoryBean entityManagerFactory;
     private final UserMapper userMapper;
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, LocalContainerEntityManagerFactoryBean factoryBean,UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository,UserMapper userMapper) {
         this.userRepository = userRepository;
-        this.entityManagerFactory = factoryBean;
         this.userMapper=userMapper;
     }
-
+    @Transactional
     public void create(UserDto userDto) {
-        EntityManager entityManager = entityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        userDto.setPasswordHash(bCryptPasswordEncoder.encode(userDto.getPasswordHash()));
         try {
             userRepository.save(userMapper.toUser(userDto));
-            transaction.commit();
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
-            transaction.rollback();
         }
-        entityManager.close();
     }
-}
+    @Transactional
+    public void delete(UserDto userDto){
+        try {
+            userRepository.delete(userMapper.toUser(userDto));
+        } catch (Exception e) {
+            LOGGER.error("an exception occured!", e);
+        }
+    }
+    @Transactional
+    public void update(UserDto userDto){
+        User user = userRepository.findById(userDto.getId()).orElseThrow(UserNotFoundException::new);
+        User updatedUser= userMapper.toUser(userDto);
+        try {
+            userRepository.save(updatedUser);
+        } catch (Exception e) {
+            LOGGER.error("an exception occured!", e);
+        }
+    }
+    @Transactional
+    public List<UserDto> getAllUsers(){
+    return StreamSupport.stream(userRepository.findAll().spliterator(),false).map(userMapper::toUserDto).collect(Collectors.toList());
+    }
+    }
+
+

@@ -22,7 +22,7 @@ public class OrderItem
     private BigDecimal offerPrice;
     @Column(name="quantity")
     private int quantity;
-    private OrderItem(){}
+    public OrderItem(){}
 
     public OrderItem(Order order, Item item, Size size) {
         this.order = order;

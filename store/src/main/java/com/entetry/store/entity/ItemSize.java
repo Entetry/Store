@@ -22,6 +22,9 @@ public class ItemSize {
         this.id= new ItemSizeId(item.getId(),size.getId());
     }
 
+    public ItemSize() {
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

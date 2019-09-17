@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Designer extends AbstractEntity {
     @Id
     @GeneratedValue
-    @Column(name = "customer_id")
+    @Column(name = "designer_id")
     private Long id;
     @Column(name = "designer_name")
     private String designerName;

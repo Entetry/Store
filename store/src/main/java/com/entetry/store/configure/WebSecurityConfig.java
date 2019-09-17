@@ -15,7 +15,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.data.repository.query.SecurityEvaluationContextExtension;
-import org.springframework.web.context.WebApplicationContext;
 
 import javax.sql.DataSource;
 
@@ -40,12 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
-                .passwordEncoder(encoder());
-//                .and()
-//                .authenticationProvider(authenticationProvider())
-//
-//                .jdbcAuthentication()
-//                .dataSource(dataSource);
+                .passwordEncoder(encoder())
+                .and()
+                .authenticationProvider(authenticationProvider())
+
+                .jdbcAuthentication()
+                .dataSource(dataSource);
   }
 
 
@@ -54,6 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/login")
                 .permitAll()
+                .antMatchers("/user").permitAll()
                 .and()
                 .formLogin()
                 .permitAll()
