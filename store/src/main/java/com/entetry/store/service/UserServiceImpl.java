@@ -16,11 +16,12 @@ public class UserServiceImpl {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserRepository userRepository;
     private final LocalContainerEntityManagerFactoryBean entityManagerFactory;
-
+    private final UserMapper userMapper;
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, LocalContainerEntityManagerFactoryBean factoryBean) {
+    public UserServiceImpl(UserRepository userRepository, LocalContainerEntityManagerFactoryBean factoryBean,UserMapper userMapper) {
         this.userRepository = userRepository;
         this.entityManagerFactory = factoryBean;
+        this.userMapper=userMapper;
     }
 
     public void create(UserDto userDto) {
@@ -28,7 +29,7 @@ public class UserServiceImpl {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
         try {
-            userRepository.save(UserMapper.toUser(userDto));
+            userRepository.save(userMapper.toUser(userDto));
             transaction.commit();
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);

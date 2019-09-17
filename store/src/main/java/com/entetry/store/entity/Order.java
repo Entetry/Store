@@ -2,10 +2,8 @@ package com.entetry.store.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+
 @Entity(name = "Order")
 @Table(name = "orders")
 public class Order extends AbstractEntity {
@@ -25,7 +23,8 @@ public class Order extends AbstractEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL,
+            orphanRemoval = true)
     private List<OrderItem> items = new ArrayList<>();
 
     @Override
@@ -99,5 +98,21 @@ public class Order extends AbstractEntity {
 
     public void setItems(List<OrderItem> items) {
         this.items = items;
+    }
+    public void addItem(Item item,Size size){
+        OrderItem orderItem= new OrderItem(this,item,size);
+        items.add(orderItem);
+    }
+    public void removeItem(Item item,Size size){
+        for(Iterator<OrderItem> iterator= items.iterator();iterator.hasNext(); ){
+            OrderItem orderItem = iterator.next();
+            if(orderItem.getOrder().equals(this)&& orderItem.getItem().equals(item)&&orderItem.getSize().equals(size)){
+                iterator.remove();
+                orderItem.setOrder(null);
+                orderItem.setItem(null);
+                orderItem.setSize(null);
+            }
+
+        }
     }
 }

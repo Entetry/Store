@@ -20,6 +20,7 @@ public class Designer extends AbstractEntity {
     private User user;
     @Column(name = "designer_adress")
     private String designerAdress;
+    @ElementCollection(targetClass=BankAccount.class)
     private List<BankAccount> bankAccounts= new ArrayList<>();
 
     public List<BankAccount> getBankAccounts() {

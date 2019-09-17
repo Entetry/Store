@@ -10,11 +10,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class AdressMapper {
     private final UserMapper userMapper;
-    private final CustomerMapper customerMapper;
     @Autowired
-    public AdressMapper(UserMapper userMapper,CustomerMapper customerMapper){
+    public AdressMapper(UserMapper userMapper){
         this.userMapper=userMapper;
-        this.customerMapper=customerMapper;
     }
     public  AdressDto toAdressDto(Adress adress) {
         AdressDto adressDto = new AdressDto();
@@ -42,7 +40,16 @@ public class AdressMapper {
 
     public  Adress toAdress(AdressDto adressDto) {
         Adress adress = new Adress();
-        adress.setCustomer(customerMapper.toCustomer(adressDto.getCustomer()));
+        Customer customer = new Customer();
+        customer.setId(adressDto.getCustomer().getId());
+        customer.setDateOfBirth(adressDto.getCustomer().getDateOfBirth());
+        customer.setFirstname(adressDto.getCustomer().getFirstname());
+        customer.setLastname(adressDto.getCustomer().getLastname());
+        customer.setPhone(adressDto.getCustomer().getPhone());
+        customer.setSex(adressDto.getCustomer().getSex());
+        customer.setStatus(adressDto.getCustomer().getStatus());
+        customer.setUser(userMapper.toUser(adressDto.getCustomer().getUser()));
+        adress.setCustomer(customer);
         adress.setAdress(adressDto.getAdress());
         adress.setCity(adressDto.getCity());
         adress.setEmail(adressDto.getEmail());
@@ -52,15 +59,6 @@ public class AdressMapper {
         adress.setPhone(adressDto.getPhone());
         adress.setPostIndex(adressDto.getPostIndex());
         adress.setId(adressDto.getId());
-        Customer customer=new Customer();
-        customer.setId(adressDto.getCustomer().getId());
-        customer.setDateOfBirth(adressDto.getCustomer().getDateOfBirth());
-        customer.setFirstname(adressDto.getCustomer().getFirstname());
-        customer.setLastname(adressDto.getCustomer().getLastname());
-        customer.setPhone(adressDto.getCustomer().getPhone());
-        customer.setSex(adressDto.getCustomer().getSex());
-        customer.setStatus(adressDto.getCustomer().getStatus());
-        adress.setCustomer(customer);
         return adress;
     }
 }

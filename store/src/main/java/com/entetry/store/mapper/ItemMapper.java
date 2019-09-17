@@ -33,7 +33,7 @@ public class ItemMapper {
         itemDto.setDesigner(designerMapper.toDesignerDto(item.getDesigner()));
         itemDto.setItemStatus(item.getItemStatus());
         itemDto.setImages(item.getImages().stream().map(imageMapper::toImageDto).collect(Collectors.toList()));
-        itemDto.setItemSizes(item.getItemSizes().stream().map(itemSizeMapper::toItemSizeDto).collect(Collectors.toList()));
+       // itemDto.setItemSizes(item.getItemSizes().stream().map(itemSizeMapper::toItemSizeDto).collect(Collectors.toList()));
         return itemDto;
     }
 
@@ -48,7 +48,7 @@ public class ItemMapper {
         item.setSex(itemDto.getSex());
         item.setSubcategory(subcategoryMapper.toSubcategory(itemDto.getSubcategory()));
         item.setImages(itemDto.getImages().stream().map(imageMapper::toImage).collect(Collectors.toList()));
-        item.setItemSizes(itemDto.getItemSizes().stream().map(itemSizeMapper::toItemSize).collect(Collectors.toList()));
+        //item.setItemSizes(itemDto.getItemSizes().stream().map(itemSizeMapper::toItemSize).collect(Collectors.toList()));
         return item;
     }
 }

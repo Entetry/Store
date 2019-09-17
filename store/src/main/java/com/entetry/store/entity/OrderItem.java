@@ -2,24 +2,57 @@ package com.entetry.store.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-
+import java.util.Objects;
 @Entity
 @Table(name = "orders_item")
 public class OrderItem
 {
+    @EmbeddedId
+    private OrderItemId id;
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @MapsId("order_id")
     private Order order;
     @ManyToOne
-    @JoinColumn(name = "item_id")
+    @MapsId("item_id")
     private Item item;
     @ManyToOne
-    @JoinColumn(name = "size_id")
+    @MapsId("size_id")
     private Size size;
     @Column(name = "offer_price")
     private BigDecimal offerPrice;
     @Column(name="quantity")
     private int quantity;
+    private OrderItem(){}
+
+    public OrderItem(Order order, Item item, Size size) {
+        this.order = order;
+        this.item = item;
+        this.size = size;
+        this.id=new OrderItemId(order.getId(),item.getId(),size.getId());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderItem orderItem = (OrderItem) o;
+        return getOrder().equals(orderItem.getOrder()) &&
+                getItem().equals(orderItem.getItem()) &&
+                getSize().equals(orderItem.getSize());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getOrder(), getItem(), getSize());
+    }
+
+    public OrderItemId getId() {
+        return id;
+    }
+
+    public void setId(OrderItemId id) {
+        this.id = id;
+    }
 
     public Order getOrder() {
         return order;

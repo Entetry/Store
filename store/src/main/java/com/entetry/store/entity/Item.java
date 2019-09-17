@@ -2,10 +2,7 @@ package com.entetry.store.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity(name = "Item")
 @Table(name = "item")
@@ -31,11 +28,31 @@ public class Item extends AbstractEntity {
     private Subcategory subcategory;
     @Column(name = "sex")
     private String sex;
-    private List<Image> images = new ArrayList<>();
     @ElementCollection(targetClass=Image.class)
-    @OneToMany(mappedBy = "item")
+    private List<Image> images = new ArrayList<>();
+    @OneToMany(mappedBy = "item",cascade = CascadeType.ALL,
+            orphanRemoval = true)
     private List<ItemSize> itemSizes = new ArrayList<>();
+    public void addSize(Size size) {
+        ItemSize itemSize = new ItemSize(this,size);
+        itemSizes.add(itemSize);
+        size.getItemSizes().add(itemSize);
+    }
 
+    public void removeSize(Size size) {
+        for (Iterator<ItemSize> iterator = itemSizes.iterator();
+             iterator.hasNext(); ) {
+            ItemSize itemSize = iterator.next();
+
+            if (itemSize.getItem().equals(this) &&
+                    itemSize.getSize().equals(size)) {
+                iterator.remove();
+                itemSize.getSize().getItemSizes().remove(size);
+                itemSize.setItem(null);
+                itemSize.setSize(null);
+            }
+        }
+    }
     public List<ItemSize> getItemSizes() {
         return itemSizes;
     }
