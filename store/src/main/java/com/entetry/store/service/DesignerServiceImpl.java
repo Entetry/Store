@@ -2,8 +2,10 @@ package com.entetry.store.service;
 
 import com.entetry.store.entity.Designer;
 import com.entetry.store.exception.DesignerNotFoundException;
+import com.entetry.store.mapper.BankAccountMapper;
 import com.entetry.store.mapper.DesignerMapper;
 import com.entetry.store.persistense.DesignerRepository;
+import com.entetry.storecommon.dto.BankAccountDto;
 import com.entetry.storecommon.dto.DesignerDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,39 +22,56 @@ public class DesignerServiceImpl {
     private static final Logger LOGGER = LoggerFactory.getLogger(DesignerServiceImpl.class);
     private final DesignerRepository designerRepository;
     private final DesignerMapper designerMapper;
+    private final BankAccountMapper bankAccountMapper;
+
     @Autowired
-    public DesignerServiceImpl(DesignerMapper designerMapper,DesignerRepository designerRepository) {
-        this.designerRepository=designerRepository;
-        this.designerMapper=designerMapper;
+    public DesignerServiceImpl(DesignerMapper designerMapper, DesignerRepository designerRepository, BankAccountMapper bankAccountMapper) {
+        this.designerRepository = designerRepository;
+        this.designerMapper = designerMapper;
+        this.bankAccountMapper = bankAccountMapper;
     }
+
     @Transactional
-    public void create(DesignerDto designerDto){
-        try{
+    public void create(DesignerDto designerDto) {
+        try {
             designerRepository.save(designerMapper.toDesigner(designerDto));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("an exception occurred!", e);
         }
     }
+
     @Transactional
-    public void update(DesignerDto designerDto){
+    public void update(DesignerDto designerDto) {
         Designer designer = designerRepository.findById(designerDto.getId()).orElseThrow(DesignerNotFoundException::new);
-        Designer updatedDesigner= designerMapper.toDesigner(designerDto);
+        Designer updatedDesigner = designerMapper.toDesigner(designerDto);
         try {
             designerRepository.save(updatedDesigner);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
         }
     }
+
     @Transactional
-    public void delete(DesignerDto designerDto){
+    public void delete(DesignerDto designerDto) {
         try {
             designerRepository.delete(designerMapper.toDesigner(designerDto));
-        } catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
         }
     }
-    public List<DesignerDto> getAllDesigners(){
-        return StreamSupport.stream(designerRepository.findAll().spliterator(),false).map(designerMapper::toDesignerDto).collect(Collectors.toList());
+
+    public List<DesignerDto> getAllDesigners() {
+        return StreamSupport.stream(designerRepository.findAll().spliterator(), false).map(designerMapper::toDesignerDto).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void addBankAccount(BankAccountDto bankAccountDto) {
+        Designer designer = designerRepository.findById(bankAccountDto.getDesigner().getId()).orElseThrow(DesignerNotFoundException::new);
+        designer.addBankAccount(bankAccountMapper.toBankAccount(bankAccountDto));
+        try {
+            designerRepository.save(designer);
+        } catch (Exception e) {
+            LOGGER.error("an exception occured!", e);
+        }
     }
 }

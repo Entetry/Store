@@ -3,10 +3,10 @@ package com.entetry.store.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
+
 @Entity
 @Table(name = "orders_item")
-public class OrderItem
-{
+public class OrderItem {
     @EmbeddedId
     private OrderItemId id;
     @ManyToOne
@@ -20,15 +20,17 @@ public class OrderItem
     private Size size;
     @Column(name = "offer_price")
     private BigDecimal offerPrice;
-    @Column(name="quantity")
+    @Column(name = "quantity")
     private int quantity;
-    public OrderItem(){}
+
+    public OrderItem() {
+    }
 
     public OrderItem(Order order, Item item, Size size) {
         this.order = order;
         this.item = item;
         this.size = size;
-        this.id=new OrderItemId(order.getId(),item.getId(),size.getId());
+        this.id = new OrderItemId(order.getId(), item.getId(), size.getId());
     }
 
     @Override

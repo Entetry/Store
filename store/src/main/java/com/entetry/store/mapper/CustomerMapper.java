@@ -7,17 +7,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
+
 @Component
 public class CustomerMapper {
     private final UserMapper userMapper;
     private final AdressMapper adressMapper;
     private final CreditCardMapper creditCardMapper;
-    public CustomerMapper(UserMapper userMapper,AdressMapper adressMapper,CreditCardMapper creditCardMapper){
-        this.userMapper=userMapper;
-        this.adressMapper=adressMapper;
-        this.creditCardMapper=creditCardMapper;
+
+    public CustomerMapper(UserMapper userMapper, AdressMapper adressMapper, CreditCardMapper creditCardMapper) {
+        this.userMapper = userMapper;
+        this.adressMapper = adressMapper;
+        this.creditCardMapper = creditCardMapper;
     }
-    public  CustomerDto toCustomerDto(Customer customer) {
+
+    public CustomerDto toCustomerDto(Customer customer) {
         CustomerDto customerDto = new CustomerDto();
         customerDto.setId(customer.getId());
         customerDto.setDateOfBirth(customer.getDateOfBirth());
@@ -31,7 +34,8 @@ public class CustomerMapper {
         customerDto.setCreditCards(customer.getCreditCards().stream().map(creditCardMapper::toCreditCardDto).collect(Collectors.toSet()));
         return customerDto;
     }
-    public  Customer toCustomer(CustomerDto customerDto) {
+
+    public Customer toCustomer(CustomerDto customerDto) {
         Customer customer = new Customer();
         customer.setId(customerDto.getId());
         customer.setDateOfBirth(customerDto.getDateOfBirth());

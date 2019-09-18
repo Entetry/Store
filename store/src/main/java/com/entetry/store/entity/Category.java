@@ -14,7 +14,11 @@ public class Category extends AbstractEntity {
     private Long id;
     @Column(name = "category_name")
     private String name;
-    @ElementCollection(targetClass=Subcategory.class)
+    @OneToMany(
+            mappedBy = "category",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Subcategory> subcategories = new ArrayList<>();
 
     public List<Subcategory> getSubcategories() {
@@ -23,6 +27,16 @@ public class Category extends AbstractEntity {
 
     public void setSubcategories(List<Subcategory> subcategories) {
         this.subcategories = subcategories;
+    }
+
+    public void addSubcategory(Subcategory subcategory) {
+        subcategories.add(subcategory);
+        subcategory.setCategory(this);
+    }
+
+    public void removeSubcategory(Subcategory subcategory) {
+        subcategories.remove(subcategory);
+        subcategory.setCategory(null);
     }
 
     @Override

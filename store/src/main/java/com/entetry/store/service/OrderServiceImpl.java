@@ -20,39 +20,43 @@ public class OrderServiceImpl {
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderServiceImpl.class);
+
     @Autowired
-    public OrderServiceImpl(OrderRepository orderRepository, OrderMapper orderMapper){
-        this.orderRepository=orderRepository;
-        this.orderMapper=orderMapper;
+    public OrderServiceImpl(OrderRepository orderRepository, OrderMapper orderMapper) {
+        this.orderRepository = orderRepository;
+        this.orderMapper = orderMapper;
     }
+
     @Transactional
-    public void create(OrderDto orderDto){
-        try{
+    public void create(OrderDto orderDto) {
+        try {
             orderRepository.save(orderMapper.toOrder(orderDto));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("an exception occurred!", e);
         }
     }
+
     @Transactional
-    public void update(OrderDto orderDto){
+    public void update(OrderDto orderDto) {
         Order order = orderRepository.findById(orderDto.getId()).orElseThrow(OrderNotFoundException::new);
-        Order updatedOrder= orderMapper.toOrder(orderDto);
+        Order updatedOrder = orderMapper.toOrder(orderDto);
         try {
             orderRepository.save(updatedOrder);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
         }
     }
+
     @Transactional
-    public void delete(OrderDto orderDto){
+    public void delete(OrderDto orderDto) {
         try {
             orderRepository.delete(orderMapper.toOrder(orderDto));
-        } catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
         }
     }
-    public List<OrderDto> getAllOrders(){
-        return StreamSupport.stream(orderRepository.findAll().spliterator(),false).map(orderMapper::toOrderDto).collect(Collectors.toList());
+
+    public List<OrderDto> getAllOrders() {
+        return StreamSupport.stream(orderRepository.findAll().spliterator(), false).map(orderMapper::toOrderDto).collect(Collectors.toList());
     }
 }

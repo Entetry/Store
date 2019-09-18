@@ -31,6 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         this.entityManagerFactory = entityManagerFactory;
         this.applicationContext = applicationContext;
     }
+
     @Transactional
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

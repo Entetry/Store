@@ -45,12 +45,14 @@ public class AppConfig {
         em.afterPropertiesSet();
         return em.getObject();
     }
+
     @Bean
     public PlatformTransactionManager transactionManager() {
         JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(entityManagerFactory());
         return txManager;
     }
+
     final Properties additionalProperties() {
         final Properties hibernateProperties = new Properties();
         if (env.getProperty("hibernate.hbm2ddl.auto") != null) {

@@ -6,17 +6,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
-    public  UserDto toUserDto(User user) {
+    public UserDto toUserDto(User user) {
         UserDto userDto = new UserDto();
         userDto.setUsername(user.getUsername());
         userDto.setEmail(user.getEmail());
         userDto.setPasswordHash(user.getPasswordHash());
         userDto.setEnabled(user.isEnabled());
         userDto.setId(user.getId());
+
         return userDto;
     }
 
-    public  User toUser(UserDto userDto) {
+    public User toUser(UserDto userDto) {
         User user = new User();
         if (userDto.getId() != null) {
             user.setId(userDto.getId());

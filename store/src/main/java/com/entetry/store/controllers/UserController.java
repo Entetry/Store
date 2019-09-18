@@ -13,22 +13,26 @@ import java.util.List;
 @RestController
 public class UserController {
     private final UserServiceImpl userService;
+
     @Autowired
-    public UserController(UserServiceImpl userService){
-        this.userService=userService;
+    public UserController(UserServiceImpl userService) {
+        this.userService = userService;
     }
+
     @GetMapping("/user")
-    public List<UserDto> getAllUsers(){
+    public List<UserDto> getAllUsers() {
         return userService.getAllUsers();
     }
+
     @PostMapping("/user")
-    public void create(@RequestBody UserDto userDto){
+    public void create(@RequestBody UserDto userDto) {
         try {
             userService.create(userDto);
         } catch (UserNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
     }
+
     @DeleteMapping("/user")
     public void delete(@RequestBody UserDto userDto) {
         try {
@@ -37,6 +41,7 @@ public class UserController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
     }
+
     @PutMapping("/user")
     public void update(@RequestBody UserDto userDto) {
         try {

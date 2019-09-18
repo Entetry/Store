@@ -9,10 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ImageMapper {
     private final SubcategoryMapper subcategoryMapper;
-    public ImageMapper(SubcategoryMapper subcategoryMapper){
-        this.subcategoryMapper=subcategoryMapper;
+
+    public ImageMapper(SubcategoryMapper subcategoryMapper) {
+        this.subcategoryMapper = subcategoryMapper;
     }
-    public ImageDto toImageDto(Image image){
+
+    public ImageDto toImageDto(Image image) {
         ImageDto imageDto = new ImageDto();
         imageDto.setId(image.getId());
         imageDto.setName(image.getName());
@@ -26,7 +28,8 @@ public class ImageMapper {
         imageDto.setItem(itemDto);
         return imageDto;
     }
-    public Image toImage(ImageDto imageDto){
+
+    public Image toImage(ImageDto imageDto) {
         Image image = new Image();
         image.setId(imageDto.getId());
         image.setName(imageDto.getName());

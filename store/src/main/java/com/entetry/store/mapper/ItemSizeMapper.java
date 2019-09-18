@@ -16,13 +16,15 @@ public class ItemSizeMapper {
     private final DesignerMapper designerMapper;
     private final SubcategoryMapper subcategoryMapper;
     private final ImageMapper imageMapper;
+
     @Autowired
-    public ItemSizeMapper(DesignerMapper designerMapper,SubcategoryMapper subcategoryMapper,ImageMapper imageMapper){
-        this.designerMapper=designerMapper;
-        this.subcategoryMapper=subcategoryMapper;
-        this.imageMapper=imageMapper;
+    public ItemSizeMapper(DesignerMapper designerMapper, SubcategoryMapper subcategoryMapper, ImageMapper imageMapper) {
+        this.designerMapper = designerMapper;
+        this.subcategoryMapper = subcategoryMapper;
+        this.imageMapper = imageMapper;
     }
-    public ItemSizeDto toItemSizeDto(ItemSize itemSize){
+
+    public ItemSizeDto toItemSizeDto(ItemSize itemSize) {
         ItemSizeDto itemSizeDto = new ItemSizeDto();
         ItemDto itemDto = new ItemDto();
         itemDto.setId(itemSize.getItem().getId());
@@ -40,9 +42,10 @@ public class ItemSizeMapper {
         sizeDto.setSize(itemSize.getSize().getSize());
         itemSizeDto.setSize(sizeDto);
         itemSizeDto.setQuantity(itemSize.getQuantity());
-    return itemSizeDto;
+        return itemSizeDto;
     }
-    public ItemSize toItemSize(ItemSizeDto itemSizeDto){
+
+    public ItemSize toItemSize(ItemSizeDto itemSizeDto) {
         ItemSize itemSize = new ItemSize();
         Item item = new Item();
         item.setId(itemSizeDto.getItem().getId());

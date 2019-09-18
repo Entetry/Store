@@ -23,7 +23,7 @@ public class Order extends AbstractEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL,
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<OrderItem> items = new ArrayList<>();
 
@@ -99,14 +99,16 @@ public class Order extends AbstractEntity {
     public void setItems(List<OrderItem> items) {
         this.items = items;
     }
-    public void addItem(Item item,Size size){
-        OrderItem orderItem= new OrderItem(this,item,size);
+
+    public void addItem(Item item, Size size) {
+        OrderItem orderItem = new OrderItem(this, item, size);
         items.add(orderItem);
     }
-    public void removeItem(Item item,Size size){
-        for(Iterator<OrderItem> iterator= items.iterator();iterator.hasNext(); ){
+
+    public void removeItem(Item item, Size size) {
+        for (Iterator<OrderItem> iterator = items.iterator(); iterator.hasNext(); ) {
             OrderItem orderItem = iterator.next();
-            if(orderItem.getOrder().equals(this)&& orderItem.getItem().equals(item)&&orderItem.getSize().equals(size)){
+            if (orderItem.getOrder().equals(this) && orderItem.getItem().equals(item) && orderItem.getSize().equals(size)) {
                 iterator.remove();
                 orderItem.setOrder(null);
                 orderItem.setItem(null);

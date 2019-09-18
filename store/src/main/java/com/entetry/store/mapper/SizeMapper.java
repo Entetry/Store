@@ -10,21 +10,23 @@ import java.util.stream.Collectors;
 @Component
 public class SizeMapper {
     private final ItemSizeMapper itemSizeMapper;
-    public SizeMapper(ItemSizeMapper itemSizeMapper){
-        this.itemSizeMapper=itemSizeMapper;
+
+    public SizeMapper(ItemSizeMapper itemSizeMapper) {
+        this.itemSizeMapper = itemSizeMapper;
     }
 
-    public SizeDto toSizeDto(Size size){
-            SizeDto sizeDto = new SizeDto();
-            sizeDto.setId(size.getId());
-            sizeDto.setItemSizes(size.getItemSizes().stream().map(itemSizeMapper::toItemSizeDto).collect(Collectors.toList()));
-            return sizeDto;
-        }
-     public Size toSize(SizeDto sizeDto){
+    public SizeDto toSizeDto(Size size) {
+        SizeDto sizeDto = new SizeDto();
+        sizeDto.setId(size.getId());
+        sizeDto.setItemSizes(size.getItemSizes().stream().map(itemSizeMapper::toItemSizeDto).collect(Collectors.toList()));
+        return sizeDto;
+    }
+
+    public Size toSize(SizeDto sizeDto) {
         Size size = new Size();
         size.setId(sizeDto.getId());
         size.setSize(sizeDto.getSize());
         size.setItemSizes(sizeDto.getItemSizes().stream().map(itemSizeMapper::toItemSize).collect(Collectors.toList()));
         return size;
-     }
+    }
 }

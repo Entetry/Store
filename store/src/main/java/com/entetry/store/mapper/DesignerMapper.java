@@ -11,14 +11,16 @@ import java.util.stream.Collectors;
 
 @Component
 public class DesignerMapper {
-    private  final UserMapper userMapper;
+    private final UserMapper userMapper;
     private final BankAccountMapper bankAccountMapper;
+
     @Autowired
-    public DesignerMapper(UserMapper userMapper,BankAccountMapper bankAccountMapper){
-        this.userMapper=userMapper;
-        this.bankAccountMapper=bankAccountMapper;
+    public DesignerMapper(UserMapper userMapper, BankAccountMapper bankAccountMapper) {
+        this.userMapper = userMapper;
+        this.bankAccountMapper = bankAccountMapper;
     }
-    public  DesignerDto toDesignerDto(Designer designer) {
+
+    public DesignerDto toDesignerDto(Designer designer) {
         DesignerDto designerDto = new DesignerDto();
         designerDto.setId(designer.getId());
         designerDto.setDesignerAdress(designer.getDesignerAdress());
@@ -27,7 +29,8 @@ public class DesignerMapper {
         designerDto.setBankAccounts(designer.getBankAccounts().stream().map(bankAccountMapper::toBankAccountDto).collect(Collectors.toList()));
         return designerDto;
     }
-    public  Designer toDesigner(DesignerDto designerDto) {
+
+    public Designer toDesigner(DesignerDto designerDto) {
         Designer designer = new Designer();
         designer.setId(designerDto.getId());
         designer.setDesignerName(designerDto.getDesignerName());

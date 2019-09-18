@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SubcategoryMapper {
-    public  SubcategoryDto toSubcategoryDto(Subcategory subcategory) {
+    public SubcategoryDto toSubcategoryDto(Subcategory subcategory) {
         SubcategoryDto subcategoryDto = new SubcategoryDto();
         subcategoryDto.setId(subcategory.getId());
         subcategoryDto.setName(subcategory.getName());
@@ -19,12 +19,12 @@ public class SubcategoryMapper {
         return subcategoryDto;
     }
 
-    public  Subcategory toSubcategory(SubcategoryDto subcategoryDto) {
+    public Subcategory toSubcategory(SubcategoryDto subcategoryDto) {
         Subcategory subcategory = new Subcategory();
         subcategory.setId(subcategoryDto.getId());
         Category category = new Category();
         category.setId(subcategoryDto.getCategory().getId());
-        category.setName(subcategory.getCategory().getName());
+        category.setName(subcategoryDto.getCategory().getName());
         subcategory.setCategory(category);
         return subcategory;
     }

@@ -13,14 +13,16 @@ public class OrderMapper {
     private final OrderItemMapper orderItemMapper;
     private final CustomerMapper customerMapper;
     private final ItemMapper itemMapper;
+
     @Autowired
-    public OrderMapper(DesignerMapper designerMapper,CustomerMapper customerMapper,ItemMapper itemMapper,OrderItemMapper orderItemMapper){
-        this.designerMapper=designerMapper;
-        this.itemMapper=itemMapper;
-        this.customerMapper=customerMapper;
-        this.orderItemMapper=orderItemMapper;
+    public OrderMapper(DesignerMapper designerMapper, CustomerMapper customerMapper, ItemMapper itemMapper, OrderItemMapper orderItemMapper) {
+        this.designerMapper = designerMapper;
+        this.itemMapper = itemMapper;
+        this.customerMapper = customerMapper;
+        this.orderItemMapper = orderItemMapper;
     }
-    public OrderDto toOrderDto(Order order){
+
+    public OrderDto toOrderDto(Order order) {
         OrderDto orderDto = new OrderDto();
         orderDto.setId(order.getId());
         orderDto.setCustomer(customerMapper.toCustomerDto(order.getCustomer()));
@@ -31,7 +33,8 @@ public class OrderMapper {
         orderDto.setItems(order.getItems().stream().map(orderItemMapper::toOrderItemDto).collect(Collectors.toList()));
         return orderDto;
     }
-    public Order toOrder(OrderDto orderDto){
+
+    public Order toOrder(OrderDto orderDto) {
         Order order = new Order();
         order.setId(order.getId());
         order.setCustomer(customerMapper.toCustomer(orderDto.getCustomer()));

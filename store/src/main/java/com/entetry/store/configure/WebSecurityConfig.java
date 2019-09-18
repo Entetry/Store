@@ -1,5 +1,6 @@
 package com.entetry.store.configure;
 
+import com.entetry.store.security.MySavedRequestAwareAuthenticationSuccessHandler;
 import com.entetry.store.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -27,25 +28,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final CustomUserDetailsService userDetailsService;
     //    private AuthenticationSuccessHandlerImpl successHandler;
     private final DataSource dataSource;
+    private MySavedRequestAwareAuthenticationSuccessHandler mySuccessHandler;
 
     @Autowired
-    public WebSecurityConfig(CustomUserDetailsService detailsService, DataSource dataSource) {
+    public WebSecurityConfig(CustomUserDetailsService detailsService, DataSource dataSource, MySavedRequestAwareAuthenticationSuccessHandler mySuccessHandler) {
         super();
         this.userDetailsService = detailsService;
         this.dataSource = dataSource;
+        this.mySuccessHandler = mySuccessHandler;
         SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
     }
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
-                .passwordEncoder(encoder())
-                .and()
-                .authenticationProvider(authenticationProvider())
-
-                .jdbcAuthentication()
-                .dataSource(dataSource);
-  }
+                .passwordEncoder(encoder());
+//                .and()
+//                .authenticationProvider(authenticationProvider())
+//
+//                .jdbcAuthentication()
+//                .dataSource(dataSource);
+    }
 
 
     @Override
@@ -55,11 +58,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/user").permitAll()
                 .and()
-                .formLogin()
-                .permitAll()
-                .and()
-                .csrf()
-                .disable();
+                .formLogin().successHandler(mySuccessHandler)
+                .permitAll();
+
     }
 
     @Bean

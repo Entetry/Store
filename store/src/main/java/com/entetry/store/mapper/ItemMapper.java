@@ -13,14 +13,16 @@ public class ItemMapper {
     private final SubcategoryMapper subcategoryMapper;
     private final ImageMapper imageMapper;
     private final ItemSizeMapper itemSizeMapper;
-     @Autowired
-    public ItemMapper(DesignerMapper designerMapper,SubcategoryMapper subcategoryMapper,ImageMapper imageMapper,ItemSizeMapper itemSizeMapper){
-        this.designerMapper=designerMapper;
-        this.subcategoryMapper=subcategoryMapper;
-        this.imageMapper=imageMapper;
-        this.itemSizeMapper=itemSizeMapper;
+
+    @Autowired
+    public ItemMapper(DesignerMapper designerMapper, SubcategoryMapper subcategoryMapper, ImageMapper imageMapper, ItemSizeMapper itemSizeMapper) {
+        this.designerMapper = designerMapper;
+        this.subcategoryMapper = subcategoryMapper;
+        this.imageMapper = imageMapper;
+        this.itemSizeMapper = itemSizeMapper;
     }
-    public  ItemDto toItemDto(Item item) {
+
+    public ItemDto toItemDto(Item item) {
         ItemDto itemDto = new ItemDto();
         itemDto.setId(item.getId());
         itemDto.setName(item.getName());
@@ -35,7 +37,7 @@ public class ItemMapper {
         return itemDto;
     }
 
-    public  Item toItem(ItemDto itemDto) {
+    public Item toItem(ItemDto itemDto) {
         Item item = new Item();
         item.setId(itemDto.getId());
         item.setName(itemDto.getName());
@@ -45,8 +47,8 @@ public class ItemMapper {
         item.setPublishDate(itemDto.getPublishDate());
         item.setSex(itemDto.getSex());
         item.setSubcategory(subcategoryMapper.toSubcategory(itemDto.getSubcategory()));
-        item.setImages(itemDto.getImages().stream().map(imageMapper::toImage).collect(Collectors.toList()));
-        item.setItemSizes(itemDto.getItemSizes().stream().map(itemSizeMapper::toItemSize).collect(Collectors.toList()));
+        //item.setImages(itemDto.getImages().stream().map(imageMapper::toImage).collect(Collectors.toList()));
+        //item.setItemSizes(itemDto.getItemSizes().stream().map(itemSizeMapper::toItemSize).collect(Collectors.toList()));
         return item;
     }
 }

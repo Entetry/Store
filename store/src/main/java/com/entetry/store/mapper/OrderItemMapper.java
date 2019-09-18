@@ -18,14 +18,16 @@ public class OrderItemMapper {
 
     private final CustomerMapper customerMapper;
     private final ItemMapper itemMapper;
+
     @Autowired
-    public OrderItemMapper(DesignerMapper designerMapper,CustomerMapper customerMapper,ItemMapper itemMapper){
-        this.designerMapper=designerMapper;
-        this.itemMapper=itemMapper;
-        this.customerMapper=customerMapper;
+    public OrderItemMapper(DesignerMapper designerMapper, CustomerMapper customerMapper, ItemMapper itemMapper) {
+        this.designerMapper = designerMapper;
+        this.itemMapper = itemMapper;
+        this.customerMapper = customerMapper;
     }
-    public OrderItemDto toOrderItemDto(OrderItem orderItem){
-    OrderItemDto orderItemDto = new OrderItemDto();
+
+    public OrderItemDto toOrderItemDto(OrderItem orderItem) {
+        OrderItemDto orderItemDto = new OrderItemDto();
         orderItemDto.setItem(itemMapper.toItemDto(orderItem.getItem()));
         SizeDto sizeDto = new SizeDto();
         sizeDto.setId(orderItem.getSize().getId());
@@ -44,7 +46,8 @@ public class OrderItemMapper {
         orderItemDto.setQuantity(orderItem.getQuantity());
         return orderItemDto;
     }
-    public OrderItem toOrderItem(OrderItemDto orderItemDto){
+
+    public OrderItem toOrderItem(OrderItemDto orderItemDto) {
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(itemMapper.toItem(orderItemDto.getItem()));
         Size size = new Size();

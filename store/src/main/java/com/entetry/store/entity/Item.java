@@ -28,13 +28,19 @@ public class Item extends AbstractEntity {
     private Subcategory subcategory;
     @Column(name = "sex")
     private String sex;
-    @ElementCollection(targetClass=Image.class)
+    @OneToMany(
+            mappedBy = "item",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Image> images = new ArrayList<>();
-    @OneToMany(mappedBy = "item",cascade = CascadeType.ALL,
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<ItemSize> itemSizes = new ArrayList<>();
-    public void addSize(Size size) {
-        ItemSize itemSize = new ItemSize(this,size);
+
+    public void addSize(Size size, int quantity) {
+        ItemSize itemSize = new ItemSize(this, size);
+        itemSize.setQuantity(quantity);
         itemSizes.add(itemSize);
         size.getItemSizes().add(itemSize);
     }
@@ -50,9 +56,21 @@ public class Item extends AbstractEntity {
                 itemSize.getSize().getItemSizes().remove(size);
                 itemSize.setItem(null);
                 itemSize.setSize(null);
+                itemSize.setQuantity(0);
             }
         }
     }
+
+    public void addImage(Image image) {
+        images.add(image);
+        image.setItem(this);
+    }
+
+    public void removeImage(Image image) {
+        images.remove(image);
+        image.setItem(null);
+    }
+
     public List<ItemSize> getItemSizes() {
         return itemSizes;
     }
@@ -64,9 +82,11 @@ public class Item extends AbstractEntity {
     public List<Image> getImages() {
         return images;
     }
+
     public void setImages(List<Image> images) {
         this.images = images;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

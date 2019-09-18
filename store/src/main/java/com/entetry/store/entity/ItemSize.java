@@ -9,17 +9,18 @@ public class ItemSize {
     @EmbeddedId
     private ItemSizeId id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("item_id")
+    @JoinColumn(name = "item_id", insertable = false, updatable = false)
     private Item item;
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId( "size_id")
+    @JoinColumn(name = "size_id", insertable = false, updatable = false)
     private Size size;
-    @Column(name="quantity")
+    @Column(name = "quantity")
     private int quantity;
+
     public ItemSize(Item item, Size size) {
         this.item = item;
         this.size = size;
-        this.id= new ItemSizeId(item.getId(),size.getId());
+        this.id = new ItemSizeId(item.getId(), size.getId());
     }
 
     public ItemSize() {
@@ -66,6 +67,7 @@ public class ItemSize {
     public int getQuantity() {
         return quantity;
     }
+
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }

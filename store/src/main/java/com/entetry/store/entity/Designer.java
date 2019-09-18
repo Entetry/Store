@@ -20,8 +20,22 @@ public class Designer extends AbstractEntity {
     private User user;
     @Column(name = "designer_adress")
     private String designerAdress;
-    @ElementCollection(targetClass=BankAccount.class)
-    private List<BankAccount> bankAccounts= new ArrayList<>();
+    @OneToMany(
+            mappedBy = "designer",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<BankAccount> bankAccounts = new ArrayList<>();
+
+    public void addBankAccount(BankAccount bankAccount) {
+        bankAccounts.add(bankAccount);
+        bankAccount.setDesigner(this);
+    }
+
+    public void removeBankAccount(BankAccount bankAccount) {
+        bankAccounts.remove(bankAccount);
+        bankAccount.setDesigner(null);
+    }
 
     public List<BankAccount> getBankAccounts() {
         return bankAccounts;

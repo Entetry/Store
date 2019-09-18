@@ -1,11 +1,628 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbc5f2f1-c713-4eed-80ee-b0b6a3f94575" name="Default Changelist" comment="">
+    <list default="true" id="bbc5f2f1-c713-4eed-80ee-b0b6a3f94575" name="Default Changelist" comment="add some methods to controller and add frontend module">
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/security/MySavedRequestAwareAuthenticationSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/frontend/src/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/frontend/styles/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/closure-types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-dom-api-externs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-externs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-iconset-externs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-internal-shared-types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/webcomponents-externs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/interfaces.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/array-selector.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/array-selector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/custom-style.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/custom-style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/dom-bind.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/dom-bind.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/dom-if.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/dom-if.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/dom-module.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/dom-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/dom-repeat.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/elements/dom-repeat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/class.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/class.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/legacy-data-mixin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/legacy-data-mixin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/legacy-element-mixin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/legacy-element-mixin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/mutable-data-behavior.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/mutable-data-behavior.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/polymer-fn.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/polymer-fn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/polymer.dom.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/polymer.dom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/templatizer-behavior.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/legacy/templatizer-behavior.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/dir-mixin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/dir-mixin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/disable-upgrade-mixin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/disable-upgrade-mixin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/element-mixin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/element-mixin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/gesture-event-listeners.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/gesture-event-listeners.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/mutable-data.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/mutable-data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/properties-changed.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/properties-changed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/properties-mixin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/properties-mixin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/property-accessors.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/property-accessors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/property-effects.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/property-effects.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/strict-binding-parser.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/strict-binding-parser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/template-stamp.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/mixins/template-stamp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/array-splice.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/array-splice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/async.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/async.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/boot.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/boot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/case-map.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/case-map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/debounce.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/debounce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/flattened-nodes-observer.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/flattened-nodes-observer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/flush.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/flush.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/gestures.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/gestures.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/html-tag.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/html-tag.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/mixin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/mixin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/path.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/path.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/render-status.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/render-status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/resolve-url.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/resolve-url.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/settings.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/settings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/style-gather.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/style-gather.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/telemetry.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/telemetry.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/templatize.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/templatize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/unresolved.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/unresolved.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/wrap.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/lib/utils/wrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/polymer-element.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/polymer-element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/polymer-legacy.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/polymer-legacy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/events/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/events/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/glob/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/glob/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/minimatch/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/minimatch/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/assert.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/async_hooks.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/base.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/buffer.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/child_process.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/cluster.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/console.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/constants.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/crypto.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/dgram.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/dns.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/domain.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/events.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/fs.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/globals.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/http.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/http2.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/https.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/inspector.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/module.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/net.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/os.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/path.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/perf_hooks.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/process.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/punycode.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/querystring.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/readline.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/repl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/stream.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/string_decoder.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/timers.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/tls.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/trace_events.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/ts3.2/globals.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/ts3.2/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/ts3.2/util.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/tty.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/url.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/util.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/v8.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/vm.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/worker_threads.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/zlib.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@vaadin/flow-deps/generated-flow-imports.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@vaadin/flow-deps/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-ce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/custom-elements-es5-adapter-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-bundle-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-ce-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-sd-ce-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-sd-ce-pf-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-sd-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/cjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/postProcessPattern.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/preProcessPattern.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/processPattern.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/utils/isObject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/utils/isTemplateLike.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/utils/normalize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/utils/promisify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/raw-loader/dist/cjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/raw-loader/dist/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/raw-loader/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel-target.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.multi.target.html.updater.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.multi.target.loader.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.multi.target.options.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.multi.target.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.target.entry.dependency.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.target.entry.option.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.target.entry.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.target.multi.entry.dependency.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.target.multi.entry.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.target.options.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.target.single.entry.dependency.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/babel.target.single.entry.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/blind.targeting.error.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/browser.profile.name.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/constants.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/defaults.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/excluded.packages.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/named.lazy.chunks.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/normalize.css.chunks.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/normalize.module.ids.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/plugin.name.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/safari-nomodule-fix/safari.nomodule.fix.dependency.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/safari-nomodule-fix/safari.nomodule.fix.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/targeted.chunk.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/dist/src/targeting.plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-babel-multi-target-plugin/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-cli/bin/cli.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-cli/bin/config-yargs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-cli/bin/convert-argv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-cli/bin/errorHelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-cli/bin/prepareOptions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-cli/bin/prompt-command.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-cli/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/bin/options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/bin/webpack-dev-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/client/index.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/client/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/client/live.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/client/overlay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/client/socket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/client/sockjs.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/client/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/Server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/addEntries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/colors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/createCertificate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/createConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/createDomain.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/createLogger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/defaultTo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/findPort.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/getVersions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/runBonjour.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/tryParseInt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/lib/utils/updateCompiler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-dev-server/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-merge/lib/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-merge/lib/join-arrays-smart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-merge/lib/join-arrays.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-merge/lib/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-merge/lib/unique.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack-merge/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/bin/webpack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/buildin/amd-define.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/buildin/amd-options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/buildin/global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/buildin/harmony-module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/buildin/module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/buildin/system.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/WebpackOptions.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/BannerPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/DllPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/DllReferencePlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/HashedModuleIdsPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/IgnorePlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/LoaderOptionsPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/ProgressPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/SourceMapDevToolPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/WatchIgnorePlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/debug/ProfilingPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/optimize/AggressiveSplittingPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/optimize/LimitChunkCountPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/optimize/MinChunkSizePlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/optimize/OccurrenceOrderChunkIdsPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/declarations/plugins/optimize/OccurrenceOrderModuleIdsPlugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/hot/dev-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/hot/emitter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/hot/log-apply-result.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/hot/log.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/hot/only-dev-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/hot/poll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/hot/signal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/APIPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/AmdMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/AsyncDependenciesBlock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/AsyncDependencyToInitialChunkError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/AutomaticPrefetchPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/BannerPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/BasicEvaluatedExpression.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/CachePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/CaseSensitiveModulesWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ChunkGroup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ChunkRenderError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ChunkTemplate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/CommentCompilationWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/CompatibilityPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Compilation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Compiler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ConcurrentCompilationError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ConstPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ContextExclusionPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ContextModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ContextModuleFactory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ContextReplacementPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DefinePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DelegatedModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DelegatedModuleFactoryPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DelegatedPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DependenciesBlock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DependenciesBlockVariable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Dependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DllEntryPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DllModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DllModuleFactory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DllPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DllReferencePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/DynamicEntryPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/EntryModuleNotFoundError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/EntryOptionPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Entrypoint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/EnvironmentPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ErrorHelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/EvalDevToolModulePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/EvalDevToolModuleTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/EvalSourceMapDevToolModuleTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/EvalSourceMapDevToolPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ExportPropertyMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ExtendedAPIPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ExternalModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ExternalModuleFactoryPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ExternalsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/FlagDependencyExportsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/FlagDependencyUsagePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/FlagInitialModulesAsUsedPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/FunctionModulePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/FunctionModuleTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Generator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/GraphHelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/HarmonyLinkingError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/HashedModuleIdsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/HotModuleReplacement.runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/HotModuleReplacementPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/HotUpdateChunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/HotUpdateChunkTemplate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/IgnorePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/JavascriptGenerator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/JavascriptModulesPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/JsonGenerator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/JsonModulesPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/JsonParser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/LibManifestPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/LibraryTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/LoaderOptionsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/LoaderTargetPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/MainTemplate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/MemoryOutputFileSystem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleBuildError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleDependencyError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleDependencyWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleFilenameHelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleNotFoundError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleParseError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleReason.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleTemplate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ModuleWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/MultiCompiler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/MultiEntryPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/MultiModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/MultiModuleFactory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/MultiStats.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/MultiWatching.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/NamedChunksPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/NamedModulesPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/NoEmitOnErrorsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/NoModeWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/NodeStuffPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/NormalModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/NormalModuleFactory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/NormalModuleReplacementPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/NullFactory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/OptionsApply.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/OptionsDefaulter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Parser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ParserHelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/PrefetchPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ProgressPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ProvidePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/RawModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/RecordIdsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/RemovedPluginError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/RequestShortener.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/RequireJsStuffPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/ResolverFactory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/RuleSet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/RuntimeTemplate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/SetVarMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/SingleEntryPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/SizeFormatHelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/SourceMapDevToolModuleOptionsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/SourceMapDevToolPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Stats.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/SystemMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Template.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/TemplatedPathPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/UmdMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/UnsupportedFeatureWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/UseStrictPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/WarnCaseSensitiveModulesPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/WarnNoModeSetPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/WatchIgnorePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/Watching.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/WebpackError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/WebpackOptionsApply.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/WebpackOptionsDefaulter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/WebpackOptionsValidationError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/compareLocations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/debug/ProfilingPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/AMDDefineDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/AMDDefineDependencyParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/AMDPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/AMDRequireArrayDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/AMDRequireContextDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/AMDRequireDependenciesBlock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/AMDRequireDependenciesBlockParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/AMDRequireDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/AMDRequireItemDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/CommonJsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/CommonJsRequireContextDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/CommonJsRequireDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/CommonJsRequireDependencyParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ConstDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ContextDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ContextDependencyHelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ContextDependencyTemplateAsId.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ContextDependencyTemplateAsRequireCall.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ContextElementDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/CriticalDependencyWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/DelegatedExportsDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/DelegatedSourceDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/DependencyReference.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/DllEntryDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyAcceptDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyAcceptImportDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyCompatibilityDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyDetectionParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyExportDependencyParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyExportExpressionDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyExportHeaderDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyExportImportedSpecifierDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyExportSpecifierDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyImportDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyImportDependencyParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyImportSideEffectDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyImportSpecifierDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyInitDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyModulesPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/HarmonyTopLevelThisParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ImportContextDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ImportDependenciesBlock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ImportDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ImportEagerDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ImportParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ImportPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ImportWeakDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/JsonExportsDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/LoaderDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/LoaderPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/LocalModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/LocalModuleDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/LocalModulesHelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ModuleDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ModuleDependencyTemplateAsId.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ModuleDependencyTemplateAsRequireId.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ModuleHotAcceptDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/ModuleHotDeclineDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/MultiEntryDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/NullDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/PrefetchDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireContextDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireContextDependencyParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireContextPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireEnsureDependenciesBlock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireEnsureDependenciesBlockParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireEnsureDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireEnsureItemDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireEnsurePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireHeaderDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireIncludeDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireIncludeDependencyParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireIncludePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireResolveContextDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireResolveDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireResolveDependencyParserPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/RequireResolveHeaderDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/SingleEntryDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/SystemPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/UnsupportedDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/WebAssemblyExportImportedDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/WebAssemblyImportDependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/WebpackMissingModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/dependencies/getFunctionExpression.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/formatLocation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeChunkTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeEnvironmentPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeHotUpdateChunkTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeMainTemplate.runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeMainTemplateAsync.runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeOutputFileSystem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeSourcePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeTargetPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/NodeWatchFileSystem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/node/ReadFileCompileWasmTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/AggressiveMergingPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/AggressiveSplittingPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/ChunkModuleIdRangePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/ConcatenatedModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/EnsureChunkConditionsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/FlagIncludedChunksPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/LimitChunkCountPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/MergeDuplicateChunksPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/MinChunkSizePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/MinMaxSizeWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/ModuleConcatenationPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/NaturalChunkOrderPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/OccurrenceChunkOrderPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/OccurrenceModuleOrderPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/OccurrenceOrderPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/RemoveEmptyChunksPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/RemoveParentModulesPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/RuntimeChunkPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/SideEffectsFlagPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/optimize/SplitChunksPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/performance/AssetsOverSizeLimitWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/performance/EntrypointsOverSizeLimitWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/performance/NoAsyncChunksWarning.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/performance/SizeLimitsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/Queue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/Semaphore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/SetHelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/SortableSet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/StackedSetMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/TrackingSet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/cachedMerge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/createHash.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/deterministicGrouping.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/identifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/util/objectToMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/validateSchema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/wasm/UnsupportedWebAssemblyFeatureError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/wasm/WasmFinalizeExportsPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/wasm/WasmMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/wasm/WebAssemblyGenerator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/wasm/WebAssemblyInInitialChunkError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/wasm/WebAssemblyJavascriptGenerator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/wasm/WebAssemblyModulesPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/wasm/WebAssemblyParser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/wasm/WebAssemblyUtils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/web/FetchCompileWasmTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/web/JsonpChunkTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/web/JsonpExportMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/web/JsonpHotUpdateChunkTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/web/JsonpMainTemplate.runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/web/JsonpMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/web/JsonpTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/web/WebEnvironmentPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/webpack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/webpack.web.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/webworker/WebWorkerChunkTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/webworker/WebWorkerHotUpdateChunkTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/webworker/WebWorkerMainTemplate.runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/webworker/WebWorkerMainTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/lib/webworker/WebWorkerTemplatePlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/schemas/ajv.absolutePath.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/web_modules/node-libs-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/MainView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/MessageBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/resources/META-INF/resources/icons/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/test/java/com/entetry/frontend/spring/AbstractViewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/test/java/com/entetry/frontend/spring/MainViewIT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/webpack.generated.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Authority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Designer.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Designer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/ItemSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/ItemSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Size.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Subcategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Subcategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/AuthorityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/AuthorityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/CreditCardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/CreditCardMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/SubcategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/SubcategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/DesignerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/DesignerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT.jar.original" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +669,11 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1QSTo4k7eIP7SL9BQzqD0r00GFk" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -67,7 +687,9 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -75,6 +697,11 @@
     </key>
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -86,7 +713,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="Spring Boot.FRONTEND">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.entetry.store.Main" />
       <module name="store" />
@@ -150,7 +777,7 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="BACKEND" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <module name="store" />
       <extension name="coverage">
         <pattern>
@@ -159,6 +786,15 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.entetry.store.Application" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FRONTEND" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="storefrontend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.entetry.frontend.spring.Application" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -393,15 +1029,37 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Maven.store [spring-boot:run]" />
-      <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="Spring Boot.FRONTEND" />
+      <item itemvalue="Spring Boot.BACKEND" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.45" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Spring Boot.BACKEND" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <option name="contentProportion" value="0.16871585" />
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5a93487e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5a93487e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ad9db093" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -421,7 +1079,8 @@
       <workItem from="1568627179023" duration="45831000" />
       <workItem from="1568790695051" duration="37000" />
       <workItem from="1568799366626" duration="1669000" />
-      <workItem from="1568813948053" duration="583000" />
+      <workItem from="1568813948053" duration="16271000" />
+      <workItem from="1568832923481" duration="1488000" />
     </task>
     <task id="LOCAL-00001" summary="Add some mappers,entities and dtos">
       <created>1568655956233</created>
@@ -444,7 +1103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568749834656</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="some refactoring">
+      <created>1568814697326</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1568814697326</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,20 +1140,43 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add some mappers,entities and dtos" />
     <MESSAGE value="Change ItemSize and OrderSize entities(add compozed primary key to them)" />
     <MESSAGE value="Add services and controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add services and controllers" />
+    <MESSAGE value="some refactoring" />
+    <MESSAGE value="add some methods to controller and add frontend module" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some methods to controller and add frontend module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemMapper.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemSizeMapper.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="5" />
+          <line>51</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="item.price" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

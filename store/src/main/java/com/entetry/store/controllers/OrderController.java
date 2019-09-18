@@ -14,22 +14,26 @@ import java.util.List;
 @RestController
 public class OrderController {
     private final OrderServiceImpl orderService;
+
     @Autowired
-    public OrderController(OrderServiceImpl orderService){
-        this.orderService=orderService;
+    public OrderController(OrderServiceImpl orderService) {
+        this.orderService = orderService;
     }
+
     @GetMapping("/order")
-    public List<OrderDto> getAllOrders(){
+    public List<OrderDto> getAllOrders() {
         return orderService.getAllOrders();
     }
+
     @PostMapping("/order")
-    public void create(@RequestBody OrderDto orderDto){
+    public void create(@RequestBody OrderDto orderDto) {
         try {
             orderService.create(orderDto);
         } catch (OrderNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
     }
+
     @DeleteMapping("/order")
     public void delete(@RequestBody OrderDto orderDto) {
         try {
@@ -38,6 +42,7 @@ public class OrderController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
     }
+
     @PutMapping("/order")
     public void update(@RequestBody OrderDto orderDto) {
         try {

@@ -6,10 +6,10 @@ import javax.persistence.*;
 @Table(name = "subcategory")
 public class Subcategory extends AbstractEntity {
     @Id
-    @Column(name = "role_id")
+    @Column(name = "subcategory_id")
     @GeneratedValue
     private Long id;
-    @Column(name = "category_name")
+    @Column(name = "subcategory_name")
     private String name;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")

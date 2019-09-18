@@ -13,9 +13,13 @@ public class Role {
     private Long id;
     @Column(name = "role_name")
     private String rolename;
-    @ElementCollection(targetClass=Authority.class)
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "role_authority", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
     private List<Authority> authorities = new ArrayList<>();
-    @ManyToMany(targetEntity = User.class,mappedBy = "roles", fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = User.class, mappedBy = "roles", fetch = FetchType.LAZY)
     private List<User> users = new ArrayList<>();
 
     public List<Authority> getAuthorities() {

@@ -9,10 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class CreditCardMapper {
     private final UserMapper userMapper;
-    public CreditCardMapper(UserMapper userMapper){
-        this.userMapper=userMapper;
+
+    public CreditCardMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
     }
-    public CreditCardDto toCreditCardDto(CreditCard creditCard){
+
+    public CreditCardDto toCreditCardDto(CreditCard creditCard) {
         CreditCardDto creditCardDto = new CreditCardDto();
         creditCardDto.setId(creditCard.getId());
         creditCardDto.setBalance(creditCard.getBalance());
@@ -28,10 +30,11 @@ public class CreditCardMapper {
         creditCardDto.setCustomer(customerDto);
         return creditCardDto;
     }
-    public CreditCard toCreditCard(CreditCardDto creditCardDto){
+
+    public CreditCard toCreditCard(CreditCardDto creditCardDto) {
         CreditCard creditCard = new CreditCard();
-        creditCard.setId(creditCard.getId());
-        creditCard.setBalance(creditCard.getBalance());
+        creditCard.setId(creditCardDto.getId());
+        creditCard.setBalance(creditCardDto.getBalance());
         Customer customer = new Customer();
         customer.setId(creditCardDto.getCustomer().getId());
         customer.setUser(userMapper.toUser(creditCardDto.getCustomer().getUser()));

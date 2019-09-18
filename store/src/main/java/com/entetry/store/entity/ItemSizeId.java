@@ -3,16 +3,20 @@ package com.entetry.store.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+
 @Embeddable
 public class ItemSizeId implements Serializable {
     @Column(name = "item_id")
     private Long itemId;
     @Column(name = "size_id")
     private Long sizeId;
-    public ItemSizeId(){}
-    public ItemSizeId(Long itemId, Long sizeId){
-        this.itemId=itemId;
-        this.sizeId=sizeId;
+
+    public ItemSizeId() {
+    }
+
+    public ItemSizeId(Long itemId, Long sizeId) {
+        this.itemId = itemId;
+        this.sizeId = sizeId;
     }
 
     @Override

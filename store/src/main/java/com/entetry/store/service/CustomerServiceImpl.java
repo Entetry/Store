@@ -3,9 +3,11 @@ package com.entetry.store.service;
 import com.entetry.store.entity.Customer;
 import com.entetry.store.exception.CustomerNotFoundException;
 import com.entetry.store.mapper.AdressMapper;
+import com.entetry.store.mapper.CreditCardMapper;
 import com.entetry.store.mapper.CustomerMapper;
 import com.entetry.store.persistense.CustomerRepository;
 import com.entetry.storecommon.dto.AdressDto;
+import com.entetry.storecommon.dto.CreditCardDto;
 import com.entetry.storecommon.dto.CustomerDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,49 +25,67 @@ public class CustomerServiceImpl {
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
     private final AdressMapper adressMapper;
+    private final CreditCardMapper creditCardMapper;
+
     @Autowired
-    public CustomerServiceImpl(CustomerRepository customerRepository,CustomerMapper customerMapper,AdressMapper adressMapper) {
-        this.customerRepository=customerRepository;
-        this.customerMapper=customerMapper;
-        this.adressMapper=adressMapper;
+    public CustomerServiceImpl(CustomerRepository customerRepository, CustomerMapper customerMapper, AdressMapper adressMapper, CreditCardMapper creditCardMapper) {
+        this.customerRepository = customerRepository;
+        this.customerMapper = customerMapper;
+        this.adressMapper = adressMapper;
+        this.creditCardMapper = creditCardMapper;
     }
+
     @Transactional
-    public void create(CustomerDto customerDto){
-        try{
+    public void create(CustomerDto customerDto) {
+        try {
             customerRepository.save(customerMapper.toCustomer(customerDto));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("an exception occurred!", e);
         }
     }
+
     @Transactional
-    public void update(CustomerDto customerDto){
+    public void update(CustomerDto customerDto) {
         Customer designer = customerRepository.findById(customerDto.getId()).orElseThrow(CustomerNotFoundException::new);
-        Customer updatedDesigner= customerMapper.toCustomer(customerDto);
+        Customer updatedDesigner = customerMapper.toCustomer(customerDto);
         try {
             customerRepository.save(updatedDesigner);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
         }
     }
+
     @Transactional
-    public void delete(CustomerDto customerDto){
+    public void delete(CustomerDto customerDto) {
         try {
             customerRepository.delete(customerMapper.toCustomer(customerDto));
-        } catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
         }
     }
-    public List<CustomerDto> getAllCustomers(){
-        return StreamSupport.stream(customerRepository.findAll().spliterator(),false).map(customerMapper::toCustomerDto).collect(Collectors.toList());
+
+    public List<CustomerDto> getAllCustomers() {
+        return StreamSupport.stream(customerRepository.findAll().spliterator(), false).map(customerMapper::toCustomerDto).collect(Collectors.toList());
     }
+
     @Transactional
-    public void addAddressToCustomer(AdressDto adressDto){
-        Customer customer=customerRepository.findById(adressDto.getCustomer().getId()).orElseThrow(CustomerNotFoundException::new);
+    public void addAddressToCustomer(AdressDto adressDto) {
+        Customer customer = customerRepository.findById(adressDto.getCustomer().getId()).orElseThrow(CustomerNotFoundException::new);
         customer.addAdress(adressMapper.toAdress(adressDto));
         try {
             customerRepository.save(customer);
-        } catch (Exception e){
+        } catch (Exception e) {
+            LOGGER.error("an exception occured!", e);
+        }
+    }
+
+    @Transactional
+    public void addCreditCardtoCustomer(CreditCardDto creditCardDto) {
+        Customer customer = customerRepository.findById(creditCardDto.getCustomer().getId()).orElseThrow(CustomerNotFoundException::new);
+        customer.addCreditCard(creditCardMapper.toCreditCard(creditCardDto));
+        try {
+            customerRepository.save(customer);
+        } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
         }
     }

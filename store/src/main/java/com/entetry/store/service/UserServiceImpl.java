@@ -21,11 +21,13 @@ public class UserServiceImpl {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+
     @Autowired
-    public UserServiceImpl(UserRepository userRepository,UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
-        this.userMapper=userMapper;
+        this.userMapper = userMapper;
     }
+
     @Transactional
     public void create(UserDto userDto) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
@@ -36,28 +38,31 @@ public class UserServiceImpl {
             LOGGER.error("an exception occured!", e);
         }
     }
+
     @Transactional
-    public void delete(UserDto userDto){
+    public void delete(UserDto userDto) {
         try {
             userRepository.delete(userMapper.toUser(userDto));
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
         }
     }
+
     @Transactional
-    public void update(UserDto userDto){
+    public void update(UserDto userDto) {
         User user = userRepository.findById(userDto.getId()).orElseThrow(UserNotFoundException::new);
-        User updatedUser= userMapper.toUser(userDto);
+        User updatedUser = userMapper.toUser(userDto);
         try {
             userRepository.save(updatedUser);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
         }
     }
+
     @Transactional
-    public List<UserDto> getAllUsers(){
-    return StreamSupport.stream(userRepository.findAll().spliterator(),false).map(userMapper::toUserDto).collect(Collectors.toList());
+    public List<UserDto> getAllUsers() {
+        return StreamSupport.stream(userRepository.findAll().spliterator(), false).map(userMapper::toUserDto).collect(Collectors.toList());
     }
-    }
+}
 
 

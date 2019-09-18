@@ -12,7 +12,7 @@ public class Size {
     @Column(name = "size_id")
     @GeneratedValue
     private Long id;
-    @Column(name = "size")
+    @Column(name = "size_name")
     private String size;
     @OneToMany(mappedBy = "size", cascade = CascadeType.ALL,
             orphanRemoval = true)
@@ -34,12 +34,15 @@ public class Size {
     public List<ItemSize> getItemSizes() {
         return itemSizes;
     }
+
     public void setItemSizes(List<ItemSize> itemSizes) {
         this.itemSizes = itemSizes;
     }
+
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }

@@ -12,9 +12,6 @@ public class Authority {
     private Long id;
     @Column(name = "authority_name")
     private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
-    private Role role;
 
     @Override
     public boolean equals(Object o) {
@@ -44,13 +41,5 @@ public class Authority {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 }

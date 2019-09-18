@@ -9,11 +9,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class BankAccountMapper {
     private final UserMapper userMapper;
-    public BankAccountMapper(UserMapper userMapper){
-        this.userMapper=userMapper;
+
+    public BankAccountMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
     }
-    public BankAccountDto toBankAccountDto(BankAccount bankAccount){
-        BankAccountDto bankAccountDto= new BankAccountDto();
+
+    public BankAccountDto toBankAccountDto(BankAccount bankAccount) {
+        BankAccountDto bankAccountDto = new BankAccountDto();
         bankAccountDto.setId(bankAccount.getId());
         bankAccountDto.setBalance(bankAccount.getBalance());
         DesignerDto designerDto = new DesignerDto();
@@ -24,7 +26,8 @@ public class BankAccountMapper {
         bankAccountDto.setDesigner(designerDto);
         return bankAccountDto;
     }
-    public BankAccount toBankAccount(BankAccountDto bankAccountDto){
+
+    public BankAccount toBankAccount(BankAccountDto bankAccountDto) {
         BankAccount bankAccount = new BankAccount();
         bankAccount.setId(bankAccountDto.getId());
         bankAccount.setBalance(bankAccountDto.getBalance());

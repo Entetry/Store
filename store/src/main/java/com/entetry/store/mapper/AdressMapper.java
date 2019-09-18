@@ -10,11 +10,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class AdressMapper {
     private final UserMapper userMapper;
+
     @Autowired
-    public AdressMapper(UserMapper userMapper){
-        this.userMapper=userMapper;
+    public AdressMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
     }
-    public  AdressDto toAdressDto(Adress adress) {
+
+    public AdressDto toAdressDto(Adress adress) {
         AdressDto adressDto = new AdressDto();
         adressDto.setAdress(adress.getAdress());
         adressDto.setCity(adress.getCity());
@@ -38,7 +40,7 @@ public class AdressMapper {
         return adressDto;
     }
 
-    public  Adress toAdress(AdressDto adressDto) {
+    public Adress toAdress(AdressDto adressDto) {
         Adress adress = new Adress();
         Customer customer = new Customer();
         customer.setId(adressDto.getCustomer().getId());
