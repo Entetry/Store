@@ -61,7 +61,7 @@ public class CustomerServiceImpl {
     }
     @Transactional
     public void addAddressToCustomer(AdressDto adressDto){
-        Customer customer=customerMapper.toCustomer(adressDto.getCustomer());
+        Customer customer=customerRepository.findById(adressDto.getCustomer().getId()).orElseThrow(CustomerNotFoundException::new);
         customer.addAdress(adressMapper.toAdress(adressDto));
         try {
             customerRepository.save(customer);

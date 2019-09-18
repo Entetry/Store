@@ -2,6 +2,7 @@ package com.entetry.store.controllers;
 
 import com.entetry.store.exception.CustomerNotFoundException;
 import com.entetry.store.service.CustomerServiceImpl;
+import com.entetry.storecommon.dto.AdressDto;
 import com.entetry.storecommon.dto.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,11 +24,7 @@ public class CustomerController {
     }
     @PostMapping("/customer")
     public void create(@RequestBody CustomerDto customerDto){
-        try {
             customerService.create(customerDto);
-        } catch (CustomerNotFoundException exc) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
-        }
     }
     @DeleteMapping("/customer")
     public void delete(@RequestBody CustomerDto customerDto) {
@@ -41,6 +38,14 @@ public class CustomerController {
     public void update(@RequestBody CustomerDto customerDto) {
         try {
             customerService.update(customerDto);
+        } catch (CustomerNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+    }
+    @PostMapping("/customer/address")
+    public void addAddressToCustomer(@RequestBody AdressDto adressDto){
+        try {
+            customerService.addAddressToCustomer(adressDto);
         } catch (CustomerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }

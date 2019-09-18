@@ -2,42 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc5f2f1-c713-4eed-80ee-b0b6a3f94575" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/ItemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/AuthorityNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/CustomerNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/DesignerNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/ItemNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/MyResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/NotEnoughMoneyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/OrderNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/RoleNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/SizeNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/DesignerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/AppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Designer.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Designer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/ItemSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/ItemSize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/OrderItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemSizeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemSizeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/OrderItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/OrderItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/SizeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/SizeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/persistense/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/persistense/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomerServiceImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -423,10 +391,10 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
       <item itemvalue="Maven.store [spring-boot:run]" />
       <item itemvalue="Spring Boot.Application" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.45" />
-      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
@@ -450,7 +418,10 @@
       <workItem from="1568113822947" duration="1367000" />
       <workItem from="1568215969249" duration="26372000" />
       <workItem from="1568370058271" duration="6972000" />
-      <workItem from="1568627179023" duration="45711000" />
+      <workItem from="1568627179023" duration="45831000" />
+      <workItem from="1568790695051" duration="37000" />
+      <workItem from="1568799366626" duration="1669000" />
+      <workItem from="1568813948053" duration="583000" />
     </task>
     <task id="LOCAL-00001" summary="Add some mappers,entities and dtos">
       <created>1568655956233</created>
@@ -466,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568715248320</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add services and controllers">
+      <created>1568749834656</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1568749834656</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,7 +465,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -496,7 +476,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add some mappers,entities and dtos" />
     <MESSAGE value="Change ItemSize and OrderSize entities(add compozed primary key to them)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change ItemSize and OrderSize entities(add compozed primary key to them)" />
+    <MESSAGE value="Add services and controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add services and controllers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -505,16 +486,6 @@
           <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java</url>
           <line>26</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/ItemController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
