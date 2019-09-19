@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc5f2f1-c713-4eed-80ee-b0b6a3f94575" name="Default Changelist" comment="add some methods to controller and add frontend module">
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/security/MySavedRequestAwareAuthenticationSuccessHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/frontend/src/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/frontend/styles/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rest-client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rest-client/restclient.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/config/RestClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/userclient/RestUserClient.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/closure-types.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-dom-api-externs.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-externs.js" afterDir="false" />
@@ -580,49 +578,24 @@
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/package.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/schemas/ajv.absolutePath.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/web_modules/node-libs-browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/MainView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/MessageBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/resources/META-INF/resources/icons/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/test/java/com/entetry/frontend/spring/AbstractViewTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/test/java/com/entetry/frontend/spring/MainViewIT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/webpack.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/webpack.generated.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/configure/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/ConfigureUIServiceInitListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/CustomRequestCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/SecurityUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/LoginView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Authority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Designer.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Designer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/ItemSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/ItemSize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Size.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Subcategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Subcategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/AuthorityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/AuthorityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/CreditCardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/CreditCardMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/SubcategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/SubcategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/DesignerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/DesignerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/Application.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -651,6 +624,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -1048,12 +1022,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5a93487e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@36bdbe25" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5a93487e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ad9db093" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@36bdbe25" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3313b195" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -1080,7 +1054,8 @@
       <workItem from="1568790695051" duration="37000" />
       <workItem from="1568799366626" duration="1669000" />
       <workItem from="1568813948053" duration="16271000" />
-      <workItem from="1568832923481" duration="1488000" />
+      <workItem from="1568832923481" duration="1686000" />
+      <workItem from="1568890669534" duration="11755000" />
     </task>
     <task id="LOCAL-00001" summary="Add some mappers,entities and dtos">
       <created>1568655956233</created>
@@ -1110,7 +1085,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568814697326</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add some methods to controller and add frontend module">
+      <created>1568835397484</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1568835397484</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1153,22 +1135,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemMapper.java</url>
-          <line>45</line>
+          <line>47</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java</url>
-          <line>39</line>
+          <line>42</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemSizeMapper.java</url>
-          <line>25</line>
+          <line>27</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java</url>
-          <line>51</line>
+          <line>57</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

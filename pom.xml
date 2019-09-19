@@ -17,6 +17,7 @@
         <module>store</module>
         <module>store-common</module>
         <module>storefrontend</module>
+        <module>rest-client</module>
     </modules>
     <dependencies>
         <dependency>
