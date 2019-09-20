@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbc5f2f1-c713-4eed-80ee-b0b6a3f94575" name="Default Changelist" comment="add some methods to controller and add frontend module">
-      <change afterPath="$PROJECT_DIR$/rest-client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-client/restclient.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/config/RestClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/userclient/RestUserClient.java" afterDir="false" />
+    <list default="true" id="bbc5f2f1-c713-4eed-80ee-b0b6a3f94575" name="Default Changelist" comment="add security to Frontend">
+      <change afterPath="$PROJECT_DIR$/store-common/src/main/java/com/entetry/storecommon/dto/UserDetailsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/UserDetailsMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/closure-types.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-dom-api-externs.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-externs.js" afterDir="false" />
@@ -163,13 +161,13 @@
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/custom-elements-es5-adapter-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-bundle-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-ce-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-sd-ce-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-sd-ce-pf-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/entrypoints/webcomponents-sd-index.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/src/entrypoints/custom-elements-es5-adapter-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/src/entrypoints/webcomponents-bundle-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/src/entrypoints/webcomponents-ce-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/src/entrypoints/webcomponents-sd-ce-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/src/entrypoints/webcomponents-sd-ce-pf-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/src/entrypoints/webcomponents-sd-index.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/copy-webpack-plugin/dist/cjs.js" afterDir="false" />
@@ -578,24 +576,21 @@
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/package.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/schemas/ajv.absolutePath.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/web_modules/node-libs-browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/configure/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/ConfigureUIServiceInitListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/CustomRequestCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/SecurityUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/LoginView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rest-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/userclient/RestUserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/userclient/RestUserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/store/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomUserDetailsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT.jar.original" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storefrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storefrontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/Application.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -1022,12 +1017,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@36bdbe25" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1a323172" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@36bdbe25" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3313b195" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1a323172" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@47ea1aae" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -1055,7 +1050,8 @@
       <workItem from="1568799366626" duration="1669000" />
       <workItem from="1568813948053" duration="16271000" />
       <workItem from="1568832923481" duration="1686000" />
-      <workItem from="1568890669534" duration="11755000" />
+      <workItem from="1568890669534" duration="11863000" />
+      <workItem from="1568970274552" duration="7507000" />
     </task>
     <task id="LOCAL-00001" summary="Add some mappers,entities and dtos">
       <created>1568655956233</created>
@@ -1092,7 +1088,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568835397484</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add security to Frontend">
+      <created>1568916626331</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1568916626331</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1128,7 +1131,8 @@
     <MESSAGE value="Add services and controllers" />
     <MESSAGE value="some refactoring" />
     <MESSAGE value="add some methods to controller and add frontend module" />
-    <option name="LAST_COMMIT_MESSAGE" value="add some methods to controller and add frontend module" />
+    <MESSAGE value="add security to Frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="add security to Frontend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1152,6 +1156,16 @@
           <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java</url>
           <line>57</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.1.6.RELEASE/spring-security-core-5.1.6.RELEASE.jar!/org/springframework/security/authentication/dao/DaoAuthenticationProvider.class</url>
+          <line>49</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/userclient/RestUserClient.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

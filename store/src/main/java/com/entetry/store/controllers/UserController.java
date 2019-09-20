@@ -1,12 +1,13 @@
 package com.entetry.store.controllers;
 
 import com.entetry.store.exception.UserNotFoundException;
+import com.entetry.store.mapper.UserDetailsMapper;
 import com.entetry.store.service.CustomUserDetailsService;
 import com.entetry.store.service.UserServiceImpl;
+import com.entetry.storecommon.dto.UserDetailsDto;
 import com.entetry.storecommon.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -16,10 +17,12 @@ import java.util.List;
 public class UserController {
     private final UserServiceImpl userService;
     private final CustomUserDetailsService userDetailsService;
+    private final UserDetailsMapper userDetailsMapper;
     @Autowired
-    public UserController(UserServiceImpl userService,CustomUserDetailsService userDetailsService) {
+    public UserController(UserServiceImpl userService,CustomUserDetailsService userDetailsService,UserDetailsMapper userDetailsMapper) {
         this.userService = userService;
         this.userDetailsService=userDetailsService;
+        this.userDetailsMapper=userDetailsMapper;
     }
 
     @GetMapping("/user")
@@ -55,9 +58,9 @@ public class UserController {
     }
     @GetMapping("/users/userdetails")
     @ResponseBody
-    public UserDetails getUserDetails(@RequestParam String username) {
+    public UserDetailsDto getUserDetails(@RequestParam String username) {
         try {
-            return userDetailsService.loadUserByUsername(username);
+           return  userDetailsMapper.toUserDetailsDto(userDetailsService.loadUserByUsername(username));
         } catch (UserNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }

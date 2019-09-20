@@ -10,6 +10,18 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.entetry.common</groupId>
     <artifactId>store-common</artifactId>
-
+<dependencies>
+    <!-- Spring Security -->
+    <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-web</artifactId>
+        <version>${spring-security.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-config</artifactId>
+        <version>${spring-security.version}</version>
+    </dependency>
+</dependencies>
 
 </project>
