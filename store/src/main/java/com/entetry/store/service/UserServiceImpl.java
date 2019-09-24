@@ -36,15 +36,18 @@ public class UserServiceImpl {
             userRepository.save(userMapper.toUser(userDto));
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
     @Transactional
-    public void delete(UserDto userDto) {
+    public void delete(String id) {
+        User user = userRepository.findById(Long.parseLong(id)).orElseThrow(UserNotFoundException::new);
         try {
-            userRepository.delete(userMapper.toUser(userDto));
+            userRepository.delete(user);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
@@ -56,6 +59,7 @@ public class UserServiceImpl {
             userRepository.save(updatedUser);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 

@@ -37,6 +37,7 @@ public class DesignerServiceImpl {
             designerRepository.save(designerMapper.toDesigner(designerDto));
         } catch (Exception e) {
             LOGGER.error("an exception occurred!", e);
+            throw e;
         }
     }
 
@@ -48,15 +49,18 @@ public class DesignerServiceImpl {
             designerRepository.save(updatedDesigner);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
     @Transactional
-    public void delete(DesignerDto designerDto) {
+    public void delete(String id) {
+        Designer designer = designerRepository.findById(Long.parseLong(id)).orElseThrow(DesignerNotFoundException::new);
         try {
-            designerRepository.delete(designerMapper.toDesigner(designerDto));
+            designerRepository.delete(designer);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
@@ -72,6 +76,7 @@ public class DesignerServiceImpl {
             designerRepository.save(designer);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 }

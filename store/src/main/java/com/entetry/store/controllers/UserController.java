@@ -25,35 +25,41 @@ public class UserController {
         this.userDetailsMapper=userDetailsMapper;
     }
 
-    @GetMapping("/user")
+    @GetMapping("/users")
     public List<UserDto> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/user")
+    @PostMapping("/users")
     public void create(@RequestBody UserDto userDto) {
         try {
-            userService.create(userDto);
-        } catch (UserNotFoundException exc) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+            userService.create(userDto);}
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
 
-    @DeleteMapping("/user")
-    public void delete(@RequestBody UserDto userDto) {
+    @DeleteMapping("/users/{id}")
+    public void delete(@PathVariable String id) {
         try {
-            userService.delete(userDto);
+            userService.delete(id);
         } catch (UserNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
     }
 
-    @PutMapping("/user")
+    @PutMapping("/users")
     public void update(@RequestBody UserDto userDto) {
         try {
             userService.update(userDto);
         } catch (UserNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
     @GetMapping("/users/userdetails")
@@ -63,6 +69,9 @@ public class UserController {
            return  userDetailsMapper.toUserDetailsDto(userDetailsService.loadUserByUsername(username));
         } catch (UserNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
 }

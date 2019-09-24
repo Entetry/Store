@@ -41,6 +41,7 @@ public class CustomerServiceImpl {
             customerRepository.save(customerMapper.toCustomer(customerDto));
         } catch (Exception e) {
             LOGGER.error("an exception occurred!", e);
+            throw e;
         }
     }
 
@@ -52,15 +53,18 @@ public class CustomerServiceImpl {
             customerRepository.save(updatedDesigner);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
     @Transactional
-    public void delete(CustomerDto customerDto) {
+    public void delete(String id) {
+        Customer customer = customerRepository.findById(Long.parseLong(id)).orElseThrow(CustomerNotFoundException::new);
         try {
-            customerRepository.delete(customerMapper.toCustomer(customerDto));
+            customerRepository.delete(customer);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
@@ -76,6 +80,7 @@ public class CustomerServiceImpl {
             customerRepository.save(customer);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
@@ -87,6 +92,7 @@ public class CustomerServiceImpl {
             customerRepository.save(customer);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 }

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbc5f2f1-c713-4eed-80ee-b0b6a3f94575" name="Default Changelist" comment="add security to Frontend">
-      <change afterPath="$PROJECT_DIR$/store-common/src/main/java/com/entetry/storecommon/dto/UserDetailsDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/UserDetailsMapper.java" afterDir="false" />
+    <list default="true" id="bbc5f2f1-c713-4eed-80ee-b0b6a3f94575" name="Default Changelist" comment="fixed spring security on front">
+      <change afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/RestTemplateHeaderModifierInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store-common/src/main/java/com/entetry/storecommon/CustomAuthentication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/security/CustomAuthenticationProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/security/RequestFiler.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/closure-types.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-dom-api-externs.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-externs.js" afterDir="false" />
@@ -576,21 +578,28 @@
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/package.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/schemas/ajv.absolutePath.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/webpack/web_modules/node-libs-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rest-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/config/RestClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/config/RestClientConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/userclient/RestUserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/userclient/RestUserClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-common/src/main/java/com/entetry/storecommon/dto/UserDetailsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/src/main/java/com/entetry/storecommon/dto/UserDetailsDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/store/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/configure/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/DesignerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/DesignerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT.jar.original" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storefrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -614,6 +623,9 @@
     </option>
     <expand />
     <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="parentstore" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -1012,17 +1024,17 @@
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
       <serviceView>
-        <option name="contentProportion" value="0.16871585" />
+        <option name="contentProportion" value="0.16530055" />
         <treeState>
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1a323172" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@95f3b3cb" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1a323172" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@47ea1aae" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@95f3b3cb" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@15b6e3c2" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -1051,7 +1063,9 @@
       <workItem from="1568813948053" duration="16271000" />
       <workItem from="1568832923481" duration="1686000" />
       <workItem from="1568890669534" duration="11863000" />
-      <workItem from="1568970274552" duration="7507000" />
+      <workItem from="1568970274552" duration="13900000" />
+      <workItem from="1568989798911" duration="2216000" />
+      <workItem from="1569240098896" duration="29410000" />
     </task>
     <task id="LOCAL-00001" summary="Add some mappers,entities and dtos">
       <created>1568655956233</created>
@@ -1095,7 +1109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568916626331</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fixed spring security on front">
+      <created>1568979392943</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1568979392944</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1132,7 +1153,9 @@
     <MESSAGE value="some refactoring" />
     <MESSAGE value="add some methods to controller and add frontend module" />
     <MESSAGE value="add security to Frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="add security to Frontend" />
+    <MESSAGE value="fixed spring security on front" />
+    <MESSAGE value="add filters and interceptors for backend authentification" />
+    <option name="LAST_COMMIT_MESSAGE" value="add filters and interceptors for backend authentification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1143,35 +1166,61 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/ItemServiceImpl.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/mapper/ItemSizeMapper.java</url>
           <line>27</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java</url>
-          <line>57</line>
+          <line>66</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.1.6.RELEASE/spring-security-config-5.1.6.RELEASE.jar!/org/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder.class</url>
+          <line>67</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/userclient/RestUserClient.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/UserController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/RestTemplateHeaderModifierInterceptor.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.1.6.RELEASE/spring-security-core-5.1.6.RELEASE.jar!/org/springframework/security/authentication/dao/DaoAuthenticationProvider.class</url>
           <line>49</line>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.1.6.RELEASE/spring-security-core-5.1.6.RELEASE.jar!/org/springframework/security/authentication/dao/AbstractUserDetailsAuthenticationProvider.class</url>
+          <line>54</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/store/src/main/java/com/entetry/store/security/RequestFiler.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/userclient/RestUserClient.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="16" />
+          <line>34</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="item.price" />
+        <watch expression="((HttpComponentsClientHttpResponse)response).httpResponse" custom="org.springframework.http.client.HttpComponentsClientHttpResponse" />
       </configuration>
     </watches-manager>
   </component>

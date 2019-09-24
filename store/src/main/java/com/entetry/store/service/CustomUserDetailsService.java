@@ -2,10 +2,10 @@ package com.entetry.store.service;
 
 import com.entetry.store.entity.User;
 import com.entetry.store.persistense.UserRepository;
+import com.entetry.storecommon.dto.UserDetailsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -34,7 +34,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Transactional
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetailsDto loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> userOptional = userRepository.findByUsername(username);
         if (!userOptional.isPresent()) {
             throw new UsernameNotFoundException("invalid username or password");
@@ -42,9 +42,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userOptional.get();
         Collection<? extends GrantedAuthority> authorities = user.getRoles().stream()
                 .flatMap(x -> x.getAuthorities().stream())
-                .map(authority -> new    SimpleGrantedAuthority(authority.getName())).collect(Collectors.toList());
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPasswordHash(),
-                authorities);
+                .map(authority -> new SimpleGrantedAuthority(authority.getName())).collect(Collectors.toList());
+        return new UserDetailsDto(user.getId(),user.getUsername(),user.getPasswordHash(),authorities);
     }
 
 }

@@ -43,6 +43,7 @@ public class ItemServiceImpl {
             itemRepository.save(itemMapper.toItem(itemDto));
         } catch (Exception e) {
             LOGGER.error("an exception occurred!", e);
+            throw e;
         }
     }
 
@@ -54,15 +55,18 @@ public class ItemServiceImpl {
             itemRepository.save(updatedItem);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
     @Transactional
-    public void delete(ItemDto itemDto) {
+    public void delete(String id) {
+        Item item = itemRepository.findById(Long.parseLong(id)).orElseThrow(ItemNotFoundException::new);
         try {
-            itemRepository.delete(itemMapper.toItem(itemDto));
+            itemRepository.delete(item);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
@@ -81,6 +85,7 @@ public class ItemServiceImpl {
                 sizeRepository.save(size);
             } catch (Exception e) {
                 LOGGER.error("an exception occured!", e);
+                throw e;
             }
         }
     }

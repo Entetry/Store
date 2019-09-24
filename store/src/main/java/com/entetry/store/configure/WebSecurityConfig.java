@@ -1,6 +1,7 @@
 package com.entetry.store.configure;
 
 import com.entetry.store.security.MySavedRequestAwareAuthenticationSuccessHandler;
+import com.entetry.store.security.RequestFiler;
 import com.entetry.store.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,13 +17,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.data.repository.query.SecurityEvaluationContextExtension;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
-@ComponentScan("com.entetry.store.service")
+@ComponentScan({"com.entetry.store"})
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final CustomUserDetailsService userDetailsService;
@@ -53,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
+        http.addFilterBefore(new RequestFiler(), BasicAuthenticationFilter.class).csrf().disable().authorizeRequests()
                 .antMatchers("/login")
                 .permitAll()
                 .antMatchers("/user").permitAll()

@@ -21,49 +21,61 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/customer")
+    @GetMapping("/customers")
     public List<CustomerDto> getAllDesigners() {
         return customerService.getAllCustomers();
     }
 
-    @PostMapping("/customer")
+    @PostMapping("/customers")
     public void create(@RequestBody CustomerDto customerDto) {
         customerService.create(customerDto);
     }
 
-    @DeleteMapping("/customer")
-    public void delete(@RequestBody CustomerDto customerDto) {
+    @DeleteMapping("/customers/{id}")
+    public void delete(@PathVariable String id) {
         try {
-            customerService.delete(customerDto);
+            customerService.delete(id);
         } catch (CustomerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
     }
 
-    @PutMapping("/customer")
+    @PutMapping("/customers")
     public void update(@RequestBody CustomerDto customerDto) {
         try {
             customerService.update(customerDto);
         } catch (CustomerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
     }
 
-    @PostMapping("/customer/address")
+    @PostMapping("/customers/address")
     public void addAddressToCustomer(@RequestBody AdressDto adressDto) {
         try {
             customerService.addAddressToCustomer(adressDto);
         } catch (CustomerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
     }
 
-    @PostMapping("/customer/card")
+    @PostMapping("/customers/card")
     public void addCreditCardToCustomer(@RequestBody CreditCardDto creditCardDto) {
         try {
             customerService.addCreditCardtoCustomer(creditCardDto);
         } catch (CustomerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
 }

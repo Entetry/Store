@@ -20,44 +20,56 @@ public class DesignerController {
         this.designerService = designerService;
     }
 
-    @GetMapping("/designer")
+    @GetMapping("/designers")
     public List<DesignerDto> getAllDesigners() {
         return designerService.getAllDesigners();
     }
 
-    @PostMapping("/designer")
+    @PostMapping("/designers")
     public void create(@RequestBody DesignerDto designerDto) {
         try {
             designerService.create(designerDto);
         } catch (DesignerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
-    }
-
-    @DeleteMapping("/designer")
-    public void delete(@RequestBody DesignerDto designerDto) {
-        try {
-            designerService.delete(designerDto);
-        } catch (DesignerNotFoundException exc) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
 
-    @PutMapping("/designer")
+    @DeleteMapping("/designers/{id}")
+    public void delete(@PathVariable String id) {
+        try {
+            designerService.delete(id);
+        } catch (DesignerNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
+    }
+
+    @PutMapping("/designers")
     public void update(@RequestBody DesignerDto designerDto) {
         try {
             designerService.update(designerDto);
         } catch (DesignerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
     }
 
-    @PostMapping("/designer/bankaccount")
+    @PostMapping("/designers/bankaccount")
     public void addCreditCardToCustomer(@RequestBody BankAccountDto bankAccountDto) {
         try {
             designerService.addBankAccount(bankAccountDto);
         } catch (DesignerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
 }

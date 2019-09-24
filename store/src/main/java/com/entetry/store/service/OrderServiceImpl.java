@@ -33,6 +33,7 @@ public class OrderServiceImpl {
             orderRepository.save(orderMapper.toOrder(orderDto));
         } catch (Exception e) {
             LOGGER.error("an exception occurred!", e);
+            throw e;
         }
     }
 
@@ -44,15 +45,18 @@ public class OrderServiceImpl {
             orderRepository.save(updatedOrder);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 
     @Transactional
-    public void delete(OrderDto orderDto) {
+    public void delete(String id) {
+        Order order = orderRepository.findById(Long.parseLong(id)).orElseThrow(OrderNotFoundException::new);
         try {
-            orderRepository.delete(orderMapper.toOrder(orderDto));
+            orderRepository.delete(order);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
+            throw e;
         }
     }
 

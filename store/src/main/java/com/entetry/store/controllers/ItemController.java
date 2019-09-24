@@ -21,49 +21,58 @@ public class ItemController {
         this.itemService = itemService;
     }
 
-    @GetMapping("/item")
+    @GetMapping("/items")
     public List<ItemDto> getAllUsers() {
         return itemService.getAllItems();
     }
 
-    @PostMapping("/item")
+    @PostMapping("/items")
     public void create(@RequestBody ItemDto itemDto) {
         try {
             itemService.create(itemDto);
-        } catch (ItemNotFoundException exc) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        } catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
 
-    @DeleteMapping("/item")
-    public void delete(@RequestBody ItemDto itemDto) {
+    @DeleteMapping("/items/{id}")
+    public void delete(@PathVariable String id) {
         try {
-            itemService.delete(itemDto);
+            itemService.delete(id);
         } catch (ItemNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
     }
 
-    @PutMapping("/item")
+    @PutMapping("/items")
     public void update(@RequestBody ItemDto itemDto) {
         try {
             itemService.update(itemDto);
         } catch (ItemNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
     }
 
-    @GetMapping("/item/subcategory")
+    @GetMapping("/items/subcategory")
     public List<SubcategoryDto> getAllSubcategories() {
         return itemService.getAllSubcategories();
     }
 
-    @PostMapping("item/size")
+    @PostMapping("items/size")
     public void addSizeToItem(@RequestBody ItemSizeDto itemSizeDto) {
         try {
             itemService.addSizeToItem(itemSizeDto);
         } catch (ItemNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
 }

@@ -20,35 +20,41 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @GetMapping("/order")
+    @GetMapping("/orders")
     public List<OrderDto> getAllOrders() {
         return orderService.getAllOrders();
     }
 
-    @PostMapping("/order")
+    @PostMapping("/orders")
     public void create(@RequestBody OrderDto orderDto) {
         try {
             orderService.create(orderDto);
-        } catch (OrderNotFoundException exc) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        } catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
 
-    @DeleteMapping("/order")
-    public void delete(@RequestBody OrderDto orderDto) {
+    @DeleteMapping("/orders/{id}")
+    public void delete(@PathVariable String id) {
         try {
-            orderService.delete(orderDto);
+            orderService.delete(id);
         } catch (OrderNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
     }
 
-    @PutMapping("/order")
+    @PutMapping("/orders")
     public void update(@RequestBody OrderDto orderDto) {
         try {
             orderService.update(orderDto);
         } catch (OrderNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }
     }
 }
