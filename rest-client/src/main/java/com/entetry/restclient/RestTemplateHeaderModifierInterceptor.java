@@ -18,9 +18,10 @@ public class RestTemplateHeaderModifierInterceptor  implements ClientHttpRequest
             byte[] body,
             ClientHttpRequestExecution execution) throws IOException {
         if(!request.getHeaders().containsKey("AuthorizationRequest")){
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        UserDetailsDto userDetailsDto = (UserDetailsDto) securityContext.getAuthentication().getPrincipal();
-        request.getHeaders().add("UserId",userDetailsDto.getUserId().toString());
+            SecurityContext securityContext = SecurityContextHolder.getContext();
+            UserDetailsDto userDetailsDto = (UserDetailsDto) securityContext.getAuthentication().getPrincipal();
+            request.getHeaders().add("UserId",userDetailsDto.getUserId().toString());
+            System.out.println("ADD HEADER USERID" + userDetailsDto.getUserId());
         }
         return execution.execute(request,body);
     }

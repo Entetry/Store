@@ -26,7 +26,7 @@ public class UserDetailsDto implements UserDetails {
     @JsonProperty
     private Long userId;
 
-    public UserDetailsDto(){}
+    private UserDetailsDto(){}
     public UserDetailsDto(Long userId,String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
         if (username != null && !"".equals(username) && password != null) {
             this.username = username;
@@ -49,70 +49,70 @@ public class UserDetailsDto implements UserDetails {
         return userId;
     }
 
-    public void setUserId(Long userId) {
-        userId = userId;
-    }
+//    public void setUserId(Long userId) {
+//        this.userId = userId;
+//    }
 
     @Override
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
     @Override
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
 
     @Override
     public Set<GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Set<GrantedAuthority> authorities) {
-        this.authorities = authorities;
-    }
+//    public void setAuthorities(Set<GrantedAuthority> authorities) {
+//        this.authorities = authorities;
+//    }
 
     @Override
     public boolean isAccountNonExpired() {
         return accountNonExpired;
     }
 
-    public void setAccountNonExpired(boolean accountNonExpired) {
-        this.accountNonExpired = accountNonExpired;
-    }
+//    public void setAccountNonExpired(boolean accountNonExpired) {
+//        this.accountNonExpired = accountNonExpired;
+//    }
 
     @Override
     public boolean isAccountNonLocked() {
         return accountNonLocked;
     }
 
-    public void setAccountNonLocked(boolean accountNonLocked) {
-        this.accountNonLocked = accountNonLocked;
-    }
+//    public void setAccountNonLocked(boolean accountNonLocked) {
+//        this.accountNonLocked = accountNonLocked;
+//    }
 
     @Override
     public boolean isCredentialsNonExpired() {
         return credentialsNonExpired;
     }
 
-    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-        this.credentialsNonExpired = credentialsNonExpired;
-    }
+//    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+//        this.credentialsNonExpired = credentialsNonExpired;
+//    }
 
     @Override
     public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+//    public void setEnabled(boolean enabled) {
+//        this.enabled = enabled;
+//    }
 }

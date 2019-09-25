@@ -8,6 +8,7 @@ import com.entetry.storecommon.dto.UserDetailsDto;
 import com.entetry.storecommon.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -27,6 +28,8 @@ public class UserController {
 
     @GetMapping("/users")
     public List<UserDto> getAllUsers() {
+        System.out.println("We are here");
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
         return userService.getAllUsers();
     }
 
@@ -66,7 +69,7 @@ public class UserController {
     @ResponseBody
     public UserDetailsDto getUserDetails(@RequestParam String username) {
         try {
-           return  userDetailsMapper.toUserDetailsDto(userDetailsService.loadUserByUsername(username));
+           return  userDetailsService.loadUserByUsername(username);
         } catch (UserNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }

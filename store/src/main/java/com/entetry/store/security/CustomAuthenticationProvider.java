@@ -12,25 +12,32 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
     private final UserRepository userRepository;
+    private final EntityManagerFactory entityManagerFactory;
     @Autowired
-    public CustomAuthenticationProvider(UserRepository userRepository) {
+    public CustomAuthenticationProvider(UserRepository userRepository,EntityManagerFactory entityManagerFactory) {
         super();
-        this.userRepository=userRepository;
+        this.userRepository = userRepository;
+
+        this.entityManagerFactory = entityManagerFactory;
     }
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         CustomAuthentication customAuthenticatiom = (CustomAuthentication) authentication;
         Long userId = customAuthenticatiom.getUserId();
         User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
         Collection<? extends GrantedAuthority> authorities = user.getRoles().stream()
                 .flatMap(x -> x.getAuthorities().stream())
                 .map(authority -> new SimpleGrantedAuthority(authority.getName())).collect(Collectors.toList());
+        entityManager.close();
         return new CustomAuthentication(user.getUsername(),user.getPasswordHash(),userId,authorities);
     }
 

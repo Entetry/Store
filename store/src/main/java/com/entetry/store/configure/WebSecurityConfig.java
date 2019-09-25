@@ -1,5 +1,6 @@
 package com.entetry.store.configure;
 
+import com.entetry.store.security.CustomAuthenticationProvider;
 import com.entetry.store.security.MySavedRequestAwareAuthenticationSuccessHandler;
 import com.entetry.store.security.RequestFiler;
 import com.entetry.store.service.CustomUserDetailsService;
@@ -31,22 +32,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //    private AuthenticationSuccessHandlerImpl successHandler;
     private final DataSource dataSource;
     private MySavedRequestAwareAuthenticationSuccessHandler mySuccessHandler;
-
+    private final CustomAuthenticationProvider customAuthenticationProvider;
     @Autowired
-    public WebSecurityConfig(CustomUserDetailsService detailsService, DataSource dataSource, MySavedRequestAwareAuthenticationSuccessHandler mySuccessHandler) {
+    public WebSecurityConfig(CustomAuthenticationProvider customAuthenticationProvider,
+                             CustomUserDetailsService detailsService, DataSource dataSource,
+                             MySavedRequestAwareAuthenticationSuccessHandler mySuccessHandler) {
         super();
         this.userDetailsService = detailsService;
         this.dataSource = dataSource;
         this.mySuccessHandler = mySuccessHandler;
+        this.customAuthenticationProvider=customAuthenticationProvider;
         SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
     }
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
-                .passwordEncoder(encoder());
-//                .and()
-//                .authenticationProvider(authenticationProvider())
+                .passwordEncoder(encoder())
+                .and()
+                .authenticationProvider(customAuthenticationProvider);
+
 //
 //                .jdbcAuthentication()
 //                .dataSource(dataSource);
@@ -55,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-        http.addFilterBefore(new RequestFiler(), BasicAuthenticationFilter.class).csrf().disable().authorizeRequests()
+        http.addFilterBefore(new RequestFiler(authenticationManager()), BasicAuthenticationFilter.class).csrf().disable().authorizeRequests()
                 .antMatchers("/login")
                 .permitAll()
                 .antMatchers("/user").permitAll()
@@ -64,7 +69,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
     }
-
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         final DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
