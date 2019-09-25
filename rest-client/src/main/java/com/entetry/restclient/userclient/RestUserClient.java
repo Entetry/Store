@@ -2,7 +2,6 @@ package com.entetry.restclient.userclient;
 
 import com.entetry.storecommon.dto.UserDetailsDto;
 import com.entetry.storecommon.dto.UserDto;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
@@ -18,11 +17,9 @@ import java.util.List;
 @Service
 public class RestUserClient implements UserDetailsService {
     private final RestTemplate restTemplate;
-    private final ObjectMapper objectMapper;
     @Autowired
-    public RestUserClient(RestTemplate template,ObjectMapper objectMapper) {
+    public RestUserClient(RestTemplate template) {
         this.restTemplate = template;
-        this.objectMapper=objectMapper;
     }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

@@ -22,7 +22,7 @@ public class ItemController {
     }
 
     @GetMapping("/items")
-    public List<ItemDto> getAllUsers() {
+    public List<ItemDto> getAllItems() {
         return itemService.getAllItems();
     }
 

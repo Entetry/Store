@@ -64,6 +64,9 @@ public class AppConfig {
         if (env.getProperty("hibernate.show_sql") != null) {
             hibernateProperties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         }
+        if (env.getProperty("spring.jpa.properties.hibernate.enable_lazy_load_no_trans") != null) {
+            hibernateProperties.setProperty("spring.jpa.properties.hibernate.enable_lazy_load_no_trans", env.getProperty("spring.jpa.properties.hibernate.enable_lazy_load_no_trans"));
+        }
         return hibernateProperties;
     }
 }

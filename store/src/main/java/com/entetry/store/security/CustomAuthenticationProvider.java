@@ -11,8 +11,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -28,16 +28,15 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         this.entityManagerFactory = entityManagerFactory;
     }
+    @Transactional
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         CustomAuthentication customAuthenticatiom = (CustomAuthentication) authentication;
         Long userId = customAuthenticatiom.getUserId();
         User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
         Collection<? extends GrantedAuthority> authorities = user.getRoles().stream()
                 .flatMap(x -> x.getAuthorities().stream())
                 .map(authority -> new SimpleGrantedAuthority(authority.getName())).collect(Collectors.toList());
-        entityManager.close();
         return new CustomAuthentication(user.getUsername(),user.getPasswordHash(),userId,authorities);
     }
 

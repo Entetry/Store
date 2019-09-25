@@ -1,6 +1,8 @@
 package com.entetry.storecommon.dto;
 
+import com.entetry.storecommon.deserializer.CustomAuthorityDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -70,7 +72,7 @@ public class UserDetailsDto implements UserDetails {
 //    public void setUsername(String username) {
 //        this.username = username;
 //    }
-
+    @JsonDeserialize(using = CustomAuthorityDeserializer.class)
     @Override
     public Set<GrantedAuthority> getAuthorities() {
         return authorities;
