@@ -4,10 +4,11 @@ import com.entetry.storecommon.dto.ItemDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-
+@Service
 public class RestItemClient {
     private final RestTemplate restTemplate;
     @Autowired
@@ -24,4 +25,5 @@ public class RestItemClient {
                 });
         return response.getBody();
     }
+
 }

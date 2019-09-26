@@ -6,6 +6,7 @@ import com.entetry.store.exception.ItemNotFoundException;
 import com.entetry.store.exception.SizeNotFoundException;
 import com.entetry.store.mapper.ItemMapper;
 import com.entetry.store.mapper.SubcategoryMapper;
+import com.entetry.store.persistense.ImageRepository;
 import com.entetry.store.persistense.ItemRepository;
 import com.entetry.store.persistense.SizeRepository;
 import com.entetry.store.persistense.SubcategoryRepository;
@@ -27,14 +28,18 @@ public class ItemServiceImpl {
     private final SubcategoryRepository subcategoryRepository;
     private final ItemMapper itemMapper;
     private final SubcategoryMapper subcategoryMapper;
+    private final ImageRepository imageRepository;
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ItemServiceImpl.class);
 
-    public ItemServiceImpl(SubcategoryMapper subcategoryMapper, ItemRepository itemRepository, SizeRepository sizeRepository, SubcategoryRepository subcategoryRepository, ItemMapper itemMapper) {
+    public ItemServiceImpl(SubcategoryMapper subcategoryMapper, ItemRepository itemRepository,
+                           SizeRepository sizeRepository, SubcategoryRepository subcategoryRepository,
+                           ItemMapper itemMapper,ImageRepository imageRepository) {
         this.itemRepository = itemRepository;
         this.sizeRepository = sizeRepository;
         this.subcategoryRepository = subcategoryRepository;
         this.itemMapper = itemMapper;
         this.subcategoryMapper = subcategoryMapper;
+        this.imageRepository=imageRepository;
     }
 
     @Transactional

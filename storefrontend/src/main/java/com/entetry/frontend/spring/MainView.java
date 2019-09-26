@@ -1,6 +1,7 @@
 package com.entetry.frontend.spring;
 
 import com.entetry.frontend.spring.view.ApplicationLayout;
+import com.entetry.frontend.spring.view.UserLayout;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
@@ -15,7 +16,8 @@ public class MainView extends AppLayout {
         Div logo = new Div(new H2("Store"));
         final VerticalLayout menuBar = new VerticalLayout();
         menuBar.add(new RouterLink(ApplicationLayout.TITLE, ApplicationLayout.class));;
-        addToNavbar(menuBar);
+        menuBar.add(new RouterLink(UserLayout.TITLE,UserLayout.class));
+        addToNavbar(logo,menuBar);
     }
 
 }

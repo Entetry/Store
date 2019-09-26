@@ -2,35 +2,29 @@ package com.entetry.frontend.spring.view;
 
 import com.entetry.frontend.spring.MainView;
 import com.entetry.restclient.itemclient.RestItemClient;
-import com.entetry.storecommon.dto.ImageDto;
-import com.entetry.storecommon.dto.ItemDto;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.orderedlayout.FlexLayout;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
-
-@Route(value = ApplicationLayout.ROUTE, layout = MainView.class)
-@RouteAlias(value = "", layout = MainView.class)
-public class ApplicationLayout extends VerticalLayout implements HasUrlParameter<String> {
-    public static final String ROUTE = "items";
-    public static final String TITLE = "Items";
+@Route(value = UserLayout.ROUTE, layout = MainView.class)
+@RouteAlias(value = "users", layout = MainView.class)
+public class UserLayout extends VerticalLayout implements HasUrlParameter<String>,RouterLayout{
+    public static final String ROUTE = "users";
+    public static final String TITLE = "Users";
     private final HorizontalLayout layout;
     private final VerticalLayout verticalLayout;
     private Div navigation;
     private Div content;
     @Autowired
     private RestItemClient restItemClient;
-    public ApplicationLayout() {
+    public UserLayout() {
         verticalLayout = new VerticalLayout();
         setPadding(false);
         setSpacing(false);
         setSizeFull();
-        setDefaultHorizontalComponentAlignment(Alignment.STRETCH);
+        setDefaultHorizontalComponentAlignment(FlexComponent.Alignment.STRETCH);
         final Div header = new Div();
         header.getStyle().set("flexShrink", "0");
         header.setText("HEADER. My height is 150 pixels");
@@ -43,7 +37,7 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
         layout.setHeightFull();
         layout.setSpacing(false);
         createTextLayout();
-        FlexLayout footerLayout = new FlexLayout();
+        HorizontalLayout footerLayout = new HorizontalLayout();
         final Div footer = new Div();
         footer.getStyle().set("flexShrink", "0");
         footer.setText("This is the footer area. My height is 100 pixels");
@@ -52,25 +46,22 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
         footer.setHeight("100px");
         footer.setWidthFull();
         footerLayout.add(footer);
-        footerLayout.setAlignItems(Alignment.END);
+        footerLayout.setAlignItems(FlexComponent.Alignment.END);
         footerLayout.setWidthFull();
+        footerLayout.setDefaultVerticalComponentAlignment(Alignment.END);
         verticalLayout.add(header,layout,footerLayout);
-    verticalLayout.expand(layout);
-      add(verticalLayout);
+        verticalLayout.expand(layout);
+        add(verticalLayout);
     }
-    private void createTextLayout() {
+
+    private void createNavigationLayout(){
         navigation = new Div();
         navigation.setClassName("navigation");
         navigation.setWidth("25%");
         navigation.getElement().getStyle().set("flex-shrink", "0");
-
-        Button button = new Button();
-        button.addClickListener(e -> {
-            setItems();
-        });
-        button.setText("ADD BLOCK");
-        navigation.add(button);
-
+    }
+    private void createTextLayout() {
+        createNavigationLayout();
         content = new Div();
         content.setHeightFull();
         content.setWidth("auto");
@@ -81,7 +72,7 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
 
         layout.add(navigation, content);
         layout.expand(content);
-        layout.setDefaultVerticalComponentAlignment(Alignment.STRETCH);
+        layout.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.STRETCH);
     }
 
     /**
@@ -90,15 +81,7 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
      * @return
      */
 
-    private void setItems(){
-        List<ItemDto> itemDtos = restItemClient.getAllItems();
-        for(ItemDto itemDto:itemDtos){
-            ImageDto imageDto = itemDto.getImages().stream().findFirst().get();
-            ItemView itemView = new ItemView(itemDto.getName(),imageDto.getUrl(),imageDto.getName());
-            content.add(itemView);
-        }
 
-    }
 
     @Override
     public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
@@ -106,21 +89,4 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
 //            updateUIForScroll();
 //        }
     }
-//
-//    private void updateUIForScroll() {
-//        final Button add = new Button("Add", e -> {
-//            content.add(createBlock());
-//        });
-//        navigation.setText(null);
-//        content.setText(null);
-//        navigation.add(add);
-//
-//        makeContentScrollable();
-//
-//    }
-//
-//    private void makeContentScrollable() {
-//        content.getStyle().set("flexWrap", "wrap");
-//        content.getStyle().set("overflowY", "auto");
-//    }
 }
