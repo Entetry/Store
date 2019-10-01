@@ -1,15 +1,17 @@
 package com.entetry.frontend.spring.view;
 
-import com.entetry.frontend.spring.MainView;
 import com.entetry.restclient.itemclient.RestItemClient;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.*;
+import com.vaadin.flow.router.BeforeEvent;
+import com.vaadin.flow.router.HasUrlParameter;
+import com.vaadin.flow.router.OptionalParameter;
+import com.vaadin.flow.router.RouterLayout;
 import org.springframework.beans.factory.annotation.Autowired;
-@Route(value = UserLayout.ROUTE, layout = MainView.class)
-@RouteAlias(value = "users", layout = MainView.class)
+//@Route(value = UserLayout.ROUTE, layout = MainView.class)
+//@RouteAlias(value = "users", layout = MainView.class)
 public class UserLayout extends VerticalLayout implements HasUrlParameter<String>,RouterLayout{
     public static final String ROUTE = "users";
     public static final String TITLE = "Users";

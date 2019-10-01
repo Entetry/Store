@@ -1,6 +1,5 @@
 package com.entetry.frontend.spring.view.userpages;
 
-import com.entetry.frontend.spring.view.UserLayout;
 import com.entetry.storecommon.dto.CustomerDto;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
@@ -12,13 +11,10 @@ import com.vaadin.flow.data.converter.StringToDateConverter;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteAlias;
 
-
-
-@Route(value = MyDetailsView.ROUTE, layout = UserLayout.class)
-@RouteAlias(value = "users", layout = UserLayout.class)
-public class MyDetailsView extends FormLayout implements HasUrlParameter<CustomerDto> {
+//
+@Route(value = MyDetailsView.ROUTE, layout = MyAccountView.class)
+public class MyDetailsView extends FormLayout implements HasUrlParameter<String> {
     public static final String ROUTE = "my-details";
     public static final String TITLE = "My details";
     private Binder<CustomerDto> binder = new Binder<>(CustomerDto.class);
@@ -32,7 +28,6 @@ public class MyDetailsView extends FormLayout implements HasUrlParameter<Custome
         HorizontalLayout buttons = new HorizontalLayout();
         buttons.add(button);
         verticalLayout.add(firstname,lastname,email,dateOfBirth,buttons);
-
         add(verticalLayout);
     }
     public void bind(){
@@ -43,7 +38,6 @@ public class MyDetailsView extends FormLayout implements HasUrlParameter<Custome
     }
 
     @Override
-    public void setParameter(BeforeEvent beforeEvent, CustomerDto customerDto) {
-        binder.setBean(customerDto);
+    public void setParameter(BeforeEvent beforeEvent, String customerId) {
     }
 }
