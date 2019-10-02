@@ -29,7 +29,7 @@ public class ItemDto implements Serializable {
     private List<ImageDto> images = new ArrayList<>();
     private List<ItemSizeDto> itemSizes = new ArrayList<>();
 
-    public List<ItemSizeDto> getItemSizes() {
+        public List<ItemSizeDto> getItemSizes() {
         return itemSizes;
     }
 

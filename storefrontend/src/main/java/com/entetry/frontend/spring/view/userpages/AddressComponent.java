@@ -23,9 +23,12 @@ public class AddressComponent extends HorizontalLayout {
     public AddressComponent(){
         VerticalLayout labels = new VerticalLayout();
         VerticalLayout buttons = new VerticalLayout();
+            firstnameLabel.setTitle("First name");
         labels.add(firstnameLabel,lastnameLabel,emailLabel,addressLabel,postIndexLabel,cityLabel,regionLabel,phoneLabel);
         buttons.add(edit,delete);
         add(labels,buttons);
+        bind();
+        edit.addClickListener(e->edit.getUI().ifPresent(ui->ui.navigate(AddressForm.class,adressDtoBinder.getBean().getId().toString())));
     }
     public void bind(){
         ReadOnlyHasValue<String> firstname = new ReadOnlyHasValue<>(text->firstnameLabel.setText(text));
@@ -37,12 +40,13 @@ public class AddressComponent extends HorizontalLayout {
         ReadOnlyHasValue<String>  region = new ReadOnlyHasValue<>(text-> regionLabel.setText(text));
         ReadOnlyHasValue<String> phone = new ReadOnlyHasValue<>(text->phoneLabel.setText(text));
         adressDtoBinder.forField(firstname).bind(AdressDto::getFirstname,null);
-        adressDtoBinder.forField(lastname).bind(AdressDto::getFirstname,null);
+        adressDtoBinder.forField(lastname).bind(AdressDto::getLastname,null);
         adressDtoBinder.forField(email).bind(AdressDto::getEmail,null);
         adressDtoBinder.forField(address).bind(AdressDto::getAdress,null);
         adressDtoBinder.forField(postIndex).bind(AdressDto::getPostIndex,null);
         adressDtoBinder.forField(city).bind(AdressDto::getCity,null);
         adressDtoBinder.forField(region).bind(AdressDto::getRegion,null);
+        adressDtoBinder.forField(phone).bind(AdressDto::getPhone,null);
     }
     public void setAddress(AdressDto address){
         adressDtoBinder.setBean(address);

@@ -22,6 +22,7 @@ public class CreditCardComponent extends HorizontalLayout {
         labels.add(idLabel,balanceLabel);
         buttons.add(edit,delete);
         add(labels,buttons);
+        bind();
     }
     public void bind(){
         ReadOnlyHasValue<String> id = new ReadOnlyHasValue<>(text->idLabel.setText(text));
@@ -29,5 +30,7 @@ public class CreditCardComponent extends HorizontalLayout {
         binder.forField(id).withConverter(new StringToLongConverter("CREDIT CARD COMPONENT")).bind(CreditCardDto::getId,null);
         binder.forField(balance).withConverter(new StringToBigDecimalConverter("CREDIT CARD COMPONENT balance")).bind(CreditCardDto::getBalance,null);
     }
-
+    public void setCreditCard(CreditCardDto creditCardDto){
+        binder.setBean(creditCardDto);
+    }
 }

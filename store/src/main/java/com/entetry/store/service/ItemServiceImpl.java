@@ -78,7 +78,9 @@ public class ItemServiceImpl {
     public List<ItemDto> getAllItems() {
         return StreamSupport.stream(itemRepository.findAll().spliterator(), false).map(itemMapper::toItemDto).collect(Collectors.toList());
     }
-
+    public ItemDto getItemByName(String name){
+        return itemMapper.toItemDto(itemRepository.getItemByName(name).orElseThrow(ItemNotFoundException::new));
+    }
     @Transactional
     public void addSizeToItem(ItemSizeDto itemSizeDto) {
         if (itemSizeDto.getQuantity() > 0) {

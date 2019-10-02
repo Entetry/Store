@@ -25,5 +25,12 @@ public class RestItemClient {
                 });
         return response.getBody();
     }
+    public ItemDto getItemByName(String name){
+        String resourceUrl = "http://localhost:9977/items/" + name;
+        ResponseEntity<ItemDto> response = restTemplate.exchange(resourceUrl, HttpMethod.GET,
+                null, new ParameterizedTypeReference<ItemDto>() {
+                });
 
+        return  response.getBody();
+    }
 }

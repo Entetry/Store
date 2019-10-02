@@ -1,6 +1,8 @@
 package com.entetry.store.controllers;
 
+import com.entetry.store.exception.AddressNotFoundException;
 import com.entetry.store.exception.CustomerNotFoundException;
+import com.entetry.store.service.AddressServiceImpl;
 import com.entetry.store.service.CustomerServiceImpl;
 import com.entetry.storecommon.dto.AdressDto;
 import com.entetry.storecommon.dto.CreditCardDto;
@@ -15,10 +17,11 @@ import java.util.List;
 @RestController
 public class CustomerController {
     private final CustomerServiceImpl customerService;
-
+    private final AddressServiceImpl addressService;
     @Autowired
-    public CustomerController(CustomerServiceImpl customerService) {
+    public CustomerController(CustomerServiceImpl customerService,AddressServiceImpl addressService) {
         this.customerService = customerService;
+        this.addressService=addressService;
     }
 
     @GetMapping("/customers")
@@ -30,7 +33,14 @@ public class CustomerController {
     public void create(@RequestBody CustomerDto customerDto) {
         customerService.create(customerDto);
     }
-
+    @GetMapping("/customers/{id}")
+    public CustomerDto getCustomerByUserId(@PathVariable String id){
+        try {
+            return customerService.getCustomerByUserId(id);
+        } catch (CustomerNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+    }
     @DeleteMapping("/customers/{id}")
     public void delete(@PathVariable String id) {
         try {
@@ -71,6 +81,26 @@ public class CustomerController {
     public void addCreditCardToCustomer(@RequestBody CreditCardDto creditCardDto) {
         try {
             customerService.addCreditCardtoCustomer(creditCardDto);
+        } catch (CustomerNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
+    }
+    //Address methods
+    @GetMapping("/customers/addresses/{id}")
+    public AdressDto getAddressById(@PathVariable String id){
+        try {
+            return addressService.getAddressById(id);
+        } catch (AddressNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+    }
+    @PostMapping("/customers/addresses")
+    public void saveOrUpdateAddress(@RequestBody AdressDto adressDto) {
+        try {
+            addressService.create(adressDto);
         } catch (CustomerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }

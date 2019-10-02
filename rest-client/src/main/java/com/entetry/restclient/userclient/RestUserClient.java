@@ -49,4 +49,5 @@ public class RestUserClient implements UserDetailsService {
 
         return response.getBody();
     }
+
 }

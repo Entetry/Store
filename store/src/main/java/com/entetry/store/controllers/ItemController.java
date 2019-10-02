@@ -63,7 +63,14 @@ public class ItemController {
     public List<SubcategoryDto> getAllSubcategories() {
         return itemService.getAllSubcategories();
     }
-
+    @GetMapping("items/{name}")
+    public ItemDto getItemByName(@PathVariable String name){
+        try {
+           return itemService.getItemByName(name);
+        } catch (ItemNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+    }
     @PostMapping("items/size")
     public void addSizeToItem(@RequestBody ItemSizeDto itemSizeDto) {
         try {

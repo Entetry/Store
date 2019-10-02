@@ -1,13 +1,14 @@
-package com.entetry.frontend.spring.view;
+package com.entetry.frontend.spring.view.itempages;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
-public class ItemView extends VerticalLayout {
+public class ItemComponent extends VerticalLayout {
     private Label nameLabel;
     private Image image;
-    public ItemView(String itemName,String url,String imageName){
+    public ItemComponent(String itemName, String url, String imageName){
     nameLabel = new Label();
     nameLabel.setText(itemName);
     image = new Image(url,imageName);
@@ -16,7 +17,7 @@ public class ItemView extends VerticalLayout {
     getStyle().set("margin", "4px");
     setWidth("30%");
     add(image,nameLabel);
-
+    addClickListener(e->UI.getCurrent().navigate(ItemView.class,itemName));
     }
 
     public String getLabelValue() {

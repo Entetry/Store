@@ -1,6 +1,7 @@
 package com.entetry.frontend.spring.view;
 
 import com.entetry.frontend.spring.MainView;
+import com.entetry.frontend.spring.view.itempages.ItemComponent;
 import com.entetry.restclient.itemclient.RestItemClient;
 import com.entetry.storecommon.dto.ImageDto;
 import com.entetry.storecommon.dto.ItemDto;
@@ -16,7 +17,7 @@ import java.util.List;
 
 @Route(value = ApplicationLayout.ROUTE, layout = MainView.class)
 @RouteAlias(value = "", layout = MainView.class)
-public class ApplicationLayout extends VerticalLayout implements HasUrlParameter<String> {
+public class ApplicationLayout extends VerticalLayout implements HasUrlParameter<String> ,BeforeEnterObserver {
     public static final String ROUTE = "items";
     public static final String TITLE = "Items";
     private final HorizontalLayout layout;
@@ -94,8 +95,8 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
         List<ItemDto> itemDtos = restItemClient.getAllItems();
         for(ItemDto itemDto:itemDtos){
             ImageDto imageDto = itemDto.getImages().stream().findFirst().get();
-            ItemView itemView = new ItemView(itemDto.getName(),imageDto.getUrl(),imageDto.getName());
-            content.add(itemView);
+            ItemComponent itemComponent = new ItemComponent(itemDto.getName(),imageDto.getUrl(),imageDto.getName());
+            content.add(itemComponent);
         }
 
     }
@@ -105,6 +106,11 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
 //        if ("scroll".equals(parameter)) {
 //            updateUIForScroll();
 //        }
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        setItems();
     }
 //
 //    private void updateUIForScroll() {

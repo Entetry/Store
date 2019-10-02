@@ -1,11 +1,14 @@
 package com.entetry.store.service;
 
 import com.entetry.store.entity.Customer;
+import com.entetry.store.entity.User;
 import com.entetry.store.exception.CustomerNotFoundException;
+import com.entetry.store.exception.UserNotFoundException;
 import com.entetry.store.mapper.AdressMapper;
 import com.entetry.store.mapper.CreditCardMapper;
 import com.entetry.store.mapper.CustomerMapper;
 import com.entetry.store.persistense.CustomerRepository;
+import com.entetry.store.persistense.UserRepository;
 import com.entetry.storecommon.dto.AdressDto;
 import com.entetry.storecommon.dto.CreditCardDto;
 import com.entetry.storecommon.dto.CustomerDto;
@@ -26,13 +29,16 @@ public class CustomerServiceImpl {
     private final CustomerMapper customerMapper;
     private final AdressMapper adressMapper;
     private final CreditCardMapper creditCardMapper;
-
+    private final UserRepository userRepository;
     @Autowired
-    public CustomerServiceImpl(CustomerRepository customerRepository, CustomerMapper customerMapper, AdressMapper adressMapper, CreditCardMapper creditCardMapper) {
+    public CustomerServiceImpl(CustomerRepository customerRepository, CustomerMapper customerMapper,
+                               AdressMapper adressMapper, CreditCardMapper creditCardMapper,
+                               UserRepository userRepository) {
         this.customerRepository = customerRepository;
         this.customerMapper = customerMapper;
         this.adressMapper = adressMapper;
         this.creditCardMapper = creditCardMapper;
+        this.userRepository= userRepository;
     }
 
     @Transactional
@@ -47,7 +53,7 @@ public class CustomerServiceImpl {
 
     @Transactional
     public void update(CustomerDto customerDto) {
-        Customer designer = customerRepository.findById(customerDto.getId()).orElseThrow(CustomerNotFoundException::new);
+        Customer customer = customerRepository.findById(customerDto.getId()).orElseThrow(CustomerNotFoundException::new);
         Customer updatedDesigner = customerMapper.toCustomer(customerDto);
         try {
             customerRepository.save(updatedDesigner);
@@ -55,6 +61,11 @@ public class CustomerServiceImpl {
             LOGGER.error("an exception occured!", e);
             throw e;
         }
+    }
+    @Transactional
+    public CustomerDto getCustomerByUserId(String id){
+        User user = userRepository.findById(Long.parseLong(id)).orElseThrow(UserNotFoundException::new);
+        return customerMapper.toCustomerDto(customerRepository.findCustomerByUser(user));
     }
 
     @Transactional
@@ -95,4 +106,5 @@ public class CustomerServiceImpl {
             throw e;
         }
     }
+
 }
