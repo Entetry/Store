@@ -54,9 +54,9 @@ public class CustomerServiceImpl {
     @Transactional
     public void update(CustomerDto customerDto) {
         Customer customer = customerRepository.findById(customerDto.getId()).orElseThrow(CustomerNotFoundException::new);
-        Customer updatedDesigner = customerMapper.toCustomer(customerDto);
+        Customer updatedCustomer = customerMapper.toCustomer(customerDto);
         try {
-            customerRepository.save(updatedDesigner);
+            customerRepository.save(updatedCustomer);
         } catch (Exception e) {
             LOGGER.error("an exception occured!", e);
             throw e;

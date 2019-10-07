@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class ItemDto implements Serializable {
     @JsonProperty
@@ -29,7 +30,22 @@ public class ItemDto implements Serializable {
     private List<ImageDto> images = new ArrayList<>();
     private List<ItemSizeDto> itemSizes = new ArrayList<>();
 
-        public List<ItemSizeDto> getItemSizes() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ItemDto itemDto = (ItemDto) o;
+        return getId().equals(itemDto.getId()) &&
+                getName().equals(itemDto.getName()) &&
+                getSex().equals(itemDto.getSex());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getSex());
+    }
+
+    public List<ItemSizeDto> getItemSizes() {
         return itemSizes;
     }
 

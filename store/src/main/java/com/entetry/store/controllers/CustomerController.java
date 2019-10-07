@@ -3,6 +3,7 @@ package com.entetry.store.controllers;
 import com.entetry.store.exception.AddressNotFoundException;
 import com.entetry.store.exception.CustomerNotFoundException;
 import com.entetry.store.service.AddressServiceImpl;
+import com.entetry.store.service.CreditCardServiceImpl;
 import com.entetry.store.service.CustomerServiceImpl;
 import com.entetry.storecommon.dto.AdressDto;
 import com.entetry.storecommon.dto.CreditCardDto;
@@ -18,10 +19,12 @@ import java.util.List;
 public class CustomerController {
     private final CustomerServiceImpl customerService;
     private final AddressServiceImpl addressService;
+    private final CreditCardServiceImpl creditCardService;
     @Autowired
-    public CustomerController(CustomerServiceImpl customerService,AddressServiceImpl addressService) {
+    public CustomerController(CustomerServiceImpl customerService,AddressServiceImpl addressService,CreditCardServiceImpl creditCardService) {
         this.customerService = customerService;
         this.addressService=addressService;
+        this.creditCardService=creditCardService;
     }
 
     @GetMapping("/customers")
@@ -101,6 +104,25 @@ public class CustomerController {
     public void saveOrUpdateAddress(@RequestBody AdressDto adressDto) {
         try {
             addressService.create(adressDto);
+        } catch (CustomerNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        }
+    }
+    @GetMapping("/customers/creditcards/{id}")
+    public CreditCardDto getCreditCardById(@PathVariable String id){
+        try {
+            return creditCardService.getCreditCardById(id);
+        } catch (AddressNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+    }
+    @PostMapping("/customers/creditcards")
+    public void saveOrUpdateCreditCard(@RequestBody CreditCardDto creditCardDto){
+        try {
+            creditCardService.create(creditCardDto);
         } catch (CustomerNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }

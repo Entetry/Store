@@ -23,9 +23,9 @@ public MyAccountView(){
     logo.addClickListener(e-> UI.getCurrent().navigate(ApplicationLayout.class));
     addToNavbar(logo);
     VerticalLayout accountMenu = new VerticalLayout();
-    accountMenu.add(new RouterLink(MyDetailsView.TITLE,MyDetailsView.class,userId));
-    accountMenu.add(new RouterLink(AddressBookView.TITLE,AddressBookView.class,userId));
-    accountMenu.add(new RouterLink(PaymentMethodsView.TITLE,PaymentMethodsView.class,userId));
+    accountMenu.add(new RouterLink(MyDetailsView.TITLE,MyDetailsView.class));
+    accountMenu.add(new RouterLink(AddressBookView.TITLE,AddressBookView.class));
+    accountMenu.add(new RouterLink(PaymentMethodsView.TITLE,PaymentMethodsView.class));
     this.addToDrawer(accountMenu);
 }
 }

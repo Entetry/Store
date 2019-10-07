@@ -22,6 +22,7 @@ public class CreditCardComponent extends HorizontalLayout {
         labels.add(idLabel,balanceLabel);
         buttons.add(edit,delete);
         add(labels,buttons);
+        edit.addClickListener(e->edit.getUI().ifPresent(ui->ui.navigate(CreditCardForm.class,binder.getBean().getId().toString())));
         bind();
     }
     public void bind(){

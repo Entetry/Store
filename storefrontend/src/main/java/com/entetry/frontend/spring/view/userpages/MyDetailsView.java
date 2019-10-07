@@ -10,15 +10,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.converter.StringToDateConverter;
-import com.vaadin.flow.router.BeforeEvent;
-import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 //
 @Route(value = MyDetailsView.ROUTE, layout = MyAccountView.class)
-public class MyDetailsView extends FormLayout implements HasUrlParameter<String> {
+public class MyDetailsView extends FormLayout {
     public static final String ROUTE = "my-details";
     public static final String TITLE = "My details";
     private Binder<CustomerDto> binder = new Binder<>(CustomerDto.class);
@@ -26,7 +24,7 @@ public class MyDetailsView extends FormLayout implements HasUrlParameter<String>
     private TextField lastname = new TextField("LAST NAME");
     private TextField email =  new TextField("EMAIL");
     private TextField dateOfBirth = new TextField("DATE OF BIRTH");
-    private Button button = new Button("SAVE CHANGES");
+    private Button saveButton = new Button("SAVE CHANGES");
     private final RestCustomerClient restCustomerClient;
     private CustomerDto customerDto;
     @Autowired
@@ -34,10 +32,13 @@ public class MyDetailsView extends FormLayout implements HasUrlParameter<String>
         this.restCustomerClient=restCustomerClient;
         VerticalLayout verticalLayout = new VerticalLayout();
         HorizontalLayout buttons = new HorizontalLayout();
-        buttons.add(button);
+        buttons.add(saveButton);
         verticalLayout.add(firstname,lastname,email,dateOfBirth,buttons);
         add(verticalLayout);
         setItems();
+        saveButton.addClickListener(event->
+                restCustomerClient.updateCustomer(binder.getBean())
+                );
     }
     private void bind(){
         binder.bind(firstname,CustomerDto::getFirstname,CustomerDto::setFirstname);
@@ -46,10 +47,6 @@ public class MyDetailsView extends FormLayout implements HasUrlParameter<String>
         binder.forField(dateOfBirth).withConverter(new StringToDateConverter()).bind(CustomerDto::getDateOfBirth,CustomerDto::setDateOfBirth);
     }
 
-    @Override
-    public void setParameter(BeforeEvent beforeEvent, String customerId) {
-
-    }
     private void setItems(){
         customerDto=restCustomerClient.getCustomerByUserId( ((UserDetailsDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
        binder.setBean(customerDto);

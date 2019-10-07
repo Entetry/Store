@@ -1,6 +1,7 @@
 package com.entetry.frontend.spring.view.itempages;
 
 import com.entetry.frontend.spring.MainView;
+import com.entetry.frontend.spring.service.ShoppingCardService;
 import com.entetry.restclient.itemclient.RestItemClient;
 import com.entetry.storecommon.dto.ItemDto;
 import com.entetry.storecommon.dto.SizeDto;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 
 @Route(value = ItemView.ROUTE, layout = MainView.class)
 public class ItemView extends VerticalLayout implements HasUrlParameter<String> {
-    public static final String ROUTE = "item";
+    public static final String ROUTE = "items";
     public static final String TITLE = "Item";
     private Label nameLabel =new Label();
     private Image image = new Image();
@@ -32,11 +33,13 @@ public class ItemView extends VerticalLayout implements HasUrlParameter<String> 
     private Label sexLabel = new Label();
     private Label designerLabel = new Label();
     private Button orderButton = new Button("Buy");
-    Binder<ItemDto> binder = new Binder<>();
+   private Binder<ItemDto> binder = new Binder<>();
     private final RestItemClient restItemClient;
+    private final ShoppingCardService shoppingCardService;
     @Autowired
-    public ItemView(RestItemClient restItemClient){
+    public ItemView(RestItemClient restItemClient,ShoppingCardService shoppingCardService){
         this.restItemClient= restItemClient;
+        this.shoppingCardService= shoppingCardService;
         VerticalLayout verticalLayout = new VerticalLayout();
         HorizontalLayout horizontalLayout = new HorizontalLayout();
         horizontalLayout.setSizeFull();
@@ -48,6 +51,9 @@ public class ItemView extends VerticalLayout implements HasUrlParameter<String> 
     horizontalLayout.add(image,verticalLayout);
         add(horizontalLayout,orderButton);
         System.out.println("BEFORE BIND");
+        orderButton.addClickListener(
+                event-> {shoppingCardService.addToShoppingCard(binder.getBean());
+        });
         bind();
     }
     public void bind(){

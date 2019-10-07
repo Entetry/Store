@@ -2,6 +2,7 @@ package com.entetry.frontend.spring.view.userpages;
 
 import com.entetry.restclient.customerclient.RestCustomerClient;
 import com.entetry.storecommon.dto.AdressDto;
+import com.entetry.storecommon.dto.CustomerDto;
 import com.entetry.storecommon.dto.UserDetailsDto;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -42,7 +43,13 @@ public class AddressForm extends VerticalLayout implements HasUrlParameter<Strin
         add(verticalLayout);
         saveAddress.addClickListener(event->{
            restCustomerClient.saveOrUpdateAddress(binder.getBean());
-            UI.getCurrent().navigate(AddressBookView.class, ((UserDetailsDto)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
+            UI.getCurrent().navigate(AddressBookView.class);
+        });
+        createAddressButton.addClickListener(event->{
+            CustomerDto customerDto = restCustomerClient.getCustomerByUserId(((UserDetailsDto)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
+            AdressDto adressDto = binder.getBean();
+            adressDto.setCustomer(customerDto);
+            restCustomerClient.saveOrUpdateAddress(binder.getBean());
         });
         bind();
     }
@@ -63,6 +70,7 @@ public class AddressForm extends VerticalLayout implements HasUrlParameter<Strin
     @Override
     public void setParameter(BeforeEvent beforeEvent, String addressId) {
         if("new".equals(addressId)){
+            binder.setBean(new AdressDto());
             deleteAddress.setVisible(false);
             saveAddress.setVisible(false);
         }

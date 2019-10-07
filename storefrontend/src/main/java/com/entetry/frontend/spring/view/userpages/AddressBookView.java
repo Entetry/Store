@@ -7,8 +7,6 @@ import com.entetry.storecommon.dto.UserDetailsDto;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.BeforeEvent;
-import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 @Route(value = AddressBookView.ROUTE, layout = MyAccountView.class)
 @RouteAlias(value = "addresses",layout = MyAccountView.class)
-public class AddressBookView extends VerticalLayout implements HasUrlParameter<String>{
+public class AddressBookView extends VerticalLayout {
     public static final String ROUTE = "addresses";
     public static final String TITLE = "ADDRESS BOOK";
     private Label addressBookLabel = new Label("ADDRESS BOOK");
@@ -33,10 +31,6 @@ public class AddressBookView extends VerticalLayout implements HasUrlParameter<S
 
     }
 
-    @Override
-    public void setParameter(BeforeEvent beforeEvent, String customerId) {
-
-    }
     private void setItems(){
         customerDto=restCustomerClient.getCustomerByUserId( ((UserDetailsDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
         for (AdressDto adressDto : customerDto.getAdresses()){
