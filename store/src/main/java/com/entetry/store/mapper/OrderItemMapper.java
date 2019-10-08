@@ -3,14 +3,11 @@ package com.entetry.store.mapper;
 import com.entetry.store.entity.Order;
 import com.entetry.store.entity.OrderItem;
 import com.entetry.store.entity.Size;
-import com.entetry.storecommon.dto.ItemDto;
 import com.entetry.storecommon.dto.OrderDto;
 import com.entetry.storecommon.dto.OrderItemDto;
 import com.entetry.storecommon.dto.SizeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.stream.Collectors;
 
 @Component
 public class OrderItemMapper {
@@ -42,7 +39,6 @@ public class OrderItemMapper {
         order.setCost(orderItem.getOrder().getCost());
         order.setDesigner(designerMapper.toDesignerDto(orderItem.getOrder().getDesigner()));
         orderItemDto.setOrder(order);
-        orderItemDto.setOfferPrice(orderItem.getOfferPrice());
         orderItemDto.setQuantity(orderItem.getQuantity());
         return orderItemDto;
     }
@@ -63,7 +59,6 @@ public class OrderItemMapper {
         order.setCost(orderItemDto.getOrder().getCost());
         order.setDesigner(designerMapper.toDesigner(orderItemDto.getOrder().getDesigner()));
         orderItem.setOrder(order);
-        orderItem.setOfferPrice(orderItemDto.getOfferPrice());
         orderItem.setQuantity(orderItemDto.getQuantity());
         return orderItem;
     }

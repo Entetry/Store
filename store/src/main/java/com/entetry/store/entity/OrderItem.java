@@ -1,7 +1,6 @@
 package com.entetry.store.entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -10,26 +9,24 @@ public class OrderItem {
     @EmbeddedId
     private OrderItemId id;
     @ManyToOne
-    @MapsId("order_id")
+    @JoinColumn(name="order_id",insertable = false,updatable = false)
     private Order order;
-    @ManyToOne
-    @MapsId("item_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id", insertable = false, updatable = false)
     private Item item;
-    @ManyToOne
-    @MapsId("size_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "size_id", insertable = false, updatable = false)
     private Size size;
-    @Column(name = "offer_price")
-    private BigDecimal offerPrice;
     @Column(name = "quantity")
     private int quantity;
-
     public OrderItem() {
     }
 
-    public OrderItem(Order order, Item item, Size size) {
+    public OrderItem(Order order, Item item, Size size,int quantity) {
         this.order = order;
         this.item = item;
         this.size = size;
+        this.quantity=quantity;
         this.id = new OrderItemId(order.getId(), item.getId(), size.getId());
     }
 
@@ -78,14 +75,6 @@ public class OrderItem {
 
     public void setSize(Size size) {
         this.size = size;
-    }
-
-    public BigDecimal getOfferPrice() {
-        return offerPrice;
-    }
-
-    public void setOfferPrice(BigDecimal offerPrice) {
-        this.offerPrice = offerPrice;
     }
 
     public int getQuantity() {

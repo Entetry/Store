@@ -46,8 +46,7 @@ public class ItemMapper {
         item.setPrice(itemDto.getPrice());
         item.setPublishDate(itemDto.getPublishDate());
         item.setSex(itemDto.getSex());
-        item.setSubcategory(subcategoryMapper.toSubcategory(itemDto.getSubcategory()));
-        //item.setImages(itemDto.getImages().stream().map(imageMapper::toImage).collect(Collectors.toList()));
+//        item.setSubcategory(subcategoryMapper.toSubcategory(itemDto.getSubcategory()));
         //item.setItemSizes(itemDto.getItemSizes().stream().map(itemSizeMapper::toItemSize).collect(Collectors.toList()));
         return item;
     }

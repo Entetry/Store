@@ -3,6 +3,7 @@ package com.entetry.store.controllers;
 import com.entetry.store.exception.OrderNotFoundException;
 import com.entetry.store.service.OrderServiceImpl;
 import com.entetry.storecommon.dto.OrderDto;
+import com.entetry.storecommon.dto.ShoppingCard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -26,9 +27,9 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public void create(@RequestBody OrderDto orderDto) {
+    public void create(@RequestBody ShoppingCard shoppingCard) {
         try {
-            orderService.create(orderDto);
+            orderService.create(shoppingCard);
         } catch (Exception e){
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
         }

@@ -9,7 +9,6 @@ import java.util.*;
 public class Order extends AbstractEntity {
     @Id
     @Column(name = "order_id")
-    @GeneratedValue
     private Long id;
     @Column(name = "order_date")
     private Date orderDate;
@@ -100,9 +99,10 @@ public class Order extends AbstractEntity {
         this.items = items;
     }
 
-    public void addItem(Item item, Size size) {
-        OrderItem orderItem = new OrderItem(this, item, size);
+    public void addItem(Item item, Size size,int quantity) {
+        OrderItem orderItem = new OrderItem(this, item, size,quantity);
         items.add(orderItem);
+
     }
 
     public void removeItem(Item item, Size size) {

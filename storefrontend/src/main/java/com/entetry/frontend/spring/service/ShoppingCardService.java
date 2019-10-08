@@ -1,5 +1,6 @@
 package com.entetry.frontend.spring.service;
 
+import com.entetry.restclient.orderclient.RestOrderClient;
 import com.entetry.storecommon.dto.ShoppingCard;
 import com.entetry.storecommon.dto.ItemDto;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,10 @@ import javax.servlet.http.HttpSession;
 
 @Service
 public class ShoppingCardService {
+    private  final RestOrderClient restOrderClient;
+    public ShoppingCardService(RestOrderClient restOrderClient){
+        this.restOrderClient=restOrderClient;
+    }
     public void addToShoppingCard(ItemDto itemDto){
         getShoppingCard().addItem(itemDto);
     }
@@ -29,6 +34,7 @@ public class ShoppingCardService {
         }
     }
     public void orderAllItems(){
-
+        getShoppingCard().getItems().forEach(itemDto -> itemDto.getItemSizes().forEach(itemSizeDto ->itemSizeDto.setItem(null)));
+        restOrderClient.createOrder(getShoppingCard());
     }
 }

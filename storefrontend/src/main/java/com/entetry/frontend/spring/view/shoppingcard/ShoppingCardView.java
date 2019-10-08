@@ -32,6 +32,12 @@ public class ShoppingCardView extends VerticalLayout implements AfterNavigationO
         HorizontalLayout horizontalLayout = new HorizontalLayout();
         horizontalLayout.add(shoppingCardLabel,orderButton);
         add(horizontalLayout);
+        orderButton.addClickListener(event->
+        {
+            System.out.println("ORDER BUTTON" +
+                    "");
+            shoppingCardService.orderAllItems();}
+        );
 
     }
     private void setItems(){

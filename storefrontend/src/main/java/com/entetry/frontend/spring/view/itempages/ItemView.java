@@ -4,6 +4,7 @@ import com.entetry.frontend.spring.MainView;
 import com.entetry.frontend.spring.service.ShoppingCardService;
 import com.entetry.restclient.itemclient.RestItemClient;
 import com.entetry.storecommon.dto.ItemDto;
+import com.entetry.storecommon.dto.ItemSizeDto;
 import com.entetry.storecommon.dto.SizeDto;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -19,6 +20,8 @@ import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Route(value = ItemView.ROUTE, layout = MainView.class)
@@ -32,7 +35,7 @@ public class ItemView extends VerticalLayout implements HasUrlParameter<String> 
     private Label priceLabel = new Label();
     private Label sexLabel = new Label();
     private Label designerLabel = new Label();
-    private Button orderButton = new Button("Buy");
+    private Button orderButton = new Button("Add to card");
    private Binder<ItemDto> binder = new Binder<>();
     private final RestItemClient restItemClient;
     private final ShoppingCardService shoppingCardService;
@@ -52,7 +55,12 @@ public class ItemView extends VerticalLayout implements HasUrlParameter<String> 
         add(horizontalLayout,orderButton);
         System.out.println("BEFORE BIND");
         orderButton.addClickListener(
-                event-> {shoppingCardService.addToShoppingCard(binder.getBean());
+                event-> {
+                    ItemDto itemDto = binder.getBean();
+                    List<ItemSizeDto> sizeDtos= new ArrayList<>();
+                    sizeDtos.add(new ItemSizeDto(itemDto,sizes.getValue(),1));
+                    itemDto.setItemSizes(sizeDtos);
+                    shoppingCardService.addToShoppingCard(itemDto);
         });
         bind();
     }
