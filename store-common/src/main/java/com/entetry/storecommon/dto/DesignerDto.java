@@ -17,7 +17,7 @@ public class DesignerDto implements Serializable {
     @JsonProperty
     private String designerAdress;
     @JsonProperty
-    private List<BankAccountDto> bankAccounts =new ArrayList<>();
+    private List<BankAccountDto> bankAccounts = new ArrayList<>();
 
     public List<BankAccountDto> getBankAccounts() {
         return bankAccounts;

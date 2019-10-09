@@ -47,18 +47,18 @@ public class OrderServiceImpl {
     @Autowired
     public OrderServiceImpl(OrderRepository orderRepository, OrderMapper orderMapper,
                             CustomerRepository customerRepository, CustomerMapper customerMapper,
-                            DesignerMapper designerMapper,DesignerRepository designerRepository,
-                            ItemMapper itemMapper,SizeMapper sizeMapper,
+                            DesignerMapper designerMapper, DesignerRepository designerRepository,
+                            ItemMapper itemMapper, SizeMapper sizeMapper,
                             UserRepository userRepository) {
         this.orderRepository = orderRepository;
         this.orderMapper = orderMapper;
         this.customerMapper = customerMapper;
         this.customerRepository = customerRepository;
-        this.designerMapper=designerMapper;
-        this.designerRepository=designerRepository;
+        this.designerMapper = designerMapper;
+        this.designerRepository = designerRepository;
         this.itemMapper = itemMapper;
-        this.sizeMapper=sizeMapper;
-        this.userRepository=userRepository;
+        this.sizeMapper = sizeMapper;
+        this.userRepository = userRepository;
     }
 
     @Transactional
@@ -66,22 +66,22 @@ public class OrderServiceImpl {
         List<ItemDto> items = shoppingCard.getItems();
         List<Order> orders = new ArrayList<>();
         List<DesignerDto> designers = items.stream().map(itemDto -> itemDto.getDesigner()).distinct().collect(Collectors.toList());
-        Long userId = ((CustomAuthentication)SecurityContextHolder.getContext().getAuthentication()).getUserId();
+        Long userId = ((CustomAuthentication) SecurityContextHolder.getContext().getAuthentication()).getUserId();
         User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
-        Customer customer  = customerRepository.findCustomerByUser(user);
+        Customer customer = customerRepository.findCustomerByUser(user);
         for (DesignerDto designerDto : designers) {
             Order order = new Order();
-            order.setId(ThreadLocalRandom.current().nextLong(1,100000));
+            order.setId(ThreadLocalRandom.current().nextLong(1, 100000));
             order.setDesigner(designerMapper.toDesigner(designerDto));
             orders.add(order);
         }
         for (ItemDto itemDto : items) {
             Order order = orders.stream().filter(order1 -> order1.getDesigner().getId().equals(itemDto.getDesigner().getId())).findFirst().get();
-            order.addItem(itemMapper.toItem(itemDto),sizeMapper.toSize(itemDto.getItemSizes().get(0).getSize()),itemDto.getItemSizes().get(0).getQuantity());
+            order.addItem(itemMapper.toItem(itemDto), sizeMapper.toSize(itemDto.getItemSizes().get(0).getSize()), itemDto.getItemSizes().get(0).getQuantity());
         }
-        for(Order order:orders){
-            BigDecimal totalCost=  BigDecimal.ZERO;
-            for(OrderItem orderItem : order.getItems()){
+        for (Order order : orders) {
+            BigDecimal totalCost = BigDecimal.ZERO;
+            for (OrderItem orderItem : order.getItems()) {
                 totalCost = totalCost.add(orderItem.getItem().getPrice());
             }
             order.setOrderStatus("Paid");
@@ -89,10 +89,9 @@ public class OrderServiceImpl {
             order.setCustomer(customer);
             order.setOrderDate(new Date());
             try {
-              order= orderRepository.save(order);
-            }
-            catch (Exception e){
-                LOGGER.error("Order creating exception!",e);
+                order = orderRepository.save(order);
+            } catch (Exception e) {
+                LOGGER.error("Order creating exception!", e);
                 throw e;
             }
         }

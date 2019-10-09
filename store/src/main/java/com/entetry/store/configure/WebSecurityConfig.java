@@ -33,6 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final DataSource dataSource;
     private MySavedRequestAwareAuthenticationSuccessHandler mySuccessHandler;
     private final CustomAuthenticationProvider customAuthenticationProvider;
+
     @Autowired
     public WebSecurityConfig(CustomAuthenticationProvider customAuthenticationProvider,
                              CustomUserDetailsService detailsService, DataSource dataSource,
@@ -41,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         this.userDetailsService = detailsService;
         this.dataSource = dataSource;
         this.mySuccessHandler = mySuccessHandler;
-        this.customAuthenticationProvider=customAuthenticationProvider;
+        this.customAuthenticationProvider = customAuthenticationProvider;
         SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
     }
 
@@ -69,6 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
     }
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         final DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();

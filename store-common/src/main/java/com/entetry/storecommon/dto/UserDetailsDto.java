@@ -14,22 +14,24 @@ public class UserDetailsDto implements UserDetails {
     @JsonProperty
     private String password;
     @JsonProperty
-    private  String username;
+    private String username;
     @JsonProperty
-    private  Set<GrantedAuthority> authorities;
+    private Set<GrantedAuthority> authorities;
     @JsonProperty
-    private  boolean accountNonExpired;
+    private boolean accountNonExpired;
     @JsonProperty
-    private  boolean accountNonLocked;
+    private boolean accountNonLocked;
     @JsonProperty
-    private  boolean credentialsNonExpired;
+    private boolean credentialsNonExpired;
     @JsonProperty
-    private  boolean enabled;
+    private boolean enabled;
     @JsonProperty
     private Long userId;
 
-    private UserDetailsDto(){}
-    public UserDetailsDto(Long userId,String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
+    private UserDetailsDto() {
+    }
+
+    public UserDetailsDto(Long userId, String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
         if (username != null && !"".equals(username) && password != null) {
             this.username = username;
             this.password = password;
@@ -43,8 +45,9 @@ public class UserDetailsDto implements UserDetails {
             throw new IllegalArgumentException("Cannot pass null or empty values to constructor");
         }
     }
-    public UserDetailsDto(Long userId,String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        this(userId,username, password, true, true, true, true, authorities);
+
+    public UserDetailsDto(Long userId, String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        this(userId, username, password, true, true, true, true, authorities);
     }
 
     public Long getUserId() {
@@ -69,7 +72,7 @@ public class UserDetailsDto implements UserDetails {
         return username;
     }
 
-//    public void setUsername(String username) {
+    //    public void setUsername(String username) {
 //        this.username = username;
 //    }
     @JsonDeserialize(using = CustomAuthorityDeserializer.class)

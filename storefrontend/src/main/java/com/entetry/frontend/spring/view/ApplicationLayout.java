@@ -17,7 +17,7 @@ import java.util.List;
 
 @Route(value = ApplicationLayout.ROUTE, layout = MainView.class)
 @RouteAlias(value = "", layout = MainView.class)
-public class ApplicationLayout extends VerticalLayout implements HasUrlParameter<String> ,BeforeEnterObserver {
+public class ApplicationLayout extends VerticalLayout implements HasUrlParameter<String>, BeforeEnterObserver {
     public static final String ROUTE = "items";
     public static final String TITLE = "Items";
     private final HorizontalLayout layout;
@@ -26,6 +26,7 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
     private Div content;
     @Autowired
     private RestItemClient restItemClient;
+
     public ApplicationLayout() {
         verticalLayout = new VerticalLayout();
         setPadding(false);
@@ -38,7 +39,7 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
         header.setClassName("header");
         header.setHeight("50px");
         header.setWidthFull();
-        header.getStyle().set("background","#42b3f5");
+        header.getStyle().set("background", "#42b3f5");
         setSizeFull();
         layout = new HorizontalLayout();
         layout.setHeightFull();
@@ -49,16 +50,17 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
         footer.getStyle().set("flexShrink", "0");
         footer.setText("This is the footer area. My height is 100 pixels");
         footer.setClassName("footer");
-        footer.getStyle().set("background","#42b3f5");
+        footer.getStyle().set("background", "#42b3f5");
         footer.setHeight("100px");
         footer.setWidthFull();
         footerLayout.add(footer);
         footerLayout.setAlignItems(Alignment.END);
         footerLayout.setWidthFull();
-        verticalLayout.add(header,layout,footerLayout);
-    verticalLayout.expand(layout);
-      add(verticalLayout);
+        verticalLayout.add(header, layout, footerLayout);
+        verticalLayout.expand(layout);
+        add(verticalLayout);
     }
+
     private void createTextLayout() {
         navigation = new Div();
         navigation.setClassName("navigation");
@@ -86,16 +88,16 @@ public class ApplicationLayout extends VerticalLayout implements HasUrlParameter
     }
 
     /**
-     * Ignore this method for now.
-     *
-     * @return
+     Ignore this method for now.
+
+     @return
      */
 
-    private void setItems(){
+    private void setItems() {
         List<ItemDto> itemDtos = restItemClient.getAllItems();
-        for(ItemDto itemDto:itemDtos){
+        for (ItemDto itemDto : itemDtos) {
             ImageDto imageDto = itemDto.getImages().stream().findFirst().get();
-            ItemComponent itemComponent = new ItemComponent(itemDto.getName(),imageDto.getUrl(),imageDto.getName());
+            ItemComponent itemComponent = new ItemComponent(itemDto.getName(), imageDto.getUrl(), imageDto.getName());
             content.add(itemComponent);
         }
 

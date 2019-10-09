@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserDetailsMapper {
-    public UserDetailsDto toUserDetailsDto(UserDetails userDetails){
-       // UserDetailsDto userDetailsDto = new UserDetailsDto();
+    public UserDetailsDto toUserDetailsDto(UserDetails userDetails) {
+        // UserDetailsDto userDetailsDto = new UserDetailsDto();
 //        userDetailsDto.setUsername(userDetails.getUsername());
 //        userDetailsDto.setPassword(userDetails.getPassword());
 //        userDetailsDto.setEnabled(userDetails.isEnabled());
@@ -15,6 +15,6 @@ public class UserDetailsMapper {
 //        userDetailsDto.setAccountNonLocked(userDetails.isAccountNonLocked());
 //        userDetailsDto.setCredentialsNonExpired(userDetails.isCredentialsNonExpired());
 //        userDetailsDto.setAuthorities(userDetails.getAuthorities().stream().map(detail->new SimpleGrantedAuthority(((GrantedAuthority) detail).getAuthority())).collect(Collectors.toSet()));
-       return null;
+        return null;
     }
 }

@@ -9,7 +9,7 @@ public class OrderItem {
     @EmbeddedId
     private OrderItemId id;
     @ManyToOne
-    @JoinColumn(name="order_id",insertable = false,updatable = false)
+    @JoinColumn(name = "order_id", insertable = false, updatable = false)
     private Order order;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id", insertable = false, updatable = false)
@@ -19,14 +19,15 @@ public class OrderItem {
     private Size size;
     @Column(name = "quantity")
     private int quantity;
+
     public OrderItem() {
     }
 
-    public OrderItem(Order order, Item item, Size size,int quantity) {
+    public OrderItem(Order order, Item item, Size size, int quantity) {
         this.order = order;
         this.item = item;
         this.size = size;
-        this.quantity=quantity;
+        this.quantity = quantity;
         this.id = new OrderItemId(order.getId(), item.getId(), size.getId());
     }
 

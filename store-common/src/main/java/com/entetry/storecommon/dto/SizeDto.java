@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SizeDto implements Serializable{
+public class SizeDto implements Serializable {
     @JsonProperty
     private Long id;
     @JsonProperty

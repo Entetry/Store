@@ -19,11 +19,12 @@ public class UserController {
     private final UserServiceImpl userService;
     private final CustomUserDetailsService userDetailsService;
     private final UserDetailsMapper userDetailsMapper;
+
     @Autowired
-    public UserController(UserServiceImpl userService,CustomUserDetailsService userDetailsService,UserDetailsMapper userDetailsMapper) {
+    public UserController(UserServiceImpl userService, CustomUserDetailsService userDetailsService, UserDetailsMapper userDetailsMapper) {
         this.userService = userService;
-        this.userDetailsService=userDetailsService;
-        this.userDetailsMapper=userDetailsMapper;
+        this.userDetailsService = userDetailsService;
+        this.userDetailsMapper = userDetailsMapper;
     }
 
     @GetMapping("/users")
@@ -36,9 +37,9 @@ public class UserController {
     @PostMapping("/users")
     public void create(@RequestBody UserDto userDto) {
         try {
-            userService.create(userDto);}
-        catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+            userService.create(userDto);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
 
@@ -48,9 +49,8 @@ public class UserController {
             userService.delete(id);
         } catch (UserNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
-        }
-        catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
 
@@ -60,21 +60,20 @@ public class UserController {
             userService.update(userDto);
         } catch (UserNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
-        }
-        catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
+
     @GetMapping("/users/userdetails")
     @ResponseBody
     public UserDetailsDto getUserDetails(@RequestParam String username) {
         try {
-           return  userDetailsService.loadUserByUsername(username);
+            return userDetailsService.loadUserByUsername(username);
         } catch (UserNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
-        }
-        catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
 }

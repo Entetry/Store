@@ -30,6 +30,7 @@ public class CustomerServiceImpl {
     private final AdressMapper adressMapper;
     private final CreditCardMapper creditCardMapper;
     private final UserRepository userRepository;
+
     @Autowired
     public CustomerServiceImpl(CustomerRepository customerRepository, CustomerMapper customerMapper,
                                AdressMapper adressMapper, CreditCardMapper creditCardMapper,
@@ -38,7 +39,7 @@ public class CustomerServiceImpl {
         this.customerMapper = customerMapper;
         this.adressMapper = adressMapper;
         this.creditCardMapper = creditCardMapper;
-        this.userRepository= userRepository;
+        this.userRepository = userRepository;
     }
 
     @Transactional
@@ -62,8 +63,9 @@ public class CustomerServiceImpl {
             throw e;
         }
     }
+
     @Transactional
-    public CustomerDto getCustomerByUserId(String id){
+    public CustomerDto getCustomerByUserId(String id) {
         User user = userRepository.findById(Long.parseLong(id)).orElseThrow(UserNotFoundException::new);
         return customerMapper.toCustomerDto(customerRepository.findCustomerByUser(user));
     }

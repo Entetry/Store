@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
- * The entry point of the Spring Boot application.
+ The entry point of the Spring Boot application.
  */
 @SpringBootApplication(scanBasePackages = "com.entetry.frontend.spring")
 public class Application extends SpringBootServletInitializer {

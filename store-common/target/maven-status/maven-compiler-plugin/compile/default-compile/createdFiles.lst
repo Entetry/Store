@@ -7,6 +7,7 @@ com\entetry\storecommon\dto\UserDetailsDto.class
 com\entetry\storecommon\dto\RoleDto.class
 com\entetry\storecommon\dto\AuthorityDto.class
 com\entetry\storecommon\dto\OrderDto.class
+com\entetry\storecommon\deserializer\CustomAuthorityDeserializer.class
 com\entetry\storecommon\dto\ItemDto.class
 com\entetry\storecommon\dto\AdressDto.class
 com\entetry\storecommon\CustomAuthentication.class
@@ -14,6 +15,7 @@ com\entetry\storecommon\dto\SizeDto.class
 com\entetry\storecommon\dto\DesignerDto.class
 com\entetry\storecommon\dto\CustomerDto.class
 com\entetry\storecommon\dto\CategoryDto.class
+com\entetry\storecommon\dto\ShoppingCard.class
 com\entetry\storecommon\dto\ImageDto.class
 com\entetry\storecommon\dto\UserDto.class
 com\entetry\storecommon\dto\OrderItemDto.class

@@ -30,8 +30,8 @@ public class ItemController {
     public void create(@RequestBody ItemDto itemDto) {
         try {
             itemService.create(itemDto);
-        } catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
 
@@ -41,9 +41,8 @@ public class ItemController {
             itemService.delete(id);
         } catch (ItemNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
-        }
-        catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
 
@@ -53,9 +52,8 @@ public class ItemController {
             itemService.update(itemDto);
         } catch (ItemNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
-        }
-        catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
 
@@ -63,23 +61,24 @@ public class ItemController {
     public List<SubcategoryDto> getAllSubcategories() {
         return itemService.getAllSubcategories();
     }
+
     @GetMapping("items/{name}")
-    public ItemDto getItemByName(@PathVariable String name){
+    public ItemDto getItemByName(@PathVariable String name) {
         try {
-           return itemService.getItemByName(name);
+            return itemService.getItemByName(name);
         } catch (ItemNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
     }
+
     @PostMapping("items/size")
     public void addSizeToItem(@RequestBody ItemSizeDto itemSizeDto) {
         try {
             itemService.addSizeToItem(itemSizeDto);
         } catch (ItemNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
-        }
-        catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage(),e);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
 }

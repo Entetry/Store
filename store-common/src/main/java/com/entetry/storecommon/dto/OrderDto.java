@@ -79,7 +79,8 @@ public class OrderDto implements Serializable {
     public void setItems(List<OrderItemDto> items) {
         this.items = items;
     }
-    public void addItem(OrderItemDto orderItemDto){
+
+    public void addItem(OrderItemDto orderItemDto) {
         this.items.add(orderItemDto)
         ;
     }

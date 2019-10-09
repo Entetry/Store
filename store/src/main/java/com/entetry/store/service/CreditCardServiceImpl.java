@@ -16,11 +16,13 @@ public class CreditCardServiceImpl {
     private final CreditCardMapper creditCardMapper;
     private final CreditCardRepository creditCardRepository;
     private static final Logger LOGGER = LoggerFactory.getLogger(DesignerServiceImpl.class);
+
     @Autowired
-    public CreditCardServiceImpl(CreditCardMapper creditCardMapper, CreditCardRepository creditCardRepository){
-        this.creditCardMapper=creditCardMapper;
-        this.creditCardRepository=creditCardRepository;
+    public CreditCardServiceImpl(CreditCardMapper creditCardMapper, CreditCardRepository creditCardRepository) {
+        this.creditCardMapper = creditCardMapper;
+        this.creditCardRepository = creditCardRepository;
     }
+
     @Transactional
     public void create(CreditCardDto cardDto) {
         try {
@@ -42,8 +44,9 @@ public class CreditCardServiceImpl {
             throw e;
         }
     }
+
     @Transactional
-    public CreditCardDto getCreditCardById(String id){
+    public CreditCardDto getCreditCardById(String id) {
         return creditCardMapper.toCreditCardDto(creditCardRepository.findById(Long.parseLong(id)).orElseThrow(CreditCardNotFoundException::new));
     }
 

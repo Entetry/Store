@@ -17,9 +17,9 @@ public class MainView extends AppLayout {
         final HorizontalLayout menuBar = new HorizontalLayout();
         menuBar.add(new RouterLink(ApplicationLayout.TITLE, ApplicationLayout.class));
 //        menuBar.add( new Anchor(UI.getCurrent().getRouter().getUrl(MyAccountView.class),"My account"));
-        menuBar.add(new RouterLink(MyAccountView.TITLE,MyAccountView.class));
-        menuBar.add(new RouterLink(ShoppingCardView.TITLE,ShoppingCardView.class));
-        addToNavbar(logo,menuBar);
+        menuBar.add(new RouterLink(MyAccountView.TITLE, MyAccountView.class));
+        menuBar.add(new RouterLink(ShoppingCardView.TITLE, ShoppingCardView.class));
+        addToNavbar(logo, menuBar);
     }
 
 }

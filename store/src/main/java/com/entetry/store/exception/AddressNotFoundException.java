@@ -1,6 +1,6 @@
 package com.entetry.store.exception;
 
-public class AddressNotFoundException  extends MyResourceNotFoundException {
+public class AddressNotFoundException extends MyResourceNotFoundException {
     public AddressNotFoundException() {
         this("Address not found");
     }

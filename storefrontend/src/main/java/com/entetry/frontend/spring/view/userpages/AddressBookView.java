@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 @Route(value = AddressBookView.ROUTE, layout = MyAccountView.class)
-@RouteAlias(value = "addresses",layout = MyAccountView.class)
+@RouteAlias(value = "addresses", layout = MyAccountView.class)
 public class AddressBookView extends VerticalLayout {
     public static final String ROUTE = "addresses";
     public static final String TITLE = "ADDRESS BOOK";
@@ -21,19 +21,20 @@ public class AddressBookView extends VerticalLayout {
     private Button addAddressButton = new Button("ADD NEW ADDRESS");
     private final RestCustomerClient restCustomerClient;
     private CustomerDto customerDto;
+
     @Autowired
-    public AddressBookView(RestCustomerClient restCustomerClient){
-        this.restCustomerClient=restCustomerClient;
-        addAddressButton.addClickListener(e->addAddressButton.getUI().ifPresent(ui->ui.navigate(AddressForm.class,"new")));
-        add(addressBookLabel,addAddressButton);
+    public AddressBookView(RestCustomerClient restCustomerClient) {
+        this.restCustomerClient = restCustomerClient;
+        addAddressButton.addClickListener(e -> addAddressButton.getUI().ifPresent(ui -> ui.navigate(AddressForm.class, "new")));
+        add(addressBookLabel, addAddressButton);
         setItems();
 
 
     }
 
-    private void setItems(){
-        customerDto=restCustomerClient.getCustomerByUserId( ((UserDetailsDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
-        for (AdressDto adressDto : customerDto.getAdresses()){
+    private void setItems() {
+        customerDto = restCustomerClient.getCustomerByUserId(((UserDetailsDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
+        for (AdressDto adressDto : customerDto.getAdresses()) {
             AddressComponent addressComponent = new AddressComponent();
             addressComponent.setAddress(adressDto);
             add(addressComponent);

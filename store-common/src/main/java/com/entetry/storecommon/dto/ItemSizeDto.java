@@ -11,12 +11,18 @@ public class ItemSizeDto implements Serializable {
     private SizeDto size;
     @JsonProperty
     private int quantity;
-    public ItemSizeDto(){};
-    public ItemSizeDto(ItemDto item, SizeDto size,int quantity) {
+
+    public ItemSizeDto() {
+    }
+
+    ;
+
+    public ItemSizeDto(ItemDto item, SizeDto size, int quantity) {
         this.item = item;
         this.size = size;
-        this.quantity=quantity;
+        this.quantity = quantity;
     }
+
     public ItemDto getItem() {
         return item;
     }

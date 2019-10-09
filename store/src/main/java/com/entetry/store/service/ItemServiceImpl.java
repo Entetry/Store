@@ -33,13 +33,13 @@ public class ItemServiceImpl {
 
     public ItemServiceImpl(SubcategoryMapper subcategoryMapper, ItemRepository itemRepository,
                            SizeRepository sizeRepository, SubcategoryRepository subcategoryRepository,
-                           ItemMapper itemMapper,ImageRepository imageRepository) {
+                           ItemMapper itemMapper, ImageRepository imageRepository) {
         this.itemRepository = itemRepository;
         this.sizeRepository = sizeRepository;
         this.subcategoryRepository = subcategoryRepository;
         this.itemMapper = itemMapper;
         this.subcategoryMapper = subcategoryMapper;
-        this.imageRepository=imageRepository;
+        this.imageRepository = imageRepository;
     }
 
     @Transactional
@@ -78,9 +78,11 @@ public class ItemServiceImpl {
     public List<ItemDto> getAllItems() {
         return StreamSupport.stream(itemRepository.findAll().spliterator(), false).map(itemMapper::toItemDto).collect(Collectors.toList());
     }
-    public ItemDto getItemByName(String name){
+
+    public ItemDto getItemByName(String name) {
         return itemMapper.toItemDto(itemRepository.getItemByName(name).orElseThrow(ItemNotFoundException::new));
     }
+
     @Transactional
     public void addSizeToItem(ItemSizeDto itemSizeDto) {
         if (itemSizeDto.getQuantity() > 0) {

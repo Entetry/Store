@@ -22,34 +22,36 @@ public class MyDetailsView extends FormLayout {
     private Binder<CustomerDto> binder = new Binder<>(CustomerDto.class);
     private TextField firstname = new TextField("FIRST NAME");
     private TextField lastname = new TextField("LAST NAME");
-    private TextField email =  new TextField("EMAIL");
+    private TextField email = new TextField("EMAIL");
     private TextField dateOfBirth = new TextField("DATE OF BIRTH");
     private Button saveButton = new Button("SAVE CHANGES");
     private final RestCustomerClient restCustomerClient;
     private CustomerDto customerDto;
+
     @Autowired
-    public MyDetailsView(RestCustomerClient restCustomerClient){
-        this.restCustomerClient=restCustomerClient;
+    public MyDetailsView(RestCustomerClient restCustomerClient) {
+        this.restCustomerClient = restCustomerClient;
         VerticalLayout verticalLayout = new VerticalLayout();
         HorizontalLayout buttons = new HorizontalLayout();
         buttons.add(saveButton);
-        verticalLayout.add(firstname,lastname,email,dateOfBirth,buttons);
+        verticalLayout.add(firstname, lastname, email, dateOfBirth, buttons);
         add(verticalLayout);
         setItems();
-        saveButton.addClickListener(event->
+        saveButton.addClickListener(event ->
                 restCustomerClient.updateCustomer(binder.getBean())
-                );
-    }
-    private void bind(){
-        binder.bind(firstname,CustomerDto::getFirstname,CustomerDto::setFirstname);
-        binder.bind(lastname,CustomerDto::getLastname,CustomerDto::setLastname);
-        binder.bind(email,customerDto -> customerDto.getUser().getEmail(),(customerDto, s) -> customerDto.getUser().setEmail(s));
-        binder.forField(dateOfBirth).withConverter(new StringToDateConverter()).bind(CustomerDto::getDateOfBirth,CustomerDto::setDateOfBirth);
+        );
     }
 
-    private void setItems(){
-        customerDto=restCustomerClient.getCustomerByUserId( ((UserDetailsDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
-       binder.setBean(customerDto);
+    private void bind() {
+        binder.bind(firstname, CustomerDto::getFirstname, CustomerDto::setFirstname);
+        binder.bind(lastname, CustomerDto::getLastname, CustomerDto::setLastname);
+        binder.bind(email, customerDto -> customerDto.getUser().getEmail(), (customerDto, s) -> customerDto.getUser().setEmail(s));
+        binder.forField(dateOfBirth).withConverter(new StringToDateConverter()).bind(CustomerDto::getDateOfBirth, CustomerDto::setDateOfBirth);
+    }
+
+    private void setItems() {
+        customerDto = restCustomerClient.getCustomerByUserId(((UserDetailsDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
+        binder.setBean(customerDto);
         bind();
     }
 }

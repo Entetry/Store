@@ -13,18 +13,18 @@ public class CustomAuthentication extends AbstractAuthenticationToken {
     private Long userId;
 
     public CustomAuthentication(Long userId, Object principal, Object credentials) {
-        super((Collection)null);
+        super((Collection) null);
         this.principal = principal;
         this.credentials = credentials;
-        this.userId=userId;
+        this.userId = userId;
         this.setAuthenticated(false);
     }
 
-    public CustomAuthentication(Object principal, Object credentials, Long userId,Collection<? extends GrantedAuthority> authorities) {
+    public CustomAuthentication(Object principal, Object credentials, Long userId, Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
         this.principal = principal;
         this.credentials = credentials;
-        this.userId=userId;
+        this.userId = userId;
         super.setAuthenticated(true);
     }
 

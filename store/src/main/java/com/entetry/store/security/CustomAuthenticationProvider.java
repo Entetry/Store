@@ -21,13 +21,15 @@ import java.util.stream.Collectors;
 public class CustomAuthenticationProvider implements AuthenticationProvider {
     private final UserRepository userRepository;
     private final EntityManagerFactory entityManagerFactory;
+
     @Autowired
-    public CustomAuthenticationProvider(UserRepository userRepository,EntityManagerFactory entityManagerFactory) {
+    public CustomAuthenticationProvider(UserRepository userRepository, EntityManagerFactory entityManagerFactory) {
         super();
         this.userRepository = userRepository;
 
         this.entityManagerFactory = entityManagerFactory;
     }
+
     @Transactional
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -37,7 +39,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         Collection<? extends GrantedAuthority> authorities = user.getRoles().stream()
                 .flatMap(x -> x.getAuthorities().stream())
                 .map(authority -> new SimpleGrantedAuthority(authority.getName())).collect(Collectors.toList());
-        return new CustomAuthentication(user.getUsername(),user.getPasswordHash(),userId,authorities);
+        return new CustomAuthentication(user.getUsername(), user.getPasswordHash(), userId, authorities);
     }
 
     @Override

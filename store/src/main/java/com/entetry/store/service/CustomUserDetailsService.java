@@ -43,7 +43,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         Collection<? extends GrantedAuthority> authorities = user.getRoles().stream()
                 .flatMap(x -> x.getAuthorities().stream())
                 .map(authority -> new SimpleGrantedAuthority(authority.getName())).collect(Collectors.toList());
-        return new UserDetailsDto(user.getId(),user.getUsername(),user.getPasswordHash(),authorities);
+        return new UserDetailsDto(user.getId(), user.getUsername(), user.getPasswordHash(), authorities);
     }
 
 }

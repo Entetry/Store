@@ -23,7 +23,7 @@ public class AddressForm extends VerticalLayout implements HasUrlParameter<Strin
     private Binder<AdressDto> binder = new Binder<>(AdressDto.class);
     private TextField firstname = new TextField("FIRST NAME");
     private TextField lastname = new TextField("LAST NAME");
-    private TextField email =  new TextField("EMAIL");
+    private TextField email = new TextField("EMAIL");
     private TextField address = new TextField("ADDRESS");
     private TextField postIndex = new TextField("POST INDEX");
     private TextField city = new TextField("CITY");
@@ -32,50 +32,53 @@ public class AddressForm extends VerticalLayout implements HasUrlParameter<Strin
     private Button saveAddress = new Button("SAVE ADDRESS");
     private Button deleteAddress = new Button("DELETE ADDRESS");
     private Button createAddressButton = new Button("CREATE ADDRESS");
-    private  final RestCustomerClient restCustomerClient;
+    private final RestCustomerClient restCustomerClient;
+
     @Autowired
-    public AddressForm(RestCustomerClient restCustomerClient){
+    public AddressForm(RestCustomerClient restCustomerClient) {
         this.restCustomerClient = restCustomerClient;
         VerticalLayout verticalLayout = new VerticalLayout();
         HorizontalLayout buttons = new HorizontalLayout();
-        buttons.add(createAddressButton,saveAddress,deleteAddress);
-        verticalLayout.add(firstname,lastname,email,address,postIndex,city,region,phone,buttons);
+        buttons.add(createAddressButton, saveAddress, deleteAddress);
+        verticalLayout.add(firstname, lastname, email, address, postIndex, city, region, phone, buttons);
         add(verticalLayout);
-        saveAddress.addClickListener(event->{
-           restCustomerClient.saveOrUpdateAddress(binder.getBean());
+        saveAddress.addClickListener(event -> {
+            restCustomerClient.saveOrUpdateAddress(binder.getBean());
             UI.getCurrent().navigate(AddressBookView.class);
         });
-        createAddressButton.addClickListener(event->{
-            CustomerDto customerDto = restCustomerClient.getCustomerByUserId(((UserDetailsDto)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
+        createAddressButton.addClickListener(event -> {
+            CustomerDto customerDto = restCustomerClient.getCustomerByUserId(((UserDetailsDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
             AdressDto adressDto = binder.getBean();
             adressDto.setCustomer(customerDto);
             restCustomerClient.saveOrUpdateAddress(binder.getBean());
         });
         bind();
     }
-    public void bind(){
-        binder.bind(firstname, AdressDto::getFirstname,AdressDto::setFirstname);
-        binder.bind(lastname,AdressDto::getLastname,AdressDto::setLastname);
-        binder.bind(email,AdressDto::getEmail,AdressDto::setEmail);
-        binder.bind(address,AdressDto::getAdress,AdressDto::setAdress);
-        binder.bind(postIndex,AdressDto::getPostIndex,AdressDto::setPostIndex);
-        binder.bind(city,AdressDto::getCity,AdressDto::setCity);
-        binder.bind(region,AdressDto::getRegion,AdressDto::setRegion);
-        binder.bind(phone,AdressDto::getPhone,AdressDto::setPhone);
+
+    public void bind() {
+        binder.bind(firstname, AdressDto::getFirstname, AdressDto::setFirstname);
+        binder.bind(lastname, AdressDto::getLastname, AdressDto::setLastname);
+        binder.bind(email, AdressDto::getEmail, AdressDto::setEmail);
+        binder.bind(address, AdressDto::getAdress, AdressDto::setAdress);
+        binder.bind(postIndex, AdressDto::getPostIndex, AdressDto::setPostIndex);
+        binder.bind(city, AdressDto::getCity, AdressDto::setCity);
+        binder.bind(region, AdressDto::getRegion, AdressDto::setRegion);
+        binder.bind(phone, AdressDto::getPhone, AdressDto::setPhone);
     }
-    public void setAddress(AdressDto address){
+
+    public void setAddress(AdressDto address) {
         binder.setBean(address);
     }
 
     @Override
     public void setParameter(BeforeEvent beforeEvent, String addressId) {
-        if("new".equals(addressId)){
+        if ("new".equals(addressId)) {
             binder.setBean(new AdressDto());
             deleteAddress.setVisible(false);
             saveAddress.setVisible(false);
-        }
-        else {
+        } else {
             createAddressButton.setVisible(false);
-            binder.setBean(restCustomerClient.getAddressById(addressId));}
+            binder.setBean(restCustomerClient.getAddressById(addressId));
+        }
     }
 }

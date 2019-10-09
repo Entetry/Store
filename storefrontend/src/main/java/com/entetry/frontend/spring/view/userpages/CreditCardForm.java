@@ -23,23 +23,24 @@ import java.math.BigDecimal;
 public class CreditCardForm extends VerticalLayout implements HasUrlParameter<String> {
     public static final String ROUTE = "payment-methods/addCard";
     public static final String TITLE = "new Card";
-    private  final RestCustomerClient restCustomerClient;
+    private final RestCustomerClient restCustomerClient;
     private Binder<CreditCardDto> binder = new Binder<>(CreditCardDto.class);
     private TextField balance = new TextField("Balance");
     private Button saveCardButton = new Button("SAVE CARD");
     private Button deleteCardButton = new Button("DELETE CARD");
     private Button createCardButton = new Button("CREATE CARD");
+
     @Autowired
-    public CreditCardForm(RestCustomerClient restCustomerClient){
+    public CreditCardForm(RestCustomerClient restCustomerClient) {
         this.restCustomerClient = restCustomerClient;
         HorizontalLayout buttons = new HorizontalLayout();
-        buttons.add(createCardButton,saveCardButton,deleteCardButton);
+        buttons.add(createCardButton, saveCardButton, deleteCardButton);
         VerticalLayout verticalLayout = new VerticalLayout();
-        verticalLayout.add(balance,buttons);
+        verticalLayout.add(balance, buttons);
         add(verticalLayout);
-        saveCardButton.addClickListener( event->{
+        saveCardButton.addClickListener(event -> {
             restCustomerClient.saveOrUpdateCreditCard(binder.getBean());
-        UI.getCurrent().navigate(PaymentMethodsView.class);
+            UI.getCurrent().navigate(PaymentMethodsView.class);
         });
         createCardButton.addClickListener(buttonClickEvent -> {
             CustomerDto customerDto = restCustomerClient.getCustomerByUserId(((UserDetailsDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserId().toString());
@@ -49,22 +50,24 @@ public class CreditCardForm extends VerticalLayout implements HasUrlParameter<St
         });
         bind();
     }
+
     public void bind() {
         binder.forField(balance).
                 withConverter(new StringToBigDecimalConverter("CREDIT CARD FORM ")).
                 bind(CreditCardDto::getBalance, CreditCardDto::setBalance);
     }
+
     @Override
     public void setParameter(BeforeEvent beforeEvent, String cardId) {
-        if("new".equals(cardId)){
+        if ("new".equals(cardId)) {
             CreditCardDto creditCardDto = new CreditCardDto();
             deleteCardButton.setVisible(false);
             saveCardButton.setVisible(false);
             creditCardDto.setBalance(new BigDecimal("0.00"));
             binder.setBean(creditCardDto);
-        }
-        else {
+        } else {
             createCardButton.setVisible(false);
-            binder.setBean(restCustomerClient.getCreditCardById(cardId));}
+            binder.setBean(restCustomerClient.getCreditCardById(cardId));
+        }
     }
 }

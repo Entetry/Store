@@ -17,7 +17,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     public static final String ROUTE = "login";
     private LoginForm login = new LoginForm();
 
-    public LoginView(){
+    public LoginView() {
         login.setAction("login");
         getElement().appendChild(login.getElement());
     }
@@ -26,7 +26,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     public void beforeEnter(BeforeEnterEvent event) { //
         // inform the user about an authentication error
         // (yes, the API for resolving query parameters is annoying...)
-        if(!event.getLocation().getQueryParameters().getParameters().getOrDefault("error", Collections.emptyList()).isEmpty()) {
+        if (!event.getLocation().getQueryParameters().getParameters().getOrDefault("error", Collections.emptyList()).isEmpty()) {
             login.setError(true); //
         }
     }

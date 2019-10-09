@@ -7,6 +7,7 @@ C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\s
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\AuthorityDto.java
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\CustomerDto.java
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\UserDto.java
+C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\deserializer\CustomAuthorityDeserializer.java
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\SubcategoryDto.java
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\CategoryDto.java
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\CustomAuthentication.java
@@ -16,4 +17,5 @@ C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\s
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\CreditCardDto.java
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\ItemDto.java
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\OrderDto.java
+C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\ShoppingCard.java
 C:\Users\Entet\IdeaProjects\parentstore\store-common\src\main\java\com\entetry\storecommon\dto\AdressDto.java

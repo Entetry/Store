@@ -17,16 +17,18 @@ import java.util.List;
 @Service
 public class RestUserClient implements UserDetailsService {
     private final RestTemplate restTemplate;
+
     @Autowired
     public RestUserClient(RestTemplate template) {
         this.restTemplate = template;
     }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String resourceUrl = "http://localhost:9977/users/userdetails";
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
-        headers.set("AuthorizationRequest","authorization");
+        headers.set("AuthorizationRequest", "authorization");
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(resourceUrl)
                 .queryParam("username", username);
 
@@ -35,10 +37,11 @@ public class RestUserClient implements UserDetailsService {
         ResponseEntity<UserDetailsDto> response = restTemplate.exchange(builder.toUriString(), HttpMethod.GET,
                 entity, new ParameterizedTypeReference<UserDetailsDto>() {
                 });
-        UserDetailsDto userDetails=response.getBody();
+        UserDetailsDto userDetails = response.getBody();
         return userDetails;
     }
-    public List<UserDto> getAllUsers(){
+
+    public List<UserDto> getAllUsers() {
         String resourceUrl = "http://localhost:9977/users";
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);

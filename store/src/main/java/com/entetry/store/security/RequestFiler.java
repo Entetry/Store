@@ -16,23 +16,24 @@ import java.io.IOException;
 public class RequestFiler extends OncePerRequestFilter {
     private final AuthenticationManager authenticationManager;
 
-    public RequestFiler(AuthenticationManager authenticationManager){
-        this.authenticationManager= authenticationManager;
+    public RequestFiler(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
     }
+
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
 
-       if(httpServletRequest.getHeader("UserId") != null &&
-               (SecurityContextHolder.getContext().getAuthentication() == null ||
-                       !SecurityContextHolder.getContext().getAuthentication().isAuthenticated())) {
-           Long userId = Long.parseLong(httpServletRequest.getHeader("UserId"));
-           Authentication customAuthentication = new CustomAuthentication(userId,null,null);
-           customAuthentication= authenticationManager.authenticate(customAuthentication);
-           SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
-           securityContext.setAuthentication(customAuthentication);
-           SecurityContextHolder.setContext(securityContext);
-           System.out.println(((CustomAuthentication) SecurityContextHolder.getContext().getAuthentication()).getUserId());
-       }
-       filterChain.doFilter(httpServletRequest,httpServletResponse);
+        if (httpServletRequest.getHeader("UserId") != null &&
+                (SecurityContextHolder.getContext().getAuthentication() == null ||
+                        !SecurityContextHolder.getContext().getAuthentication().isAuthenticated())) {
+            Long userId = Long.parseLong(httpServletRequest.getHeader("UserId"));
+            Authentication customAuthentication = new CustomAuthentication(userId, null, null);
+            customAuthentication = authenticationManager.authenticate(customAuthentication);
+            SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
+            securityContext.setAuthentication(customAuthentication);
+            SecurityContextHolder.setContext(securityContext);
+            System.out.println(((CustomAuthentication) SecurityContextHolder.getContext().getAuthentication()).getUserId());
+        }
+        filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 }

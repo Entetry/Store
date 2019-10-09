@@ -23,10 +23,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String LOGIN_FAILURE_URL = "/login";
     private static final String LOGIN_URL = "/login";
     private static final String LOGOUT_SUCCESS_URL = "/login";
+    private static final String LOGIN_SUCCESS_URL = "/items";
     @Autowired
     private RestUserClient restUserClient;
+
     /**
-     * Require login to access internal pages and configure login form.
+     Require login to access internal pages and configure login form.
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -47,7 +49,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
 
                 // Configure the login page.
-                .and().formLogin().loginPage(LOGIN_URL).permitAll().loginProcessingUrl(LOGIN_PROCESSING_URL)
+                .and().formLogin().loginPage(LOGIN_URL).permitAll()
+                .loginProcessingUrl(LOGIN_PROCESSING_URL)
+                .defaultSuccessUrl(LOGIN_SUCCESS_URL, true)
                 .failureUrl(LOGIN_FAILURE_URL)
 
                 // Configure logout
@@ -63,12 +67,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .jdbcAuthentication()
 //                .dataSource(dataSource);
     }
+
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
     }
+
     /**
-     * Allows access to static resources, bypassing Spring security.
+     Allows access to static resources, bypassing Spring security.
      */
     @Override
     public void configure(WebSecurity web) throws Exception {

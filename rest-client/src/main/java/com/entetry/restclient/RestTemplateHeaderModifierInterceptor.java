@@ -10,19 +10,19 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.io.IOException;
 
-public class RestTemplateHeaderModifierInterceptor  implements ClientHttpRequestInterceptor {
+public class RestTemplateHeaderModifierInterceptor implements ClientHttpRequestInterceptor {
 
     @Override
     public ClientHttpResponse intercept(
             HttpRequest request,
             byte[] body,
             ClientHttpRequestExecution execution) throws IOException {
-        if(!request.getHeaders().containsKey("AuthorizationRequest")){
+        if (!request.getHeaders().containsKey("AuthorizationRequest")) {
             SecurityContext securityContext = SecurityContextHolder.getContext();
             UserDetailsDto userDetailsDto = (UserDetailsDto) securityContext.getAuthentication().getPrincipal();
-            request.getHeaders().add("UserId",userDetailsDto.getUserId().toString());
+            request.getHeaders().add("UserId", userDetailsDto.getUserId().toString());
             System.out.println("ADD HEADER USERID" + userDetailsDto.getUserId());
         }
-        return execution.execute(request,body);
+        return execution.execute(request, body);
     }
 }

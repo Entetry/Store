@@ -10,9 +10,10 @@ import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.RouterLayout;
 import org.springframework.beans.factory.annotation.Autowired;
+
 //@Route(value = UserLayout.ROUTE, layout = MainView.class)
 //@RouteAlias(value = "users", layout = MainView.class)
-public class UserLayout extends VerticalLayout implements HasUrlParameter<String>,RouterLayout{
+public class UserLayout extends VerticalLayout implements HasUrlParameter<String>, RouterLayout {
     public static final String ROUTE = "users";
     public static final String TITLE = "Users";
     private final HorizontalLayout layout;
@@ -21,6 +22,7 @@ public class UserLayout extends VerticalLayout implements HasUrlParameter<String
     private Div content;
     @Autowired
     private RestItemClient restItemClient;
+
     public UserLayout() {
         verticalLayout = new VerticalLayout();
         setPadding(false);
@@ -33,7 +35,7 @@ public class UserLayout extends VerticalLayout implements HasUrlParameter<String
         header.setClassName("header");
         header.setHeight("50px");
         header.setWidthFull();
-        header.getStyle().set("background","#42b3f5");
+        header.getStyle().set("background", "#42b3f5");
         setSizeFull();
         layout = new HorizontalLayout();
         layout.setHeightFull();
@@ -44,24 +46,25 @@ public class UserLayout extends VerticalLayout implements HasUrlParameter<String
         footer.getStyle().set("flexShrink", "0");
         footer.setText("This is the footer area. My height is 100 pixels");
         footer.setClassName("footer");
-        footer.getStyle().set("background","#42b3f5");
+        footer.getStyle().set("background", "#42b3f5");
         footer.setHeight("100px");
         footer.setWidthFull();
         footerLayout.add(footer);
         footerLayout.setAlignItems(FlexComponent.Alignment.END);
         footerLayout.setWidthFull();
         footerLayout.setDefaultVerticalComponentAlignment(Alignment.END);
-        verticalLayout.add(header,layout,footerLayout);
+        verticalLayout.add(header, layout, footerLayout);
         verticalLayout.expand(layout);
         add(verticalLayout);
     }
 
-    private void createNavigationLayout(){
+    private void createNavigationLayout() {
         navigation = new Div();
         navigation.setClassName("navigation");
         navigation.setWidth("25%");
         navigation.getElement().getStyle().set("flex-shrink", "0");
     }
+
     private void createTextLayout() {
         createNavigationLayout();
         content = new Div();
@@ -78,11 +81,10 @@ public class UserLayout extends VerticalLayout implements HasUrlParameter<String
     }
 
     /**
-     * Ignore this method for now.
-     *
-     * @return
-     */
+     Ignore this method for now.
 
+     @return
+     */
 
 
     @Override

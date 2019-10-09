@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="storefrontend" />
-        <module name="store" />
         <module name="restclient" />
+        <module name="store" />
         <module name="storecommon" />
       </profile>
     </annotationProcessing>

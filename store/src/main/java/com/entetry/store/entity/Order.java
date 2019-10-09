@@ -99,8 +99,8 @@ public class Order extends AbstractEntity {
         this.items = items;
     }
 
-    public void addItem(Item item, Size size,int quantity) {
-        OrderItem orderItem = new OrderItem(this, item, size,quantity);
+    public void addItem(Item item, Size size, int quantity) {
+        OrderItem orderItem = new OrderItem(this, item, size, quantity);
         items.add(orderItem);
 
     }

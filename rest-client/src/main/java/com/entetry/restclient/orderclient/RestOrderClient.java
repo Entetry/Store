@@ -13,11 +13,13 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RestOrderClient {
     private final RestTemplate restTemplate;
+
     @Autowired
     public RestOrderClient(RestTemplate template) {
         this.restTemplate = template;
     }
-    public void createOrder(ShoppingCard shoppingCard){
+
+    public void createOrder(ShoppingCard shoppingCard) {
         String resourceUrl = "http://localhost:9977/orders";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
