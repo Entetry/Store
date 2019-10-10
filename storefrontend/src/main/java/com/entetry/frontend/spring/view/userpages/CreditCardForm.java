@@ -1,5 +1,6 @@
 package com.entetry.frontend.spring.view.userpages;
 
+import com.entetry.frontend.spring.security.SecuredByRole;
 import com.entetry.restclient.customerclient.RestCustomerClient;
 import com.entetry.storecommon.dto.CreditCardDto;
 import com.entetry.storecommon.dto.CustomerDto;
@@ -18,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.math.BigDecimal;
-
+@SecuredByRole("CUSTOMER_AUTHORITY")
 @Route(value = CreditCardForm.ROUTE, layout = MyAccountView.class)
 public class CreditCardForm extends VerticalLayout implements HasUrlParameter<String> {
     public static final String ROUTE = "payment-methods/addCard";
@@ -27,14 +28,13 @@ public class CreditCardForm extends VerticalLayout implements HasUrlParameter<St
     private Binder<CreditCardDto> binder = new Binder<>(CreditCardDto.class);
     private TextField balance = new TextField("Balance");
     private Button saveCardButton = new Button("SAVE CARD");
-    private Button deleteCardButton = new Button("DELETE CARD");
     private Button createCardButton = new Button("CREATE CARD");
 
     @Autowired
     public CreditCardForm(RestCustomerClient restCustomerClient) {
         this.restCustomerClient = restCustomerClient;
         HorizontalLayout buttons = new HorizontalLayout();
-        buttons.add(createCardButton, saveCardButton, deleteCardButton);
+        buttons.add(createCardButton, saveCardButton);
         VerticalLayout verticalLayout = new VerticalLayout();
         verticalLayout.add(balance, buttons);
         add(verticalLayout);
@@ -61,7 +61,6 @@ public class CreditCardForm extends VerticalLayout implements HasUrlParameter<St
     public void setParameter(BeforeEvent beforeEvent, String cardId) {
         if ("new".equals(cardId)) {
             CreditCardDto creditCardDto = new CreditCardDto();
-            deleteCardButton.setVisible(false);
             saveCardButton.setVisible(false);
             creditCardDto.setBalance(new BigDecimal("0.00"));
             binder.setBean(creditCardDto);

@@ -7,7 +7,6 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ReadOnlyHasValue;
-
 public class AddressComponent extends HorizontalLayout {
     Binder<AdressDto> adressDtoBinder = new Binder<>(AdressDto.class);
     private Label firstnameLabel = new Label("FIRST NAME");

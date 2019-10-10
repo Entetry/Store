@@ -1,5 +1,6 @@
 package com.entetry.frontend.spring.view.userpages;
 
+import com.entetry.frontend.spring.security.SecuredByRole;
 import com.entetry.restclient.customerclient.RestCustomerClient;
 import com.entetry.storecommon.dto.CustomerDto;
 import com.entetry.storecommon.dto.UserDetailsDto;
@@ -14,7 +15,7 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-//
+@SecuredByRole("CUSTOMER_AUTHORITY")
 @Route(value = MyDetailsView.ROUTE, layout = MyAccountView.class)
 public class MyDetailsView extends FormLayout {
     public static final String ROUTE = "my-details";

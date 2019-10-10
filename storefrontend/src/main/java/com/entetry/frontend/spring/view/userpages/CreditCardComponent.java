@@ -1,5 +1,6 @@
 package com.entetry.frontend.spring.view.userpages;
 
+import com.entetry.restclient.customerclient.RestCustomerClient;
 import com.entetry.storecommon.dto.CreditCardDto;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
@@ -9,21 +10,24 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ReadOnlyHasValue;
 import com.vaadin.flow.data.converter.StringToBigDecimalConverter;
 import com.vaadin.flow.data.converter.StringToLongConverter;
-
 public class CreditCardComponent extends HorizontalLayout {
     Binder<CreditCardDto> binder = new Binder<>(CreditCardDto.class);
-    private Label idLabel = new Label("LAST NAME");
-    private Label balanceLabel = new Label("EMAIL");
+    private Label idLabel = new Label("ID");
+    private Label balanceLabel = new Label("BALANCE");
     private Button edit = new Button("EDIT");
     private Button delete = new Button("DELETE");
 
-    public CreditCardComponent() {
+    public CreditCardComponent(RestCustomerClient restCustomerClient,PaymentMethodsView paymentMethodsView) {
         VerticalLayout labels = new VerticalLayout();
         VerticalLayout buttons = new VerticalLayout();
         labels.add(idLabel, balanceLabel);
         buttons.add(edit, delete);
         add(labels, buttons);
         edit.addClickListener(e -> edit.getUI().ifPresent(ui -> ui.navigate(CreditCardForm.class, binder.getBean().getId().toString())));
+        delete.addClickListener(e->{
+            restCustomerClient.deleteCreditCard(binder.getBean().getId().toString());
+            paymentMethodsView.setItems();
+        });
         bind();
     }
 

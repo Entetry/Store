@@ -51,6 +51,7 @@ public class ShoppingCardView extends VerticalLayout implements AfterNavigationO
         HttpSession session = attrt.getRequest().getSession();
         if (session.getAttribute("Shopping Card") == null || ((ShoppingCard) session.getAttribute("Shopping Card")).getItems().size() == 0) {
             add(new Label("Your card is empty"));
+            orderButton.setVisible(false);
         } else {
             ShoppingCard shoppingCard = (ShoppingCard) session.getAttribute("Shopping Card");
             for (DesignerDto designer : shoppingCard.getItems().stream().map(itemDto -> itemDto.getDesigner()).distinct().collect(Collectors

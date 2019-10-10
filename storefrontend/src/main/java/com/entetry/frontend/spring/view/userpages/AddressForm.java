@@ -1,5 +1,6 @@
 package com.entetry.frontend.spring.view.userpages;
 
+import com.entetry.frontend.spring.security.SecuredByRole;
 import com.entetry.restclient.customerclient.RestCustomerClient;
 import com.entetry.storecommon.dto.AdressDto;
 import com.entetry.storecommon.dto.CustomerDto;
@@ -15,7 +16,7 @@ import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-
+@SecuredByRole("CUSTOMER_AUTHORITY")
 @Route(value = AddressForm.ROUTE, layout = MyAccountView.class)
 public class AddressForm extends VerticalLayout implements HasUrlParameter<String> {
     public static final String ROUTE = "addresses/addAddress";
@@ -51,6 +52,7 @@ public class AddressForm extends VerticalLayout implements HasUrlParameter<Strin
             AdressDto adressDto = binder.getBean();
             adressDto.setCustomer(customerDto);
             restCustomerClient.saveOrUpdateAddress(binder.getBean());
+            UI.getCurrent().navigate(AddressBookView.class);
         });
         bind();
     }

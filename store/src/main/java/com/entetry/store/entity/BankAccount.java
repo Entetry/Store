@@ -1,3 +1,4 @@
+
 package com.entetry.store.entity;
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import java.util.Objects;
 public class BankAccount extends AbstractEntity {
     @Id
     @GeneratedValue
-    @Column(name = "customer_id")
+    @Column(name = "bank_account_id")
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "designer_id")

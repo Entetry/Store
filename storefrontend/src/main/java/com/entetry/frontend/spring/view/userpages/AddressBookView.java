@@ -1,5 +1,6 @@
 package com.entetry.frontend.spring.view.userpages;
 
+import com.entetry.frontend.spring.security.SecuredByRole;
 import com.entetry.restclient.customerclient.RestCustomerClient;
 import com.entetry.storecommon.dto.AdressDto;
 import com.entetry.storecommon.dto.CustomerDto;
@@ -11,7 +12,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-
+@SecuredByRole("CUSTOMER_AUTHORITY")
 @Route(value = AddressBookView.ROUTE, layout = MyAccountView.class)
 @RouteAlias(value = "addresses", layout = MyAccountView.class)
 public class AddressBookView extends VerticalLayout {

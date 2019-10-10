@@ -1,7 +1,5 @@
-package com.entetry.frontend.spring.configure;
+package com.entetry.frontend.spring.security;
 
-import com.entetry.frontend.spring.security.CustomRequestCache;
-import com.entetry.frontend.spring.security.SecurityUtils;
 import com.entetry.restclient.userclient.RestUserClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

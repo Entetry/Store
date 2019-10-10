@@ -1,10 +1,13 @@
 package com.entetry.store.service;
 
 import com.entetry.store.entity.Designer;
+import com.entetry.store.entity.User;
 import com.entetry.store.exception.DesignerNotFoundException;
+import com.entetry.store.exception.UserNotFoundException;
 import com.entetry.store.mapper.BankAccountMapper;
 import com.entetry.store.mapper.DesignerMapper;
 import com.entetry.store.persistense.DesignerRepository;
+import com.entetry.store.persistense.UserRepository;
 import com.entetry.storecommon.dto.BankAccountDto;
 import com.entetry.storecommon.dto.DesignerDto;
 import org.slf4j.Logger;
@@ -23,12 +26,15 @@ public class DesignerServiceImpl {
     private final DesignerRepository designerRepository;
     private final DesignerMapper designerMapper;
     private final BankAccountMapper bankAccountMapper;
+    private final UserRepository userRepository;
 
     @Autowired
-    public DesignerServiceImpl(DesignerMapper designerMapper, DesignerRepository designerRepository, BankAccountMapper bankAccountMapper) {
+    public DesignerServiceImpl(DesignerMapper designerMapper, DesignerRepository designerRepository,
+                               BankAccountMapper bankAccountMapper,UserRepository userRepository) {
         this.designerRepository = designerRepository;
         this.designerMapper = designerMapper;
         this.bankAccountMapper = bankAccountMapper;
+        this.userRepository=userRepository;
     }
 
     @Transactional
@@ -39,6 +45,12 @@ public class DesignerServiceImpl {
             LOGGER.error("an exception occurred!", e);
             throw e;
         }
+    }
+
+    @Transactional
+    public DesignerDto getDesignerByUserId(String id) {
+        User user = userRepository.findById(Long.parseLong(id)).orElseThrow(UserNotFoundException::new);
+        return designerMapper.toDesignerDto(designerRepository.findDesignerByUser(user));
     }
 
     @Transactional

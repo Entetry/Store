@@ -1,6 +1,8 @@
 package com.entetry.store.controllers;
 
+import com.entetry.store.exception.BankAccountNotFoundException;
 import com.entetry.store.exception.DesignerNotFoundException;
+import com.entetry.store.service.BankAccountService;
 import com.entetry.store.service.DesignerServiceImpl;
 import com.entetry.storecommon.dto.BankAccountDto;
 import com.entetry.storecommon.dto.DesignerDto;
@@ -14,17 +16,25 @@ import java.util.List;
 @RestController
 public class DesignerController {
     private final DesignerServiceImpl designerService;
-
+    private final BankAccountService bankAccountService;
     @Autowired
-    public DesignerController(DesignerServiceImpl designerService) {
+    public DesignerController(DesignerServiceImpl designerService,BankAccountService bankAccountService) {
         this.designerService = designerService;
+        this.bankAccountService= bankAccountService;
     }
 
     @GetMapping("/designers")
     public List<DesignerDto> getAllDesigners() {
         return designerService.getAllDesigners();
     }
-
+    @GetMapping("/designers/{id}")
+    public DesignerDto getCustomerByUserId(@PathVariable String id) {
+        try {
+            return designerService.getDesignerByUserId(id);
+        } catch (DesignerNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+    }
     @PostMapping("/designers")
     public void create(@RequestBody DesignerDto designerDto) {
         try {
@@ -57,12 +67,30 @@ public class DesignerController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
-
-    @PostMapping("/designers/bankaccount")
-    public void addCreditCardToCustomer(@RequestBody BankAccountDto bankAccountDto) {
+    @GetMapping("/designers/bankaccounts/{id}")
+    public BankAccountDto getCreditCardById(@PathVariable String id) {
         try {
-            designerService.addBankAccount(bankAccountDto);
-        } catch (DesignerNotFoundException exc) {
+            return bankAccountService.getBankAccountById(id);
+        } catch (BankAccountNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+    }
+
+    @PostMapping("/designers/bankaccounts")
+    public void saveOrUpdateBankAccount(@RequestBody BankAccountDto bankAccountDto) {
+        try {
+            bankAccountService.create(bankAccountDto);
+        } catch (BankAccountNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+        }
+    }
+    @DeleteMapping("/designers/bankaccounts/{id}")
+    public void deleteBankAccount(@PathVariable String id){
+        try {
+            bankAccountService.delete(id);
+        } catch (BankAccountNotFoundException exc) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);

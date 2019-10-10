@@ -71,4 +71,12 @@ public class RestCustomerClient {
                 new HttpEntity<>(creditCardDto, headers), new ParameterizedTypeReference<CreditCardDto>() {
                 });
     }
+    public void deleteCreditCard(String id){
+        String resourceUrl = "http://localhost:9977/customers/creditcards/" + id;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        restTemplate.exchange(resourceUrl, HttpMethod.DELETE,
+                null, new ParameterizedTypeReference<CreditCardDto>() {
+                });
+    }
 }

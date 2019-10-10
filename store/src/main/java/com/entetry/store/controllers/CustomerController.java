@@ -1,6 +1,7 @@
 package com.entetry.store.controllers;
 
 import com.entetry.store.exception.AddressNotFoundException;
+import com.entetry.store.exception.CreditCardNotFoundException;
 import com.entetry.store.exception.CustomerNotFoundException;
 import com.entetry.store.service.AddressServiceImpl;
 import com.entetry.store.service.CreditCardServiceImpl;
@@ -120,7 +121,16 @@ public class CustomerController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
         }
     }
-
+    @DeleteMapping("/customers/creditcards/{id}")
+    public void deleteCreditCard(@PathVariable String id) {
+        try {
+            creditCardService.delete(id);
+        } catch (CreditCardNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
+        }
+    }
     @PostMapping("/customers/creditcards")
     public void saveOrUpdateCreditCard(@RequestBody CreditCardDto creditCardDto) {
         try {
