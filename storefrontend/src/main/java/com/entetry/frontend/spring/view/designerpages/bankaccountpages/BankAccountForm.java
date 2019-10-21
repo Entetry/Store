@@ -1,6 +1,7 @@
-package com.entetry.frontend.spring.view.designerpages;
+package com.entetry.frontend.spring.view.designerpages.bankaccountpages;
 
 import com.entetry.frontend.spring.security.SecuredByRole;
+import com.entetry.frontend.spring.view.designerpages.DesignerAccountView;
 import com.entetry.restclient.designerclient.RestDesignerClient;
 import com.entetry.storecommon.dto.BankAccountDto;
 import com.entetry.storecommon.dto.DesignerDto;

@@ -1,6 +1,7 @@
-package com.entetry.frontend.spring.view.userpages;
+package com.entetry.frontend.spring.view.userpages.creditcardpages;
 
 import com.entetry.frontend.spring.security.SecuredByRole;
+import com.entetry.frontend.spring.view.userpages.MyAccountView;
 import com.entetry.restclient.customerclient.RestCustomerClient;
 import com.entetry.storecommon.dto.CreditCardDto;
 import com.entetry.storecommon.dto.CustomerDto;

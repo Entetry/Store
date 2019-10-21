@@ -56,4 +56,12 @@ public class OrderController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
         }
     }
+    @GetMapping("/orders/{id}")
+    public OrderDto getCreditCardById(@PathVariable String id) {
+        try {
+            return orderService.getOrderById(id);
+        } catch (OrderNotFoundException exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, exc.getMessage(), exc);
+        }
+    }
 }

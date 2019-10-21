@@ -2,6 +2,7 @@ package com.entetry.frontend.spring.view.designerpages;
 
 import com.entetry.frontend.spring.security.SecuredByRole;
 import com.entetry.frontend.spring.view.ApplicationLayout;
+import com.entetry.frontend.spring.view.designerpages.bankaccountpages.BankAccountsView;
 import com.entetry.frontend.spring.view.shoppingcard.ShoppingCardView;
 import com.entetry.frontend.spring.view.userpages.MyAccountView;
 import com.vaadin.flow.component.UI;

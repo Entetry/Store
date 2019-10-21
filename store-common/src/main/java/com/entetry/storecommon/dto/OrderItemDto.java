@@ -3,7 +3,6 @@ package com.entetry.storecommon.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class OrderItemDto implements Serializable {
     @JsonProperty
@@ -12,8 +11,6 @@ public class OrderItemDto implements Serializable {
     private ItemDto item;
     @JsonProperty
     private SizeDto size;
-    @JsonProperty
-    private BigDecimal offerPrice;
     @JsonProperty
     private int quantity;
 
@@ -40,15 +37,6 @@ public class OrderItemDto implements Serializable {
     public void setSize(SizeDto size) {
         this.size = size;
     }
-
-    public BigDecimal getOfferPrice() {
-        return offerPrice;
-    }
-
-    public void setOfferPrice(BigDecimal offerPrice) {
-        this.offerPrice = offerPrice;
-    }
-
     public int getQuantity() {
         return quantity;
     }

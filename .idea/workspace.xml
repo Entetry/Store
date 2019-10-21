@@ -572,9 +572,6 @@
       <change afterPath="$PROJECT_DIR$/node_modules/webpack/package.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/node_modules/webpack/schemas/ajv.absolutePath.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/node_modules/webpack/web_modules/node-libs-browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/designerclient/RestDesignerClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/exception/BankAccountNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/BankAccountService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/closure-types.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-dom-api-externs.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/node_modules/@polymer/polymer/externs/polymer-externs.js" afterDir="false" />
@@ -691,21 +688,20 @@
       <change afterPath="$PROJECT_DIR$/storefrontend/src/img/versacedress.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/src/img/versacepants.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/storefrontend/src/img/versacetshirt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/RoleBasedEvaluator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/SecuredByRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/BankAccountComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/BankAccountForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/BankAccountsView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/DesignerAccountView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/DesignerDetailsView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/customcomponents/CustomDivWithTitle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/shoppingcard/CheckoutView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/shoppingcard/DeliveryAddressComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/orderpages/ItemComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/orderpages/MyOrdersView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/orderpages/OrderView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/orderpages/OrderViewComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/customerclient/RestCustomerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/customerclient/RestCustomerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/DesignerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/persistense/AdressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/persistense/AdressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/persistense/DesignerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/persistense/DesignerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/DesignerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/DesignerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/orderclient/RestOrderClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-client/src/main/java/com/entetry/restclient/orderclient/RestOrderClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-common/src/main/java/com/entetry/storecommon/dto/OrderItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-common/src/main/java/com/entetry/storecommon/dto/OrderItemDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/main/java/com/entetry/store/service/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/store/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT.jar.original" beforeDir="false" />
@@ -718,20 +714,17 @@
       <change beforePath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/stream.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/stream.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/vm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/node_modules/@types/node/vm.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storefrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/configure/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/security/SecurityUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/shoppingcard/ShoppingCardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/shoppingcard/ShoppingCardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressBookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressBookView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/CreditCardComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/CreditCardComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/CreditCardForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/CreditCardForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/BankAccountComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/bankaccountpages/BankAccountComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/BankAccountForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/bankaccountpages/BankAccountForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/BankAccountsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/bankaccountpages/BankAccountsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/DesignerAccountView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/DesignerAccountView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressBookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/addresspages/AddressBookView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/addresspages/AddressComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/addresspages/AddressForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/CreditCardComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/creditcardpages/CreditCardComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/CreditCardForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/creditcardpages/CreditCardForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/MyAccountView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/MyAccountView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/MyDetailsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/MyDetailsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/PaymentMethodsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/PaymentMethodsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storefrontend/webpack.generated.js" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/webpack.generated.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/PaymentMethodsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/creditcardpages/PaymentMethodsView.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -795,17 +788,20 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/store" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/designerpages/orderpages" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Entet\IdeaProjects\parentstore\storefrontend\src\main\java\com\entetry\frontend\spring\view\designerpages\orderpages" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Entet\IdeaProjects\parentstore\store\src\main\resources" />
     </key>
@@ -827,7 +823,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.FRONTEND">
+  <component name="RunManager" selected="Spring Boot.BACKEND">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.entetry.store.Main" />
       <module name="store" />
@@ -1162,12 +1158,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3c5ca12d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@27ef801f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3c5ca12d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6c3289a9" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@27ef801f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@efb0ed30" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -1213,7 +1209,14 @@
       <workItem from="1570526731800" duration="24021000" />
       <workItem from="1570627431837" duration="9347000" />
       <workItem from="1570639894318" duration="6024000" />
-      <workItem from="1570707900797" duration="11145000" />
+      <workItem from="1570707900797" duration="17903000" />
+      <workItem from="1570788192339" duration="16133000" />
+      <workItem from="1571051069590" duration="1981000" />
+      <workItem from="1571243276506" duration="717000" />
+      <workItem from="1571313875918" duration="5096000" />
+      <workItem from="1571394017986" duration="2434000" />
+      <workItem from="1571669194122" duration="3545000" />
+      <workItem from="1571675429772" duration="1333000" />
     </task>
     <task id="LOCAL-00001" summary="Add some mappers,entities and dtos">
       <created>1568655956233</created>
@@ -1327,7 +1330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570630904018</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="ADD ROLE-GRAINED ACCESS">
+      <created>1570724665343</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1570724665343</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1373,7 +1383,8 @@
     <MESSAGE value="add shopping card" />
     <MESSAGE value="add userlayout" />
     <MESSAGE value="Fix success login redirection &#10;clean up code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix success login redirection &#10;clean up code" />
+    <MESSAGE value="ADD ROLE-GRAINED ACCESS" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD ROLE-GRAINED ACCESS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1454,7 +1465,7 @@
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressBookView.java</url>
+          <url>file://$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/addresspages/AddressBookView.java</url>
           <line>28</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
@@ -1467,7 +1478,7 @@
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/CreditCardForm.java</url>
+          <url>file://$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/creditcardpages/CreditCardForm.java</url>
           <line>61</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
@@ -1482,7 +1493,7 @@
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/AddressBookView.java</url>
+          <url>file://$PROJECT_DIR$/storefrontend/src/main/java/com/entetry/frontend/spring/view/userpages/addresspages/AddressBookView.java</url>
           <line>26</line>
           <properties class="com.entetry.frontend.spring.view.userpages.AddressBookView" method="&lt;init&gt;">
             <option name="EMULATED" value="true" />

@@ -8,6 +8,7 @@ import java.util.*;
 @Table(name = "orders")
 public class Order extends AbstractEntity {
     @Id
+    @GeneratedValue
     @Column(name = "order_id")
     private Long id;
     @Column(name = "order_date")

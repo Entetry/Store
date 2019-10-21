@@ -1,4 +1,4 @@
-package com.entetry.frontend.spring.view.userpages;
+package com.entetry.frontend.spring.view.userpages.creditcardpages;
 
 import com.entetry.restclient.customerclient.RestCustomerClient;
 import com.entetry.storecommon.dto.CreditCardDto;
@@ -17,7 +17,7 @@ public class CreditCardComponent extends HorizontalLayout {
     private Button edit = new Button("EDIT");
     private Button delete = new Button("DELETE");
 
-    public CreditCardComponent(RestCustomerClient restCustomerClient,PaymentMethodsView paymentMethodsView) {
+    public CreditCardComponent(RestCustomerClient restCustomerClient, PaymentMethodsView paymentMethodsView) {
         VerticalLayout labels = new VerticalLayout();
         VerticalLayout buttons = new VerticalLayout();
         labels.add(idLabel, balanceLabel);

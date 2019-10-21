@@ -3,6 +3,9 @@ package com.entetry.frontend.spring.view.userpages;
 import com.entetry.frontend.spring.security.SecuredByRole;
 import com.entetry.frontend.spring.view.ApplicationLayout;
 import com.entetry.frontend.spring.view.designerpages.DesignerAccountView;
+import com.entetry.frontend.spring.view.userpages.addresspages.AddressBookView;
+import com.entetry.frontend.spring.view.userpages.creditcardpages.PaymentMethodsView;
+import com.entetry.frontend.spring.view.userpages.orderpages.MyOrdersView;
 import com.entetry.frontend.spring.view.shoppingcard.ShoppingCardView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -35,6 +38,7 @@ public class MyAccountView extends AppLayout {
         accountMenu.add(new RouterLink(MyDetailsView.TITLE, MyDetailsView.class));
         accountMenu.add(new RouterLink(AddressBookView.TITLE, AddressBookView.class));
         accountMenu.add(new RouterLink(PaymentMethodsView.TITLE, PaymentMethodsView.class));
+        accountMenu.add(new RouterLink(MyOrdersView.TITLE, MyOrdersView.class));
         this.addToDrawer(accountMenu);
     }
 }

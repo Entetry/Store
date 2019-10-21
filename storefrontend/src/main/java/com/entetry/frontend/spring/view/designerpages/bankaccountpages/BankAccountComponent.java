@@ -1,4 +1,4 @@
-package com.entetry.frontend.spring.view.designerpages;
+package com.entetry.frontend.spring.view.designerpages.bankaccountpages;
 
 import com.entetry.restclient.designerclient.RestDesignerClient;
 import com.entetry.storecommon.dto.BankAccountDto;

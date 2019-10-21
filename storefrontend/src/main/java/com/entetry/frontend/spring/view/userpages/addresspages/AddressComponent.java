@@ -1,4 +1,4 @@
-package com.entetry.frontend.spring.view.userpages;
+package com.entetry.frontend.spring.view.userpages.addresspages;
 
 import com.entetry.storecommon.dto.AdressDto;
 import com.vaadin.flow.component.button.Button;
